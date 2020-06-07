@@ -29,10 +29,19 @@
             public static int EMailLength = 32;
 
             /// <summary>
+            /// 电话长度32
+            /// </summary>
+            public static int PhoneLength = 32;
+
+            /// <summary>
             /// 备注长度256
             /// </summary>
             public static int RemarkLength = 256;
 
+            /// <summary>
+            /// 一般文字长度32
+            /// </summary>
+            public static int CommonStringLength32 = 32;
 
             /// <summary>
             /// 一般文字长度64

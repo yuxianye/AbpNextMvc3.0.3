@@ -13,6 +13,11 @@ namespace Solution.Qualities
     public class QualityInspect : AuditedEntity<Guid>
     {
         /// <summary>
+        /// 编号
+        /// </summary>
+        public string Code { get; set; }
+
+        /// <summary>
         /// 质检人
         /// </summary>
         public string InspectPerson { get; set; }
@@ -28,9 +33,9 @@ namespace Solution.Qualities
         public DateTime InspectTime { get; set; }
 
         /// <summary>
-        /// 工序名称
+        /// 工序编号
         /// </summary>
-        public string Name { get; set; }
+        public string ProcessId { get; set; }
 
         /// <summary>
         /// 质量问题编号
@@ -52,12 +57,12 @@ namespace Solution.Qualities
         {
         }
 
-        public QualityInspect(Guid id, string inspectPerson, Guid qualityInspectTypeId, DateTime inspectTime, string name, Guid qualityProblemLibId, Guid qualityInspectResultId, string remark) : base(id)
+        public QualityInspect(Guid id, string code, string inspectPerson, Guid qualityInspectTypeId, DateTime inspectTime,  Guid qualityProblemLibId, Guid qualityInspectResultId, string remark) : base(id)
         {
+            Code = code;
             InspectPerson = inspectPerson;
             QualityInspectTypeId = qualityInspectTypeId;
             InspectTime = inspectTime;
-            Name = name;
             QualityProblemLibId = qualityProblemLibId;
             QualityInspectResultId = qualityInspectResultId;
             Remark = remark;

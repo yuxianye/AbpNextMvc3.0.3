@@ -29,6 +29,11 @@ namespace Solution.EntityFrameworkCore
             {
                 b.ToTable(SolutionConsts.DbTablePrefix + "Enterprises", SolutionConsts.DbSchema);
                 b.ConfigureByConvention();
+                b.Property(x => x.Name).IsRequired().HasMaxLength(SolutionConsts.FiledLength.NameLength);
+                b.Property(x => x.Address).IsRequired().HasMaxLength(SolutionConsts.FiledLength.CommonStringLength128);
+                b.Property(x => x.Phone).IsRequired().HasMaxLength(SolutionConsts.FiledLength.PhoneLength);
+                b.Property(x => x.Remark).HasMaxLength(SolutionConsts.FiledLength.RemarkLength);
+
                 /* Configure more properties here */
             });
 
@@ -36,6 +41,10 @@ namespace Solution.EntityFrameworkCore
             {
                 b.ToTable(SolutionConsts.DbTablePrefix + "EnterpriseAreas", SolutionConsts.DbSchema);
                 b.ConfigureByConvention();
+                b.Property(x => x.Name).IsRequired().HasMaxLength(SolutionConsts.FiledLength.NameLength);
+                b.Property(x => x.Manager).HasMaxLength(SolutionConsts.FiledLength.NameLength);
+                b.Property(x => x.Phone).IsRequired().HasMaxLength(SolutionConsts.FiledLength.PhoneLength);
+                b.Property(x => x.Remark).HasMaxLength(SolutionConsts.FiledLength.RemarkLength);
                 /* Configure more properties here */
             });
 
@@ -43,6 +52,10 @@ namespace Solution.EntityFrameworkCore
             {
                 b.ToTable(SolutionConsts.DbTablePrefix + "EnterpriseProductionLines", SolutionConsts.DbSchema);
                 b.ConfigureByConvention();
+                b.Property(x => x.Name).IsRequired().HasMaxLength(SolutionConsts.FiledLength.NameLength);
+                b.Property(x => x.Manager).HasMaxLength(SolutionConsts.FiledLength.NameLength);
+                b.Property(x => x.Phone).IsRequired().HasMaxLength(SolutionConsts.FiledLength.PhoneLength);
+                b.Property(x => x.Remark).HasMaxLength(SolutionConsts.FiledLength.RemarkLength);
                 /* Configure more properties here */
             });
 
@@ -50,6 +63,11 @@ namespace Solution.EntityFrameworkCore
             {
                 b.ToTable(SolutionConsts.DbTablePrefix + "EnterpriseSites", SolutionConsts.DbSchema);
                 b.ConfigureByConvention();
+                b.Property(x => x.Name).IsRequired().HasMaxLength(SolutionConsts.FiledLength.NameLength);
+                b.Property(x => x.Address).IsRequired().HasMaxLength(SolutionConsts.FiledLength.CommonStringLength256);
+                b.Property(x => x.Manager).HasMaxLength(SolutionConsts.FiledLength.NameLength);
+                b.Property(x => x.Phone).IsRequired().HasMaxLength(SolutionConsts.FiledLength.PhoneLength);
+                b.Property(x => x.Remark).HasMaxLength(SolutionConsts.FiledLength.RemarkLength);
                 /* Configure more properties here */
             });
 
@@ -57,6 +75,9 @@ namespace Solution.EntityFrameworkCore
             {
                 b.ToTable(SolutionConsts.DbTablePrefix + "EnterpriseWorkCenters", SolutionConsts.DbSchema);
                 b.ConfigureByConvention();
+                b.Property(x => x.Name).IsRequired().HasMaxLength(SolutionConsts.FiledLength.NameLength);
+                b.Property(x => x.Manager).HasMaxLength(SolutionConsts.FiledLength.NameLength);
+                b.Property(x => x.Remark).HasMaxLength(SolutionConsts.FiledLength.RemarkLength);
                 /* Configure more properties here */
             });
 
@@ -64,6 +85,8 @@ namespace Solution.EntityFrameworkCore
             {
                 b.ToTable(SolutionConsts.DbTablePrefix + "EnterpriseWorkLocations", SolutionConsts.DbSchema);
                 b.ConfigureByConvention();
+                b.Property(x => x.Name).IsRequired().HasMaxLength(SolutionConsts.FiledLength.NameLength);
+                b.Property(x => x.Remark).HasMaxLength(SolutionConsts.FiledLength.RemarkLength);
                 /* Configure more properties here */
             });
 
@@ -161,7 +184,7 @@ namespace Solution.EntityFrameworkCore
                 b.ConfigureByConvention();
                 b.Property(x => x.Code).IsRequired().HasMaxLength(SolutionConsts.FiledLength.CodeLength);
                 b.Property(x => x.Name).IsRequired().HasMaxLength(SolutionConsts.FiledLength.NameLength);
-                b.Property(x => x.Specification).IsRequired().HasMaxLength(SolutionConsts.FiledLength.CommonStringLength64);
+                b.Property(x => x.Specification).IsRequired().HasMaxLength(SolutionConsts.FiledLength.CommonStringLength32);
                 b.Property(x => x.Remark).HasMaxLength(SolutionConsts.FiledLength.RemarkLength);
                 /* Configure more properties here */
             });
@@ -170,6 +193,10 @@ namespace Solution.EntityFrameworkCore
             builder.Entity<Material>(b =>
             {
                 b.ToTable(SolutionConsts.DbTablePrefix + "Materials", SolutionConsts.DbSchema);
+                b.Property(x => x.Code).IsRequired().HasMaxLength(SolutionConsts.FiledLength.CodeLength);
+                b.Property(x => x.Name).IsRequired().HasMaxLength(SolutionConsts.FiledLength.NameLength);
+                b.Property(x => x.Specification).IsRequired().HasMaxLength(SolutionConsts.FiledLength.CommonStringLength32);
+                b.Property(x => x.Remark).HasMaxLength(SolutionConsts.FiledLength.RemarkLength);
                 b.ConfigureByConvention();
                 /* Configure more properties here */
             });
@@ -178,6 +205,10 @@ namespace Solution.EntityFrameworkCore
             {
                 b.ToTable(SolutionConsts.DbTablePrefix + "Products", SolutionConsts.DbSchema);
                 b.ConfigureByConvention();
+                b.Property(x => x.Code).IsRequired().HasMaxLength(SolutionConsts.FiledLength.CodeLength);
+                b.Property(x => x.Name).IsRequired().HasMaxLength(SolutionConsts.FiledLength.NameLength);
+                b.Property(x => x.Specification).IsRequired().HasMaxLength(SolutionConsts.FiledLength.CommonStringLength32);
+                b.Property(x => x.Remark).HasMaxLength(SolutionConsts.FiledLength.RemarkLength);
                 /* Configure more properties here */
             });
 
@@ -185,6 +216,8 @@ namespace Solution.EntityFrameworkCore
             {
                 b.ToTable(SolutionConsts.DbTablePrefix + "ProductTypes", SolutionConsts.DbSchema);
                 b.ConfigureByConvention();
+                b.Property(x => x.Name).IsRequired().HasMaxLength(SolutionConsts.FiledLength.NameLength);
+                b.Property(x => x.Remark).HasMaxLength(SolutionConsts.FiledLength.RemarkLength);
                 /* Configure more properties here */
             });
 
@@ -192,12 +225,17 @@ namespace Solution.EntityFrameworkCore
             {
                 b.ToTable(SolutionConsts.DbTablePrefix + "BOMs", SolutionConsts.DbSchema);
                 b.ConfigureByConvention();
+                b.Property(x => x.Name).IsRequired().HasMaxLength(SolutionConsts.FiledLength.NameLength);
+                b.Property(x => x.Version).IsRequired().HasMaxLength(SolutionConsts.FiledLength.CommonStringLength64);
+                b.Property(x => x.Remark).HasMaxLength(SolutionConsts.FiledLength.RemarkLength);
                 /* Configure more properties here */
             });
 
             builder.Entity<Unit>(b =>
             {
                 b.ToTable(SolutionConsts.DbTablePrefix + "Units", SolutionConsts.DbSchema);
+                b.Property(x => x.Name).IsRequired().HasMaxLength(SolutionConsts.FiledLength.NameLength);
+                b.Property(x => x.Remark).HasMaxLength(SolutionConsts.FiledLength.RemarkLength);
                 b.ConfigureByConvention();
                 /* Configure more properties here */
             });
@@ -205,6 +243,9 @@ namespace Solution.EntityFrameworkCore
             builder.Entity<QualityInspect>(b =>
             {
                 b.ToTable(SolutionConsts.DbTablePrefix + "QualityInspects", SolutionConsts.DbSchema);
+                b.Property(x => x.Code).IsRequired().HasMaxLength(SolutionConsts.FiledLength.CodeLength);
+                b.Property(x => x.InspectPerson).IsRequired().HasMaxLength(SolutionConsts.FiledLength.NameLength);
+                b.Property(x => x.Remark).HasMaxLength(SolutionConsts.FiledLength.RemarkLength);
                 b.ConfigureByConvention();
                 /* Configure more properties here */
             });
@@ -212,6 +253,8 @@ namespace Solution.EntityFrameworkCore
             builder.Entity<QualityInspectResult>(b =>
             {
                 b.ToTable(SolutionConsts.DbTablePrefix + "QualityInspectResults", SolutionConsts.DbSchema);
+                b.Property(x => x.Name).IsRequired().HasMaxLength(SolutionConsts.FiledLength.NameLength);
+                b.Property(x => x.Remark).HasMaxLength(SolutionConsts.FiledLength.RemarkLength);
                 b.ConfigureByConvention();
                 /* Configure more properties here */
             });
@@ -219,6 +262,9 @@ namespace Solution.EntityFrameworkCore
             builder.Entity<QualityInspectType>(b =>
             {
                 b.ToTable(SolutionConsts.DbTablePrefix + "QualityInspectTypes", SolutionConsts.DbSchema);
+                b.Property(x => x.Code).IsRequired().HasMaxLength(SolutionConsts.FiledLength.CodeLength);
+                b.Property(x => x.Name).IsRequired().HasMaxLength(SolutionConsts.FiledLength.NameLength);
+                b.Property(x => x.Remark).HasMaxLength(SolutionConsts.FiledLength.RemarkLength);
                 b.ConfigureByConvention();
                 /* Configure more properties here */
             });
@@ -226,6 +272,9 @@ namespace Solution.EntityFrameworkCore
             builder.Entity<QualityProblemLib>(b =>
             {
                 b.ToTable(SolutionConsts.DbTablePrefix + "QualityProblemLibs", SolutionConsts.DbSchema);
+                b.Property(x => x.Code).IsRequired().HasMaxLength(SolutionConsts.FiledLength.CodeLength);
+                b.Property(x => x.Name).IsRequired().HasMaxLength(SolutionConsts.FiledLength.NameLength);
+                b.Property(x => x.Remark).HasMaxLength(SolutionConsts.FiledLength.RemarkLength);
                 b.ConfigureByConvention();
                 /* Configure more properties here */
             });
@@ -233,34 +282,8 @@ namespace Solution.EntityFrameworkCore
             builder.Entity<SupplierLevel>(b =>
             {
                 b.ToTable(SolutionConsts.DbTablePrefix + "SupplierLevels", SolutionConsts.DbSchema);
-                b.ConfigureByConvention();
-                /* Configure more properties here */
-            });
-
-            builder.Entity<Warehouse>(b =>
-            {
-                b.ToTable(SolutionConsts.DbTablePrefix + "Warehouses", SolutionConsts.DbSchema);
-                b.ConfigureByConvention();
-                /* Configure more properties here */
-            });
-
-            builder.Entity<WarehouseArea>(b =>
-            {
-                b.ToTable(SolutionConsts.DbTablePrefix + "WarehouseAreas", SolutionConsts.DbSchema);
-                b.ConfigureByConvention();
-                /* Configure more properties here */
-            });
-
-            builder.Entity<WareHouseLocation>(b =>
-            {
-                b.ToTable(SolutionConsts.DbTablePrefix + "WareHouseLocations", SolutionConsts.DbSchema);
-                b.ConfigureByConvention();
-                /* Configure more properties here */
-            });
-
-            builder.Entity<WarehouseType>(b =>
-            {
-                b.ToTable(SolutionConsts.DbTablePrefix + "WarehouseTypes", SolutionConsts.DbSchema);
+                b.Property(x => x.Name).IsRequired().HasMaxLength(SolutionConsts.FiledLength.NameLength);
+                b.Property(x => x.Remark).HasMaxLength(SolutionConsts.FiledLength.RemarkLength);
                 b.ConfigureByConvention();
                 /* Configure more properties here */
             });
@@ -268,9 +291,58 @@ namespace Solution.EntityFrameworkCore
             builder.Entity<Suppliers.Suppliers>(b =>
             {
                 b.ToTable(SolutionConsts.DbTablePrefix + "Suppliers", SolutionConsts.DbSchema);
+                b.Property(x => x.Code).IsRequired().HasMaxLength(SolutionConsts.FiledLength.CodeLength);
+                b.Property(x => x.Name).IsRequired().HasMaxLength(SolutionConsts.FiledLength.NameLength);
+                b.Property(x => x.Contact).IsRequired().HasMaxLength(SolutionConsts.FiledLength.NameLength);
+                b.Property(x => x.Phone).IsRequired().HasMaxLength(SolutionConsts.FiledLength.PhoneLength);
+                b.Property(x => x.Fax).IsRequired().HasMaxLength(SolutionConsts.FiledLength.PhoneLength);
+                b.Property(x => x.Address).IsRequired().HasMaxLength(SolutionConsts.FiledLength.CommonStringLength256);
+                b.Property(x => x.Email).IsRequired().HasMaxLength(SolutionConsts.FiledLength.EMailLength);
+                b.Property(x => x.Remark).HasMaxLength(SolutionConsts.FiledLength.RemarkLength);
                 b.ConfigureByConvention();
                 /* Configure more properties here */
             });
+
+            builder.Entity<Warehouse>(b =>
+            {
+                b.ToTable(SolutionConsts.DbTablePrefix + "Warehouses", SolutionConsts.DbSchema);
+                b.Property(x => x.Name).IsRequired().HasMaxLength(SolutionConsts.FiledLength.NameLength);
+                b.Property(x => x.Manager).IsRequired().HasMaxLength(SolutionConsts.FiledLength.NameLength);
+                b.Property(x => x.Phone).IsRequired().HasMaxLength(SolutionConsts.FiledLength.PhoneLength);
+                b.Property(x => x.Remark).HasMaxLength(SolutionConsts.FiledLength.RemarkLength);
+                b.ConfigureByConvention();
+                /* Configure more properties here */
+            });
+
+            builder.Entity<WarehouseArea>(b =>
+            {
+                b.ToTable(SolutionConsts.DbTablePrefix + "WarehouseAreas", SolutionConsts.DbSchema);
+                b.Property(x => x.Name).IsRequired().HasMaxLength(SolutionConsts.FiledLength.NameLength);
+                b.Property(x => x.Remark).HasMaxLength(SolutionConsts.FiledLength.RemarkLength);
+                b.ConfigureByConvention();
+                /* Configure more properties here */
+            });
+
+            builder.Entity<WareHouseLocation>(b =>
+            {
+                b.ToTable(SolutionConsts.DbTablePrefix + "WareHouseLocations", SolutionConsts.DbSchema);
+                b.Property(x => x.Code).IsRequired().HasMaxLength(SolutionConsts.FiledLength.CodeLength);
+                b.Property(x => x.Name).IsRequired().HasMaxLength(SolutionConsts.FiledLength.NameLength);
+                b.Property(x => x.Remark).HasMaxLength(SolutionConsts.FiledLength.RemarkLength);
+                b.ConfigureByConvention();
+                /* Configure more properties here */
+            });
+
+            builder.Entity<WarehouseType>(b =>
+            {
+                b.ToTable(SolutionConsts.DbTablePrefix + "WarehouseTypes", SolutionConsts.DbSchema);
+                b.Property(x => x.Name).IsRequired().HasMaxLength(SolutionConsts.FiledLength.NameLength);
+                b.Property(x => x.Remark).HasMaxLength(SolutionConsts.FiledLength.RemarkLength);
+                b.ConfigureByConvention();
+                /* Configure more properties here */
+            });
+
+         
         }
     }
 }
