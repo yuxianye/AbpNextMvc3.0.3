@@ -39,7 +39,12 @@ namespace Solution.Web.Menus
                 context.Menu.AddItem(enterpriseMenu);
 
                 enterpriseMenu.AddItem(new ApplicationMenuItem("Enterprises", l["Menu:Enterprises"], "/Enterprises/Enterprise"));
-
+                if (await authorizationService.IsGrantedAsync(SolutionPermissions.EnterpriseSites.Default))
+                {
+                    enterpriseMenu.AddItem(
+                        new ApplicationMenuItem("EnterpriseSites", l["Menu:EnterpriseSites"], "/Enterprises/EnterpriseSite")
+                    );
+                }
                 if (await authorizationService.IsGrantedAsync(SolutionPermissions.EnterpriseAreas.Default))
                 {
                     enterpriseMenu.AddItem(
@@ -50,12 +55,6 @@ namespace Solution.Web.Menus
                 {
                     enterpriseMenu.AddItem(
                         new ApplicationMenuItem("EnterpriseProductionLines", l["Menu:EnterpriseProductionLines"], "/Enterprises/EnterpriseProductionLine")
-                    );
-                }
-                if (await authorizationService.IsGrantedAsync(SolutionPermissions.EnterpriseSites.Default))
-                {
-                    enterpriseMenu.AddItem(
-                        new ApplicationMenuItem("EnterpriseSites", l["Menu:EnterpriseSites"], "/Enterprises/EnterpriseSite")
                     );
                 }
                 if (await authorizationService.IsGrantedAsync(SolutionPermissions.EnterpriseWorkCenters.Default))
