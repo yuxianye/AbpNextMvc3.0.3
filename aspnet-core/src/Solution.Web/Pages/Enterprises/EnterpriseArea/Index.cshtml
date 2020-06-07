@@ -1,0 +1,58 @@
+@page
+@using Microsoft.AspNetCore.Authorization
+@using Solution.Permissions
+@using Solution.Web.Pages.Enterprises.EnterpriseArea
+@using Volo.Abp.AspNetCore.Mvc.UI.Layout
+@using Solution.Localization
+@using Microsoft.AspNetCore.Mvc.Localization
+@model IndexModel
+@inject IPageLayout PageLayout
+@inject IHtmlLocalizer<SolutionResource> L
+@inject IAuthorizationService Authorization
+@{
+    PageLayout.Content.Title = L["EnterpriseArea"].Value;
+    PageLayout.Content.BreadCrumb.Add(L["Menu:EnterpriseArea"].Value);
+    PageLayout.Content.MenuItemName = "EnterpriseArea";
+}
+
+@section scripts
+{
+    <abp-script src="/Pages/Enterprises/EnterpriseArea/index.js" />
+}
+@section styles
+{
+    <abp-style src="/Pages/Enterprises/EnterpriseArea/index.css"/>
+}
+
+<abp-card>
+    <abp-card-header>
+        <abp-row>
+            <abp-column size-md="_6">
+                <abp-card-title>@L["EnterpriseArea"]</abp-card-title>
+            </abp-column>
+            <abp-column size-md="_6" class="text-right">
+			    @if (await Authorization.IsGrantedAsync(SolutionPermissions.EnterpriseAreas.Create))
+                { 
+                <abp-button id="NewEnterpriseAreaButton"
+                            text="@L["CreateEnterpriseArea"].Value"
+                            icon="plus"
+                            button-type="Primary" />
+                }
+            </abp-column>
+        </abp-row>
+    </abp-card-header>
+    <abp-card-body>
+        <abp-table striped-rows="true" id="EnterpriseAreaTable" class="nowrap">
+            <thead>
+            <tr>
+                <th>@L["Actions"]</th>
+                <th>@L["EnterpriseAreaEnterpriseSiteId"]</th>
+                <th>@L["EnterpriseAreaName"]</th>
+                <th>@L["EnterpriseAreaManager"]</th>
+                <th>@L["EnterpriseAreaPhone"]</th>
+                <th>@L["EnterpriseAreaRemark"]</th>
+            </tr>
+            </thead>
+        </abp-table>
+    </abp-card-body>
+</abp-card>

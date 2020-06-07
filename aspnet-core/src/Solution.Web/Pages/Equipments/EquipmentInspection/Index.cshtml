@@ -1,0 +1,61 @@
+@page
+@using Microsoft.AspNetCore.Authorization
+@using Solution.Permissions
+@using Solution.Web.Pages.Equipments.EquipmentInspection
+@using Volo.Abp.AspNetCore.Mvc.UI.Layout
+@using Solution.Localization
+@using Microsoft.AspNetCore.Mvc.Localization
+@model IndexModel
+@inject IPageLayout PageLayout
+@inject IHtmlLocalizer<SolutionResource> L
+@inject IAuthorizationService Authorization
+@{
+    PageLayout.Content.Title = L["EquipmentInspection"].Value;
+    PageLayout.Content.BreadCrumb.Add(L["Menu:EquipmentInspection"].Value);
+    PageLayout.Content.MenuItemName = "EquipmentInspection";
+}
+
+@section scripts
+{
+    <abp-script src="/Pages/Equipments/EquipmentInspection/index.js" />
+}
+@section styles
+{
+    <abp-style src="/Pages/Equipments/EquipmentInspection/index.css"/>
+}
+
+<abp-card>
+    <abp-card-header>
+        <abp-row>
+            <abp-column size-md="_6">
+                <abp-card-title>@L["EquipmentInspection"]</abp-card-title>
+            </abp-column>
+            <abp-column size-md="_6" class="text-right">
+			    @if (await Authorization.IsGrantedAsync(SolutionPermissions.EquipmentInspections.Create))
+                { 
+                <abp-button id="NewEquipmentInspectionButton"
+                            text="@L["CreateEquipmentInspection"].Value"
+                            icon="plus"
+                            button-type="Primary" />
+                }
+            </abp-column>
+        </abp-row>
+    </abp-card-header>
+    <abp-card-body>
+        <abp-table striped-rows="true" id="EquipmentInspectionTable" class="nowrap">
+            <thead>
+            <tr>
+                <th>@L["Actions"]</th>
+                <th>@L["EquipmentInspectionEquipmentId"]</th>
+                <th>@L["EquipmentInspectionInspectPerson"]</th>
+                <th>@L["EquipmentInspectionInspectionTime"]</th>
+                <th>@L["EquipmentInspectionEquipmentInspectionResultId"]</th>
+                <th>@L["EquipmentInspectionProblem"]</th>
+                <th>@L["EquipmentInspectionCause"]</th>
+                <th>@L["EquipmentInspectionSolution"]</th>
+                <th>@L["EquipmentInspectionRemark"]</th>
+            </tr>
+            </thead>
+        </abp-table>
+    </abp-card-body>
+</abp-card>

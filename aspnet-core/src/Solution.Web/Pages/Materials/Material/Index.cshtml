@@ -1,0 +1,58 @@
+@page
+@using Microsoft.AspNetCore.Authorization
+@using Solution.Permissions
+@using Solution.Web.Pages.Materials.Material
+@using Volo.Abp.AspNetCore.Mvc.UI.Layout
+@using Solution.Localization
+@using Microsoft.AspNetCore.Mvc.Localization
+@model IndexModel
+@inject IPageLayout PageLayout
+@inject IHtmlLocalizer<SolutionResource> L
+@inject IAuthorizationService Authorization
+@{
+    PageLayout.Content.Title = L["Material"].Value;
+    PageLayout.Content.BreadCrumb.Add(L["Menu:Material"].Value);
+    PageLayout.Content.MenuItemName = "Material";
+}
+
+@section scripts
+{
+    <abp-script src="/Pages/Materials/Material/index.js" />
+}
+@section styles
+{
+    <abp-style src="/Pages/Materials/Material/index.css"/>
+}
+
+<abp-card>
+    <abp-card-header>
+        <abp-row>
+            <abp-column size-md="_6">
+                <abp-card-title>@L["Material"]</abp-card-title>
+            </abp-column>
+            <abp-column size-md="_6" class="text-right">
+			    @if (await Authorization.IsGrantedAsync(SolutionPermissions.Materials.Create))
+                { 
+                <abp-button id="NewMaterialButton"
+                            text="@L["CreateMaterial"].Value"
+                            icon="plus"
+                            button-type="Primary" />
+                }
+            </abp-column>
+        </abp-row>
+    </abp-card-header>
+    <abp-card-body>
+        <abp-table striped-rows="true" id="MaterialTable" class="nowrap">
+            <thead>
+            <tr>
+                <th>@L["Actions"]</th>
+                <th>@L["MaterialCode"]</th>
+                <th>@L["MaterialName"]</th>
+                <th>@L["MaterialSpecification"]</th>
+                <th>@L["MaterialUnitId"]</th>
+                <th>@L["MaterialRemark"]</th>
+            </tr>
+            </thead>
+        </abp-table>
+    </abp-card-body>
+</abp-card>

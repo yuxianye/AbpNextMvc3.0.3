@@ -1,0 +1,62 @@
+@page
+@using Microsoft.AspNetCore.Authorization
+@using Solution.Permissions
+@using Solution.Web.Pages.Suppliers.Suppliers
+@using Volo.Abp.AspNetCore.Mvc.UI.Layout
+@using Solution.Localization
+@using Microsoft.AspNetCore.Mvc.Localization
+@model IndexModel
+@inject IPageLayout PageLayout
+@inject IHtmlLocalizer<SolutionResource> L
+@inject IAuthorizationService Authorization
+@{
+    PageLayout.Content.Title = L["Suppliers"].Value;
+    PageLayout.Content.BreadCrumb.Add(L["Menu:Suppliers"].Value);
+    PageLayout.Content.MenuItemName = "Suppliers";
+}
+
+@section scripts
+{
+    <abp-script src="/Pages/Suppliers/Suppliers/index.js" />
+}
+@section styles
+{
+    <abp-style src="/Pages/Suppliers/Suppliers/index.css"/>
+}
+
+<abp-card>
+    <abp-card-header>
+        <abp-row>
+            <abp-column size-md="_6">
+                <abp-card-title>@L["Suppliers"]</abp-card-title>
+            </abp-column>
+            <abp-column size-md="_6" class="text-right">
+			    @if (await Authorization.IsGrantedAsync(SolutionPermissions.Suppliers.Create))
+                { 
+                <abp-button id="NewSuppliersButton"
+                            text="@L["CreateSuppliers"].Value"
+                            icon="plus"
+                            button-type="Primary" />
+                }
+            </abp-column>
+        </abp-row>
+    </abp-card-header>
+    <abp-card-body>
+        <abp-table striped-rows="true" id="SuppliersTable" class="nowrap">
+            <thead>
+            <tr>
+                <th>@L["Actions"]</th>
+                <th>@L["SuppliersCode"]</th>
+                <th>@L["SuppliersName"]</th>
+                <th>@L["SuppliersSupplierLevelId"]</th>
+                <th>@L["SuppliersContact"]</th>
+                <th>@L["SuppliersPhone"]</th>
+                <th>@L["SuppliersFax"]</th>
+                <th>@L["SuppliersAddress"]</th>
+                <th>@L["SuppliersEmail"]</th>
+                <th>@L["SuppliersRemark"]</th>
+            </tr>
+            </thead>
+        </abp-table>
+    </abp-card-body>
+</abp-card>

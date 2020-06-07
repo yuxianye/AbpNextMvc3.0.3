@@ -1,0 +1,56 @@
+@page
+@using Microsoft.AspNetCore.Authorization
+@using Solution.Permissions
+@using Solution.Web.Pages.Equipments.EquipmentSparePart
+@using Volo.Abp.AspNetCore.Mvc.UI.Layout
+@using Solution.Localization
+@using Microsoft.AspNetCore.Mvc.Localization
+@model IndexModel
+@inject IPageLayout PageLayout
+@inject IHtmlLocalizer<SolutionResource> L
+@inject IAuthorizationService Authorization
+@{
+    PageLayout.Content.Title = L["EquipmentSparePart"].Value;
+    PageLayout.Content.BreadCrumb.Add(L["Menu:EquipmentSparePart"].Value);
+    PageLayout.Content.MenuItemName = "EquipmentSparePart";
+}
+
+@section scripts
+{
+    <abp-script src="/Pages/Equipments/EquipmentSparePart/index.js" />
+}
+@section styles
+{
+    <abp-style src="/Pages/Equipments/EquipmentSparePart/index.css"/>
+}
+
+<abp-card>
+    <abp-card-header>
+        <abp-row>
+            <abp-column size-md="_6">
+                <abp-card-title>@L["EquipmentSparePart"]</abp-card-title>
+            </abp-column>
+            <abp-column size-md="_6" class="text-right">
+			    @if (await Authorization.IsGrantedAsync(SolutionPermissions.EquipmentSpareParts.Create))
+                { 
+                <abp-button id="NewEquipmentSparePartButton"
+                            text="@L["CreateEquipmentSparePart"].Value"
+                            icon="plus"
+                            button-type="Primary" />
+                }
+            </abp-column>
+        </abp-row>
+    </abp-card-header>
+    <abp-card-body>
+        <abp-table striped-rows="true" id="EquipmentSparePartTable" class="nowrap">
+            <thead>
+            <tr>
+                <th>@L["Actions"]</th>
+                <th>@L["EquipmentSparePartEquipmentSparePartTypeId"]</th>
+                <th>@L["EquipmentSparePartName"]</th>
+                <th>@L["EquipmentSparePartRemark"]</th>
+            </tr>
+            </thead>
+        </abp-table>
+    </abp-card-body>
+</abp-card>

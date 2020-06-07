@@ -1,0 +1,58 @@
+@page
+@using Microsoft.AspNetCore.Authorization
+@using Solution.Permissions
+@using Solution.Web.Pages.Enterprises.EnterpriseProductionLine
+@using Volo.Abp.AspNetCore.Mvc.UI.Layout
+@using Solution.Localization
+@using Microsoft.AspNetCore.Mvc.Localization
+@model IndexModel
+@inject IPageLayout PageLayout
+@inject IHtmlLocalizer<SolutionResource> L
+@inject IAuthorizationService Authorization
+@{
+    PageLayout.Content.Title = L["EnterpriseProductionLine"].Value;
+    PageLayout.Content.BreadCrumb.Add(L["Menu:EnterpriseProductionLine"].Value);
+    PageLayout.Content.MenuItemName = "EnterpriseProductionLine";
+}
+
+@section scripts
+{
+    <abp-script src="/Pages/Enterprises/EnterpriseProductionLine/index.js" />
+}
+@section styles
+{
+    <abp-style src="/Pages/Enterprises/EnterpriseProductionLine/index.css"/>
+}
+
+<abp-card>
+    <abp-card-header>
+        <abp-row>
+            <abp-column size-md="_6">
+                <abp-card-title>@L["EnterpriseProductionLine"]</abp-card-title>
+            </abp-column>
+            <abp-column size-md="_6" class="text-right">
+			    @if (await Authorization.IsGrantedAsync(SolutionPermissions.EnterpriseProductionLines.Create))
+                { 
+                <abp-button id="NewEnterpriseProductionLineButton"
+                            text="@L["CreateEnterpriseProductionLine"].Value"
+                            icon="plus"
+                            button-type="Primary" />
+                }
+            </abp-column>
+        </abp-row>
+    </abp-card-header>
+    <abp-card-body>
+        <abp-table striped-rows="true" id="EnterpriseProductionLineTable" class="nowrap">
+            <thead>
+            <tr>
+                <th>@L["Actions"]</th>
+                <th>@L["EnterpriseProductionLineEnterpriseAreaId"]</th>
+                <th>@L["EnterpriseProductionLineName"]</th>
+                <th>@L["EnterpriseProductionLineManager"]</th>
+                <th>@L["EnterpriseProductionLinePhone"]</th>
+                <th>@L["EnterpriseProductionLineRemark"]</th>
+            </tr>
+            </thead>
+        </abp-table>
+    </abp-card-body>
+</abp-card>

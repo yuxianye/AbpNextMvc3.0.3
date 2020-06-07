@@ -1,0 +1,55 @@
+@page
+@using Microsoft.AspNetCore.Authorization
+@using Solution.Permissions
+@using Solution.Web.Pages.Equipments.EquipmentStatus
+@using Volo.Abp.AspNetCore.Mvc.UI.Layout
+@using Solution.Localization
+@using Microsoft.AspNetCore.Mvc.Localization
+@model IndexModel
+@inject IPageLayout PageLayout
+@inject IHtmlLocalizer<SolutionResource> L
+@inject IAuthorizationService Authorization
+@{
+    PageLayout.Content.Title = L["EquipmentStatus"].Value;
+    PageLayout.Content.BreadCrumb.Add(L["Menu:EquipmentStatus"].Value);
+    PageLayout.Content.MenuItemName = "EquipmentStatus";
+}
+
+@section scripts
+{
+    <abp-script src="/Pages/Equipments/EquipmentStatus/index.js" />
+}
+@section styles
+{
+    <abp-style src="/Pages/Equipments/EquipmentStatus/index.css"/>
+}
+
+<abp-card>
+    <abp-card-header>
+        <abp-row>
+            <abp-column size-md="_6">
+                <abp-card-title>@L["EquipmentStatus"]</abp-card-title>
+            </abp-column>
+            <abp-column size-md="_6" class="text-right">
+			    @if (await Authorization.IsGrantedAsync(SolutionPermissions.EquipmentStatus.Create))
+                { 
+                <abp-button id="NewEquipmentStatusButton"
+                            text="@L["CreateEquipmentStatus"].Value"
+                            icon="plus"
+                            button-type="Primary" />
+                }
+            </abp-column>
+        </abp-row>
+    </abp-card-header>
+    <abp-card-body>
+        <abp-table striped-rows="true" id="EquipmentStatusTable" class="nowrap">
+            <thead>
+            <tr>
+                <th>@L["Actions"]</th>
+                <th>@L["EquipmentStatusName"]</th>
+                <th>@L["EquipmentStatusRemark"]</th>
+            </tr>
+            </thead>
+        </abp-table>
+    </abp-card-body>
+</abp-card>

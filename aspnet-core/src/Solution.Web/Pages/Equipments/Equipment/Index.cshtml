@@ -1,0 +1,61 @@
+@page
+@using Microsoft.AspNetCore.Authorization
+@using Solution.Permissions
+@using Solution.Web.Pages.Equipments.Equipment
+@using Volo.Abp.AspNetCore.Mvc.UI.Layout
+@using Solution.Localization
+@using Microsoft.AspNetCore.Mvc.Localization
+@model IndexModel
+@inject IPageLayout PageLayout
+@inject IHtmlLocalizer<SolutionResource> L
+@inject IAuthorizationService Authorization
+@{
+    PageLayout.Content.Title = L["Equipment"].Value;
+    PageLayout.Content.BreadCrumb.Add(L["Menu:Equipment"].Value);
+    PageLayout.Content.MenuItemName = "Equipment";
+}
+
+@section scripts
+{
+    <abp-script src="/Pages/Equipments/Equipment/index.js" />
+}
+@section styles
+{
+    <abp-style src="/Pages/Equipments/Equipment/index.css"/>
+}
+
+<abp-card>
+    <abp-card-header>
+        <abp-row>
+            <abp-column size-md="_6">
+                <abp-card-title>@L["Equipment"]</abp-card-title>
+            </abp-column>
+            <abp-column size-md="_6" class="text-right">
+			    @if (await Authorization.IsGrantedAsync(SolutionPermissions.Equipments.Create))
+                { 
+                <abp-button id="NewEquipmentButton"
+                            text="@L["CreateEquipment"].Value"
+                            icon="plus"
+                            button-type="Primary" />
+                }
+            </abp-column>
+        </abp-row>
+    </abp-card-header>
+    <abp-card-body>
+        <abp-table striped-rows="true" id="EquipmentTable" class="nowrap">
+            <thead>
+            <tr>
+                <th>@L["Actions"]</th>
+                <th>@L["EquipmentEquipmentTypeId"]</th>
+                <th>@L["EquipmentEquipmentBrandId"]</th>
+                <th>@L["EquipmentCode"]</th>
+                <th>@L["EquipmentName"]</th>
+                <th>@L["EquipmentSpecification"]</th>
+                <th>@L["EquipmentManufactureDate"]</th>
+                <th>@L["EquipmentEquipmentStatusId"]</th>
+                <th>@L["EquipmentRemark"]</th>
+            </tr>
+            </thead>
+        </abp-table>
+    </abp-card-body>
+</abp-card>

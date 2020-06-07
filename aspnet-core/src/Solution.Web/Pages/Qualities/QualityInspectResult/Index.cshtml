@@ -1,0 +1,55 @@
+@page
+@using Microsoft.AspNetCore.Authorization
+@using Solution.Permissions
+@using Solution.Web.Pages.Qualities.QualityInspectResult
+@using Volo.Abp.AspNetCore.Mvc.UI.Layout
+@using Solution.Localization
+@using Microsoft.AspNetCore.Mvc.Localization
+@model IndexModel
+@inject IPageLayout PageLayout
+@inject IHtmlLocalizer<SolutionResource> L
+@inject IAuthorizationService Authorization
+@{
+    PageLayout.Content.Title = L["QualityInspectResult"].Value;
+    PageLayout.Content.BreadCrumb.Add(L["Menu:QualityInspectResult"].Value);
+    PageLayout.Content.MenuItemName = "QualityInspectResult";
+}
+
+@section scripts
+{
+    <abp-script src="/Pages/Qualities/QualityInspectResult/index.js" />
+}
+@section styles
+{
+    <abp-style src="/Pages/Qualities/QualityInspectResult/index.css"/>
+}
+
+<abp-card>
+    <abp-card-header>
+        <abp-row>
+            <abp-column size-md="_6">
+                <abp-card-title>@L["QualityInspectResult"]</abp-card-title>
+            </abp-column>
+            <abp-column size-md="_6" class="text-right">
+			    @if (await Authorization.IsGrantedAsync(SolutionPermissions.QualityInspectResults.Create))
+                { 
+                <abp-button id="NewQualityInspectResultButton"
+                            text="@L["CreateQualityInspectResult"].Value"
+                            icon="plus"
+                            button-type="Primary" />
+                }
+            </abp-column>
+        </abp-row>
+    </abp-card-header>
+    <abp-card-body>
+        <abp-table striped-rows="true" id="QualityInspectResultTable" class="nowrap">
+            <thead>
+            <tr>
+                <th>@L["Actions"]</th>
+                <th>@L["QualityInspectResultName"]</th>
+                <th>@L["QualityInspectResultRemark"]</th>
+            </tr>
+            </thead>
+        </abp-table>
+    </abp-card-body>
+</abp-card>

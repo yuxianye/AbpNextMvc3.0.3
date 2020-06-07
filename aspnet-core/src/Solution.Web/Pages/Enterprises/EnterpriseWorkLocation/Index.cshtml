@@ -1,0 +1,58 @@
+@page
+@using Microsoft.AspNetCore.Authorization
+@using Solution.Permissions
+@using Solution.Web.Pages.Enterprises.EnterpriseWorkLocation
+@using Volo.Abp.AspNetCore.Mvc.UI.Layout
+@using Solution.Localization
+@using Microsoft.AspNetCore.Mvc.Localization
+@model IndexModel
+@inject IPageLayout PageLayout
+@inject IHtmlLocalizer<SolutionResource> L
+@inject IAuthorizationService Authorization
+@{
+    PageLayout.Content.Title = L["EnterpriseWorkLocation"].Value;
+    PageLayout.Content.BreadCrumb.Add(L["Menu:EnterpriseWorkLocation"].Value);
+    PageLayout.Content.MenuItemName = "EnterpriseWorkLocation";
+}
+
+@section scripts
+{
+    <abp-script src="/Pages/Enterprises/EnterpriseWorkLocation/index.js" />
+}
+@section styles
+{
+    <abp-style src="/Pages/Enterprises/EnterpriseWorkLocation/index.css"/>
+}
+
+<abp-card>
+    <abp-card-header>
+        <abp-row>
+            <abp-column size-md="_6">
+                <abp-card-title>@L["EnterpriseWorkLocation"]</abp-card-title>
+            </abp-column>
+            <abp-column size-md="_6" class="text-right">
+			    @if (await Authorization.IsGrantedAsync(SolutionPermissions.EnterpriseWorkLocations.Create))
+                { 
+                <abp-button id="NewEnterpriseWorkLocationButton"
+                            text="@L["CreateEnterpriseWorkLocation"].Value"
+                            icon="plus"
+                            button-type="Primary" />
+                }
+            </abp-column>
+        </abp-row>
+    </abp-card-header>
+    <abp-card-body>
+        <abp-table striped-rows="true" id="EnterpriseWorkLocationTable" class="nowrap">
+            <thead>
+            <tr>
+                <th>@L["Actions"]</th>
+                <th>@L["EnterpriseWorkLocationEnterpriseWorkCenterId"]</th>
+                <th>@L["EnterpriseWorkLocationName"]</th>
+                <th>@L["EnterpriseWorkLocationEquipmentId"]</th>
+                <th>@L["EnterpriseWorkLocationProcessId"]</th>
+                <th>@L["EnterpriseWorkLocationRemark"]</th>
+            </tr>
+            </thead>
+        </abp-table>
+    </abp-card-body>
+</abp-card>

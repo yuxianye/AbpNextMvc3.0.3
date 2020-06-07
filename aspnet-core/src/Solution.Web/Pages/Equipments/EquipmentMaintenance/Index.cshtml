@@ -1,0 +1,64 @@
+@page
+@using Microsoft.AspNetCore.Authorization
+@using Solution.Permissions
+@using Solution.Web.Pages.Equipments.EquipmentMaintenance
+@using Volo.Abp.AspNetCore.Mvc.UI.Layout
+@using Solution.Localization
+@using Microsoft.AspNetCore.Mvc.Localization
+@model IndexModel
+@inject IPageLayout PageLayout
+@inject IHtmlLocalizer<SolutionResource> L
+@inject IAuthorizationService Authorization
+@{
+    PageLayout.Content.Title = L["EquipmentMaintenance"].Value;
+    PageLayout.Content.BreadCrumb.Add(L["Menu:EquipmentMaintenance"].Value);
+    PageLayout.Content.MenuItemName = "EquipmentMaintenance";
+}
+
+@section scripts
+{
+    <abp-script src="/Pages/Equipments/EquipmentMaintenance/index.js" />
+}
+@section styles
+{
+    <abp-style src="/Pages/Equipments/EquipmentMaintenance/index.css"/>
+}
+
+<abp-card>
+    <abp-card-header>
+        <abp-row>
+            <abp-column size-md="_6">
+                <abp-card-title>@L["EquipmentMaintenance"]</abp-card-title>
+            </abp-column>
+            <abp-column size-md="_6" class="text-right">
+			    @if (await Authorization.IsGrantedAsync(SolutionPermissions.EquipmentMaintenances.Create))
+                { 
+                <abp-button id="NewEquipmentMaintenanceButton"
+                            text="@L["CreateEquipmentMaintenance"].Value"
+                            icon="plus"
+                            button-type="Primary" />
+                }
+            </abp-column>
+        </abp-row>
+    </abp-card-header>
+    <abp-card-body>
+        <abp-table striped-rows="true" id="EquipmentMaintenanceTable" class="nowrap">
+            <thead>
+            <tr>
+                <th>@L["Actions"]</th>
+                <th>@L["EquipmentMaintenanceEquipmentId"]</th>
+                <th>@L["EquipmentMaintenanceProblem"]</th>
+                <th>@L["EquipmentMaintenanceCause"]</th>
+                <th>@L["EquipmentMaintenanceSolution"]</th>
+                <th>@L["EquipmentMaintenanceActualStartTime"]</th>
+                <th>@L["EquipmentMaintenanceActualFinishTime"]</th>
+                <th>@L["EquipmentMaintenanceConsumable"]</th>
+                <th>@L["EquipmentMaintenanceResponsiblePerson"]</th>
+                <th>@L["EquipmentMaintenanceMaintenanceTime"]</th>
+                <th>@L["EquipmentMaintenanceEquipmentMaintenanceResultId"]</th>
+                <th>@L["EquipmentMaintenanceRemark"]</th>
+            </tr>
+            </thead>
+        </abp-table>
+    </abp-card-body>
+</abp-card>

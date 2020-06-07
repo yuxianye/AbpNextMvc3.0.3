@@ -1,0 +1,55 @@
+@page
+@using Microsoft.AspNetCore.Authorization
+@using Solution.Permissions
+@using Solution.Web.Pages.Equipments.EquipmentMaintenanceResult
+@using Volo.Abp.AspNetCore.Mvc.UI.Layout
+@using Solution.Localization
+@using Microsoft.AspNetCore.Mvc.Localization
+@model IndexModel
+@inject IPageLayout PageLayout
+@inject IHtmlLocalizer<SolutionResource> L
+@inject IAuthorizationService Authorization
+@{
+    PageLayout.Content.Title = L["EquipmentMaintenanceResult"].Value;
+    PageLayout.Content.BreadCrumb.Add(L["Menu:EquipmentMaintenanceResult"].Value);
+    PageLayout.Content.MenuItemName = "EquipmentMaintenanceResult";
+}
+
+@section scripts
+{
+    <abp-script src="/Pages/Equipments/EquipmentMaintenanceResult/index.js" />
+}
+@section styles
+{
+    <abp-style src="/Pages/Equipments/EquipmentMaintenanceResult/index.css"/>
+}
+
+<abp-card>
+    <abp-card-header>
+        <abp-row>
+            <abp-column size-md="_6">
+                <abp-card-title>@L["EquipmentMaintenanceResult"]</abp-card-title>
+            </abp-column>
+            <abp-column size-md="_6" class="text-right">
+			    @if (await Authorization.IsGrantedAsync(SolutionPermissions.EquipmentMaintenanceResults.Create))
+                { 
+                <abp-button id="NewEquipmentMaintenanceResultButton"
+                            text="@L["CreateEquipmentMaintenanceResult"].Value"
+                            icon="plus"
+                            button-type="Primary" />
+                }
+            </abp-column>
+        </abp-row>
+    </abp-card-header>
+    <abp-card-body>
+        <abp-table striped-rows="true" id="EquipmentMaintenanceResultTable" class="nowrap">
+            <thead>
+            <tr>
+                <th>@L["Actions"]</th>
+                <th>@L["EquipmentMaintenanceResultName"]</th>
+                <th>@L["EquipmentMaintenanceResultRemark"]</th>
+            </tr>
+            </thead>
+        </abp-table>
+    </abp-card-body>
+</abp-card>

@@ -1,0 +1,60 @@
+@page
+@using Microsoft.AspNetCore.Authorization
+@using Solution.Permissions
+@using Solution.Web.Pages.Materials.BOM
+@using Volo.Abp.AspNetCore.Mvc.UI.Layout
+@using Solution.Localization
+@using Microsoft.AspNetCore.Mvc.Localization
+@model IndexModel
+@inject IPageLayout PageLayout
+@inject IHtmlLocalizer<SolutionResource> L
+@inject IAuthorizationService Authorization
+@{
+    PageLayout.Content.Title = L["BOM"].Value;
+    PageLayout.Content.BreadCrumb.Add(L["Menu:BOM"].Value);
+    PageLayout.Content.MenuItemName = "BOM";
+}
+
+@section scripts
+{
+    <abp-script src="/Pages/Materials/BOM/index.js" />
+}
+@section styles
+{
+    <abp-style src="/Pages/Materials/BOM/index.css"/>
+}
+
+<abp-card>
+    <abp-card-header>
+        <abp-row>
+            <abp-column size-md="_6">
+                <abp-card-title>@L["BOM"]</abp-card-title>
+            </abp-column>
+            <abp-column size-md="_6" class="text-right">
+			    @if (await Authorization.IsGrantedAsync(SolutionPermissions.BOMs.Create))
+                { 
+                <abp-button id="NewBOMButton"
+                            text="@L["CreateBOM"].Value"
+                            icon="plus"
+                            button-type="Primary" />
+                }
+            </abp-column>
+        </abp-row>
+    </abp-card-header>
+    <abp-card-body>
+        <abp-table striped-rows="true" id="BOMTable" class="nowrap">
+            <thead>
+            <tr>
+                <th>@L["Actions"]</th>
+                <th>@L["BOMName"]</th>
+                <th>@L["BOMProductId"]</th>
+                <th>@L["BOMVersion"]</th>
+                <th>@L["BOMMaterialId"]</th>
+                <th>@L["BOMCount"]</th>
+                <th>@L["BOMIsEnabled"]</th>
+                <th>@L["BOMRemark"]</th>
+            </tr>
+            </thead>
+        </abp-table>
+    </abp-card-body>
+</abp-card>

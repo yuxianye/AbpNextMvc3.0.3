@@ -1,0 +1,55 @@
+@page
+@using Microsoft.AspNetCore.Authorization
+@using Solution.Permissions
+@using Solution.Web.Pages.Warehouses.WarehouseType
+@using Volo.Abp.AspNetCore.Mvc.UI.Layout
+@using Solution.Localization
+@using Microsoft.AspNetCore.Mvc.Localization
+@model IndexModel
+@inject IPageLayout PageLayout
+@inject IHtmlLocalizer<SolutionResource> L
+@inject IAuthorizationService Authorization
+@{
+    PageLayout.Content.Title = L["WarehouseType"].Value;
+    PageLayout.Content.BreadCrumb.Add(L["Menu:WarehouseType"].Value);
+    PageLayout.Content.MenuItemName = "WarehouseType";
+}
+
+@section scripts
+{
+    <abp-script src="/Pages/Warehouses/WarehouseType/index.js" />
+}
+@section styles
+{
+    <abp-style src="/Pages/Warehouses/WarehouseType/index.css"/>
+}
+
+<abp-card>
+    <abp-card-header>
+        <abp-row>
+            <abp-column size-md="_6">
+                <abp-card-title>@L["WarehouseType"]</abp-card-title>
+            </abp-column>
+            <abp-column size-md="_6" class="text-right">
+			    @if (await Authorization.IsGrantedAsync(SolutionPermissions.WarehouseTypes.Create))
+                { 
+                <abp-button id="NewWarehouseTypeButton"
+                            text="@L["CreateWarehouseType"].Value"
+                            icon="plus"
+                            button-type="Primary" />
+                }
+            </abp-column>
+        </abp-row>
+    </abp-card-header>
+    <abp-card-body>
+        <abp-table striped-rows="true" id="WarehouseTypeTable" class="nowrap">
+            <thead>
+            <tr>
+                <th>@L["Actions"]</th>
+                <th>@L["WarehouseTypeName"]</th>
+                <th>@L["WarehouseTypeRemark"]</th>
+            </tr>
+            </thead>
+        </abp-table>
+    </abp-card-body>
+</abp-card>

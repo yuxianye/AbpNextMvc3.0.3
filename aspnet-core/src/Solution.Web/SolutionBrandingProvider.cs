@@ -6,6 +6,7 @@ namespace Solution.Web
     [Dependency(ReplaceServices = true)]
     public class SolutionBrandingProvider : DefaultBrandingProvider
     {
-        public override string AppName => "Solution";
+        public override string AppName => "i-MES";
+
     }
 }

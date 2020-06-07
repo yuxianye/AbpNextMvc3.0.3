@@ -1,0 +1,56 @@
+@page
+@using Microsoft.AspNetCore.Authorization
+@using Solution.Permissions
+@using Solution.Web.Pages.Qualities.QualityProblemLib
+@using Volo.Abp.AspNetCore.Mvc.UI.Layout
+@using Solution.Localization
+@using Microsoft.AspNetCore.Mvc.Localization
+@model IndexModel
+@inject IPageLayout PageLayout
+@inject IHtmlLocalizer<SolutionResource> L
+@inject IAuthorizationService Authorization
+@{
+    PageLayout.Content.Title = L["QualityProblemLib"].Value;
+    PageLayout.Content.BreadCrumb.Add(L["Menu:QualityProblemLib"].Value);
+    PageLayout.Content.MenuItemName = "QualityProblemLib";
+}
+
+@section scripts
+{
+    <abp-script src="/Pages/Qualities/QualityProblemLib/index.js" />
+}
+@section styles
+{
+    <abp-style src="/Pages/Qualities/QualityProblemLib/index.css"/>
+}
+
+<abp-card>
+    <abp-card-header>
+        <abp-row>
+            <abp-column size-md="_6">
+                <abp-card-title>@L["QualityProblemLib"]</abp-card-title>
+            </abp-column>
+            <abp-column size-md="_6" class="text-right">
+			    @if (await Authorization.IsGrantedAsync(SolutionPermissions.QualityProblemLibs.Create))
+                { 
+                <abp-button id="NewQualityProblemLibButton"
+                            text="@L["CreateQualityProblemLib"].Value"
+                            icon="plus"
+                            button-type="Primary" />
+                }
+            </abp-column>
+        </abp-row>
+    </abp-card-header>
+    <abp-card-body>
+        <abp-table striped-rows="true" id="QualityProblemLibTable" class="nowrap">
+            <thead>
+            <tr>
+                <th>@L["Actions"]</th>
+                <th>@L["QualityProblemLibCode"]</th>
+                <th>@L["QualityProblemLibName"]</th>
+                <th>@L["QualityProblemLibRemark"]</th>
+            </tr>
+            </thead>
+        </abp-table>
+    </abp-card-body>
+</abp-card>
