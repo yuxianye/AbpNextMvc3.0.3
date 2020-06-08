@@ -4,87 +4,55 @@ using System.Linq;
 using System.Text;
 using Volo.Abp;
 using Volo.Abp.Domain.Entities;
+using Volo.Abp.Domain.Entities.Auditing;
 
 namespace Solution.Orders
 {
-    public class Order : AggregateRoot<Guid>
+    /// <summary>
+    /// 订单
+    /// </summary>
+    public class Order : AuditedEntity<Guid>
     {
-        public virtual string ReferenceNo { get; protected set; }
+        /// <summary>
+        /// 订单编号
+        /// </summary>
+        public int Code { get;  set; }
 
-        public virtual int TotalItemCount { get; protected set; }
+        /// <summary>
+        /// 客户编号
+        /// </summary>
+        public Guid CustomerId { get;  set; }
 
-        public virtual DateTime CreationTime { get; protected set; }
+        /// <summary>
+        /// 产品编号
+        /// </summary>
+        public Guid ProductId { get;  set; }
 
-        public virtual List<OrderLine> OrderLines { get; protected set; }
+        /// <summary>
+        /// 数量
+        /// </summary>
+        public int Count { get;  set; }
 
-        protected Order()
-        {
+        /// <summary>
+        /// 订单状态
+        /// </summary>
+        public Guid OrderStatusID { get;  set; }
+        
+        /// <summary>
+        /// 订货货日期
+        /// </summary>
+        public DateTime OrderDate  { get;  set; }
 
-        }
+        /// <summary>
+        /// 交货日期
+        /// </summary>
+        public DateTime DeliveryDate { get;  set; }
 
-        public Order(Guid id, string referenceNo)
-        {
-            Check.NotNull(referenceNo, nameof(referenceNo));
+        /// <summary>
+        /// 备注
+        /// </summary>
+        public string Remark { get; set; }
 
-            Id = id;
-            ReferenceNo = referenceNo;
-
-            OrderLines = new List<OrderLine>();
-        }
-
-        public void AddProduct(Guid productId, int count)
-        {
-            if (count <= 0)
-            {
-                throw new ArgumentException(
-                    "You can not add zero or negative count of products!",
-                    nameof(count)
-                );
-            }
-
-            var existingLine = OrderLines.FirstOrDefault(ol => ol.ProductId == productId);
-
-            if (existingLine == null)
-            {
-                OrderLines.Add(new OrderLine(this.Id, productId, count));
-            }
-            else
-            {
-                existingLine.ChangeCount(existingLine.Count + count);
-            }
-
-            TotalItemCount += count;
-        }
     }
 
-    public class OrderLine : Entity
-    {
-        public virtual Guid OrderId { get; protected set; }
-
-        public virtual Guid ProductId { get; protected set; }
-
-        public virtual int Count { get; protected set; }
-
-        protected OrderLine()
-        {
-
-        }
-
-        internal OrderLine(Guid orderId, Guid productId, int count)
-        {
-            OrderId = orderId;
-            ProductId = productId;
-            Count = count;
-        }
-
-        internal void ChangeCount(int newCount)
-        {
-            Count = newCount;
-        }
-
-        public override object[] GetKeys()
-        {
-            return new Object[] { OrderId, ProductId };
-        }
-    }
 }
