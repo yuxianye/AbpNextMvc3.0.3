@@ -1,4 +1,4 @@
-﻿using Solution.Localization;
+using Solution.Localization;
 using Volo.Abp.Authorization.Permissions;
 using Volo.Abp.Localization;
 
@@ -169,6 +169,21 @@ namespace Solution.Permissions
             warehouseTypePermission.AddChild(SolutionPermissions.WarehouseTypes.Update, L("Permission:Update"));
             warehouseTypePermission.AddChild(SolutionPermissions.WarehouseTypes.Delete, L("Permission:Delete"));
 
+
+            var customerPermission = myGroup.AddPermission(SolutionPermissions.Customers.Default, L("Permission:Customers"));
+            customerPermission.AddChild(SolutionPermissions.Customers.Create, L("Permission:Create"));
+            customerPermission.AddChild(SolutionPermissions.Customers.Update, L("Permission:Update"));
+            customerPermission.AddChild(SolutionPermissions.Customers.Delete, L("Permission:Delete"));
+
+            var orderStatusPermission = myGroup.AddPermission(SolutionPermissions.Orders.Default, L("Permission:Orders"));
+            orderStatusPermission.AddChild(SolutionPermissions.Orders.Create, L("Permission:Create"));
+            orderStatusPermission.AddChild(SolutionPermissions.Orders.Update, L("Permission:Update"));
+            orderStatusPermission.AddChild(SolutionPermissions.Orders.Delete, L("Permission:Delete"));
+
+            var orderPermission = myGroup.AddPermission(SolutionPermissions.OrderStatus.Default, L("Permission:OrderStatus"));
+            orderPermission.AddChild(SolutionPermissions.OrderStatus.Create, L("Permission:Create"));
+            orderPermission.AddChild(SolutionPermissions.OrderStatus.Update, L("Permission:Update"));
+            orderPermission.AddChild(SolutionPermissions.OrderStatus.Delete, L("Permission:Delete"));
         }
 
         private static LocalizableString L(string name)

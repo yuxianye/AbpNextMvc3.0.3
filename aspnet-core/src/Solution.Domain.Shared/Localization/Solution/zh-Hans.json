@@ -19,7 +19,6 @@
     "Menu:EnterpriseWorkCenters": "工作中心管理",
     "Menu:EnterpriseProductionLines": "产线管理",
     "Menu:EnterpriseWorkLocations": "工位管理",
-
     "Enterprise": "企业管理",
     "EnterpriseName": "企业名称",
     "EnterpriseAddress": "企业地址",
@@ -84,7 +83,6 @@
     "Permission:EquipmentSparePartTypes": "备件类型管理",
     "Permission:EquipmentStatus": "设备状态管理",
     "Permission:EquipmentTypes": "设备类型管理",
-
     "Menu:Equipments": "设备管理",
     "Menu:EquipmentBrands": "设备品牌管理",
     "Menu:EquipmentInspections": "设备巡检管理",
@@ -95,7 +93,6 @@
     "Menu:EquipmentSparePartTypes": "备件类型管理",
     "Menu:EquipmentStatus": "设备状态管理",
     "Menu:EquipmentTypes": "设备类型管理",
-
     "Equipment": "设备管理",
     "EquipmentEquipmentTypeId": "设备类型编号",
     "EquipmentEquipmentBrandId": "设备品牌",
@@ -237,7 +234,6 @@
     "Permission:QualityInspectResults": "质量检查结果管理",
     "Permission:QualityInspectTypes": "质量检查类型管理",
     "Permission:QualityProblemLibs": "质量问题库管理",
-
     "Menu:QualityInspects": "质量检查管理",
     "Menu:QualityInspectResults": "质量检查结果管理",
     "Menu:QualityInspectTypes": "质量检查类型管理",
@@ -275,7 +271,6 @@
     "QualityProblemLibDeletionConfirmationMessage": "确定要删除质量问题库 {0}?",
     "Permission:Suppliers": "供应商管理",
     "Permission:SupplierLevels": "供应商级别管理",
-
     "Menu:Suppliers": "供应商管理",
     "Menu:SupplierLevels": "供应商级别管理",
     "SupplierLevel": "供应商级别管理",
@@ -301,7 +296,6 @@
     "Permission:WarehouseTypes": "仓库类型管理",
     "Permission:WarehouseAreas": "仓库区域管理",
     "Permission:WareHouseLocations": "库位管理",
-
     "Menu:Warehouses": "库房管理",
     "Menu:WarehouseTypes": "仓库类型管理",
     "Menu:WarehouseAreas": "仓库区域管理",
@@ -335,7 +329,38 @@
     "WarehouseTypeRemark": "备注",
     "CreateWarehouseType": "新增库房类型",
     "EditWarehouseType": "编辑库房类型",
-    "WarehouseTypeDeletionConfirmationMessage": "确定要删除库房类型 {0}?"
-
+    "WarehouseTypeDeletionConfirmationMessage": "确定要删除库房类型 {0}?",
+    "Permission:Customers": "客户管理",
+    "Menu:Customers": "客户管理",
+    "Customer": "客户管理",
+    "CustomerName": "名称",
+    "CustomerAddress": "地址",
+    "CustomerContact": "联系人",
+    "CustomerPhone": "电话",
+    "CustomerRemark": "备注",
+    "CreateCustomer": "新增客户",
+    "EditCustomer": "编辑客户",
+    "CustomerDeletionConfirmationMessage": "确定要删除客户 {0}?",
+    "Permission:Orders": "订单管理",
+    "Menu:Orders": "订单管理",
+    "Menu:OrderStatus": "订单状态管理",
+    "OrderStatus": "订单状态管理",
+    "OrderStatusName": "名称",
+    "OrderStatusRemark": "备注",
+    "CreateOrderStatus": "新增订单状态",
+    "EditOrderStatus": "编辑订单状态",
+    "OrderStatusDeletionConfirmationMessage": "确定要删除订单状态 {0}?",
+    "Order": "Order",
+    "OrderCode": "编号",
+    "OrderCustomerId": "客户",
+    "OrderProductId": "产品",
+    "OrderCount": "数量",
+    "OrderOrderStatusID": "状态",
+    "OrderOrderDate": "订货日期",
+    "OrderDeliveryDate": "交货日期",
+    "OrderRemark": "备注",
+    "CreateOrder": "新增订单",
+    "EditOrder": "编辑订单",
+    "OrderDeletionConfirmationMessage": "确定要删除订单 {0}?"
   }
 }

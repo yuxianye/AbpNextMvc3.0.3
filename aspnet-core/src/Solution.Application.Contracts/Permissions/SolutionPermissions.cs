@@ -1,4 +1,4 @@
-﻿namespace Solution.Permissions
+namespace Solution.Permissions
 {
     public static class SolutionPermissions
     {
@@ -236,6 +236,32 @@
             public const string Delete = Default + ".Delete";
         }
 
+
+
+        public class Customers
+        {
+            public const string Default = GroupName + ".Customers";
+            public const string Update = Default + ".Update";
+            public const string Create = Default + ".Create";
+            public const string Delete = Default + ".Delete";
+        }
+
+
+        public class Orders
+        {
+            public const string Default = GroupName + ".Orders";
+            public const string Update = Default + ".Update";
+            public const string Create = Default + ".Create";
+            public const string Delete = Default + ".Delete";
+        }
+
+        public class OrderStatus
+        {
+            public const string Default = GroupName + ".OrderStatus";
+            public const string Update = Default + ".Update";
+            public const string Create = Default + ".Create";
+            public const string Delete = Default + ".Delete";
+        }
 
     }
 }

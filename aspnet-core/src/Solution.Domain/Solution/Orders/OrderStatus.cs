@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -17,7 +17,7 @@ namespace Solution.Orders
         /// <summary>
         /// 名称
         /// </summary>
-        public int Name { get; protected set; }
+        public string Name { get; protected set; }
 
 
         /// <summary>
@@ -26,6 +26,16 @@ namespace Solution.Orders
         public string Remark { get; set; }
 
 
+
+        protected OrderStatus()
+        {
+        }
+
+        public OrderStatus(Guid id, string name, string remark) : base(id)
+        {
+            Name = name;
+            Remark = remark;
+        }
     }
 
 }

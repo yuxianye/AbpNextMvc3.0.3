@@ -1,4 +1,4 @@
-﻿using Microsoft.EntityFrameworkCore;
+using Microsoft.EntityFrameworkCore;
 using Solution.Users;
 using Volo.Abp.Data;
 using Volo.Abp.EntityFrameworkCore;
@@ -12,6 +12,8 @@ using Solution.Public;
 using Solution.Qualities;
 using Solution.Suppliers;
 using Solution.Warehouses;
+using Solution.Customers;
+using Solution.Orders;
 
 namespace Solution.EntityFrameworkCore
 {
@@ -63,6 +65,9 @@ namespace Solution.EntityFrameworkCore
         public DbSet<WareHouseLocation> WareHouseLocations { get; set; }
         public DbSet<WarehouseType> WarehouseTypes { get; set; }
         public DbSet<Suppliers.Suppliers> Suppliers { get; set; }
+        public DbSet<Customer> Customers { get; set; }
+        public DbSet<OrderStatus> OrderStatuses { get; set; }
+        public DbSet<Order> Orders { get; set; }
 
         public SolutionDbContext(DbContextOptions<SolutionDbContext> options)
             : base(options)

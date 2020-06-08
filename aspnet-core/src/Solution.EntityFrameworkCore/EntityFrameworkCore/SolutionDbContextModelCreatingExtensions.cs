@@ -1,4 +1,6 @@
-﻿using Solution.Warehouses;
+using Solution.Orders;
+using Solution.Customers;
+using Solution.Warehouses;
 using Solution.Suppliers;
 using Solution.Qualities;
 using Solution.Public;
@@ -343,6 +345,36 @@ namespace Solution.EntityFrameworkCore
             });
 
          
+
+            builder.Entity<Customer>(b =>
+            {
+                b.ToTable(SolutionConsts.DbTablePrefix + "Customers", SolutionConsts.DbSchema);
+                b.Property(x => x.Name).IsRequired().HasMaxLength(SolutionConsts.FiledLength.NameLength);
+                b.Property(x => x.Address).IsRequired().HasMaxLength(SolutionConsts.FiledLength.CommonStringLength256);
+                b.Property(x => x.Contact).IsRequired().HasMaxLength(SolutionConsts.FiledLength.NameLength);
+                b.Property(x => x.Phone).IsRequired().HasMaxLength(SolutionConsts.FiledLength.PhoneLength);
+                b.Property(x => x.Remark).HasMaxLength(SolutionConsts.FiledLength.RemarkLength);
+                b.ConfigureByConvention(); 
+                /* Configure more properties here */
+            });
+
+            builder.Entity<OrderStatus>(b =>
+            {
+                b.ToTable(SolutionConsts.DbTablePrefix + "OrderStatuses", SolutionConsts.DbSchema);
+                b.Property(x => x.Name).IsRequired().HasMaxLength(SolutionConsts.FiledLength.NameLength);
+                b.Property(x => x.Remark).HasMaxLength(SolutionConsts.FiledLength.RemarkLength);
+                b.ConfigureByConvention(); 
+                /* Configure more properties here */
+            });
+
+            builder.Entity<Order>(b =>
+            {
+                b.ToTable(SolutionConsts.DbTablePrefix + "Orders", SolutionConsts.DbSchema);
+                b.Property(x => x.Code).IsRequired().HasMaxLength(SolutionConsts.FiledLength.CodeLength);
+                b.Property(x => x.Remark).HasMaxLength(SolutionConsts.FiledLength.RemarkLength);
+                b.ConfigureByConvention(); 
+                /* Configure more properties here */
+            });
         }
     }
 }

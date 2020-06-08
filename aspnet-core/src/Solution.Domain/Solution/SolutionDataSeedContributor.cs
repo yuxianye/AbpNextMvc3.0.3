@@ -17,15 +17,19 @@ namespace Solution
         private readonly IAsyncQueryableExecuter _queryableExecuter;
 
         private readonly IRepository<Solution.Enterprises.Enterprise, Guid> _enterpriseRepository;
+        private readonly IRepository<Solution.Orders.OrderStatus, Guid> _orderStatusRepository;
 
         public SolutionDataSeedContributor(
              IGuidGenerator guidGenerator,
+            IAsyncQueryableExecuter queryableExecuter,
         IRepository<Solution.Enterprises.Enterprise, Guid> enterpriseRepository,
-            IAsyncQueryableExecuter queryableExecuter)
+      IRepository<Solution.Orders.OrderStatus, Guid> orderStatusRepository
+            )
         {
             _guidGenerator = guidGenerator;
             _queryableExecuter = queryableExecuter;
             _enterpriseRepository = enterpriseRepository;
+            _orderStatusRepository = orderStatusRepository;
         }
 
         public async Task SeedAsync(DataSeedContext context)
@@ -37,7 +41,15 @@ namespace Solution
             }
 
 
-
+            if (await _queryableExecuter.CountAsync(_orderStatusRepository) < 1)
+            {
+                await _orderStatusRepository.InsertAsync(new Orders.OrderStatus(_guidGenerator.Create(), "新建", null));
+                await _orderStatusRepository.InsertAsync(new Orders.OrderStatus(_guidGenerator.Create(), "已排产", null));
+                await _orderStatusRepository.InsertAsync(new Orders.OrderStatus(_guidGenerator.Create(), "生产中", null));
+                await _orderStatusRepository.InsertAsync(new Orders.OrderStatus(_guidGenerator.Create(), "生产完", null));
+                await _orderStatusRepository.InsertAsync(new Orders.OrderStatus(_guidGenerator.Create(), "待发货", null));
+                await _orderStatusRepository.InsertAsync(new Orders.OrderStatus(_guidGenerator.Create(), "撤销", null));
+            }
 
         }
 

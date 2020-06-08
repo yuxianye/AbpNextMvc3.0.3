@@ -1,4 +1,4 @@
-﻿using AutoMapper;
+using AutoMapper;
 using Solution.Enterprises.Dtos;
 using Solution.Equipments.Dtos;
 using Solution.Materials.Dtos;
@@ -36,6 +36,12 @@ using Solution.Web.Pages.Suppliers.Suppliers.ViewModels;
 using Solution.Web.Pages.Warehouses.Warehouse.ViewModels;
 using Solution.Web.Pages.Warehouses.WarehouseArea.ViewModels;
 using Solution.Web.Pages.Warehouses.WareHouseLocation.ViewModels;
+using Solution.Customers.Dtos;
+using Solution.Web.Pages.Customers.Customer.ViewModels;
+using Solution.Orders.Dtos;
+using Solution.Web.Pages.Orders.OrderStatus.ViewModels;
+using Solution.Orders.Dtos;
+using Solution.Web.Pages.Orders.Order.ViewModels;
 using Solution.Web.Pages.Warehouses.WarehouseType.ViewModels;
 namespace Solution.Web
 {
@@ -106,6 +112,12 @@ namespace Solution.Web
             CreateMap<CreateEditWarehouseTypeViewModel, CreateUpdateWarehouseTypeDto>();
             CreateMap<SuppliersDto, CreateEditSuppliersViewModel>();
             CreateMap<CreateEditSuppliersViewModel, CreateUpdateSuppliersDto>();
+            CreateMap<CustomerDto, CreateEditCustomerViewModel>();
+            CreateMap<CreateEditCustomerViewModel, CreateUpdateCustomerDto>();
+            CreateMap<OrderStatusDto, CreateEditOrderStatusViewModel>();
+            CreateMap<CreateEditOrderStatusViewModel, CreateUpdateOrderStatusDto>();
+            CreateMap<OrderDto, CreateEditOrderViewModel>();
+            CreateMap<CreateEditOrderViewModel, CreateUpdateOrderDto>();
         }
     }
 }

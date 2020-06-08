@@ -1,4 +1,4 @@
-﻿using AutoMapper;
+using AutoMapper;
 using Solution.Enterprises;
 using Solution.Enterprises.Dtos;
 using Solution.Equipments;
@@ -12,6 +12,10 @@ using Solution.Qualities.Dtos;
 using Solution.Suppliers;
 using Solution.Suppliers.Dtos;
 using Solution.Warehouses;
+using Solution.Customers;
+using Solution.Customers.Dtos;
+using Solution.Orders;
+using Solution.Orders.Dtos;
 using Solution.Warehouses.Dtos;
 namespace Solution
 {
@@ -84,6 +88,12 @@ namespace Solution
             CreateMap<CreateUpdateWarehouseTypeDto, WarehouseType>(MemberList.Source);
             CreateMap<Suppliers.Suppliers, SuppliersDto>();
             CreateMap<CreateUpdateSuppliersDto, Suppliers.Suppliers>(MemberList.Source);
+            CreateMap<Customer, CustomerDto>();
+            CreateMap<CreateUpdateCustomerDto, Customer>(MemberList.Source);
+            CreateMap<OrderStatus, OrderStatusDto>();
+            CreateMap<CreateUpdateOrderStatusDto, OrderStatus>(MemberList.Source);
+            CreateMap<Order, OrderDto>();
+            CreateMap<CreateUpdateOrderDto, Order>(MemberList.Source);
         }
     }
 }

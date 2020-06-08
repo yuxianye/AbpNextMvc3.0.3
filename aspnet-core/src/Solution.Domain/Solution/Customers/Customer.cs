@@ -38,5 +38,18 @@ namespace Solution.Customers
         public string Remark { get; set; }
 
        
+
+        protected Customer()
+        {
+        }
+
+        public Customer(Guid id, string name, string address, string contact, string phone, string remark) : base(id)
+        {
+            Name = name;
+            Address = address;
+            Contact = contact;
+            Phone = phone;
+            Remark = remark;
+        }
     }
 }

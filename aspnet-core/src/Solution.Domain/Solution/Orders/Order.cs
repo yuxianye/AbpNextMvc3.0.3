@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -53,6 +53,22 @@ namespace Solution.Orders
         /// </summary>
         public string Remark { get; set; }
 
+
+        protected Order()
+        {
+        }
+
+        public Order(Guid id, int code, Guid customerId, Guid productId, int count, Guid orderStatusID, DateTime orderDate, DateTime deliveryDate, string remark) : base(id)
+        {
+            Code = code;
+            CustomerId = customerId;
+            ProductId = productId;
+            Count = count;
+            OrderStatusID = orderStatusID;
+            OrderDate = orderDate;
+            DeliveryDate = deliveryDate;
+            Remark = remark;
+        }
     }
 
 }

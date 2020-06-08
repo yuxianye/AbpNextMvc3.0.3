@@ -1,4 +1,6 @@
-﻿using System.Threading.Tasks;
+using System.Threading.Tasks;
+using Microsoft.AspNetCore.Authorization;
+using Solution.Permissions;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Localization;
 using Solution.Localization;
@@ -243,6 +245,32 @@ namespace Solution.Web.Menus
                     );
                 }
             }
+            if (await authorizationService.IsGrantedAsync(SolutionPermissions.Customers.Default))
+            {
+                var customerMenu = new ApplicationMenuItem("Customers", l["Menu:Customers"]);
+                context.Menu.AddItem(customerMenu);
+
+                customerMenu.AddItem(
+                      new ApplicationMenuItem("Customers", l["Menu:Customers"], "/Customers/Customer")
+                  );
+            }
+            if (await authorizationService.IsGrantedAsync(SolutionPermissions.Orders.Default))
+            {
+                var orderMenu = new ApplicationMenuItem("Orders", l["Menu:Orders"]);
+                context.Menu.AddItem(orderMenu);
+
+                orderMenu.AddItem(
+                    new ApplicationMenuItem("Orders", l["Menu:Orders"], "/Orders/Order")
+                 );
+                if (await authorizationService.IsGrantedAsync(SolutionPermissions.OrderStatus.Default))
+                {
+                    orderMenu.AddItem(
+                     new ApplicationMenuItem("Orders", l["Menu:OrderStatus"], "/Orders/OrderStatus")
+                    );
+                }
+
+            }
+
         }
     }
 }
