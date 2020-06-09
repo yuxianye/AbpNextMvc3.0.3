@@ -163,7 +163,6 @@ namespace Solution.Web.Menus
                 }
             }
 
-
             if (await authorizationService.IsGrantedAsync(SolutionPermissions.Units.Default))
             {
                 var baseMenu = new ApplicationMenuItem("BaseData", l["Menu:BaseData"]);
@@ -174,7 +173,6 @@ namespace Solution.Web.Menus
                 );
 
             }
-
 
             if (await authorizationService.IsGrantedAsync(SolutionPermissions.QualityInspects.Default))
             {
@@ -218,7 +216,6 @@ namespace Solution.Web.Menus
                 }
             }
 
-
             if (await authorizationService.IsGrantedAsync(SolutionPermissions.Warehouses.Default))
             {
                 var warehouseMenu = new ApplicationMenuItem("Warehouses", l["Menu:Warehouses"]);
@@ -245,6 +242,7 @@ namespace Solution.Web.Menus
                     );
                 }
             }
+          
             if (await authorizationService.IsGrantedAsync(SolutionPermissions.Customers.Default))
             {
                 var customerMenu = new ApplicationMenuItem("Customers", l["Menu:Customers"]);
@@ -254,6 +252,7 @@ namespace Solution.Web.Menus
                       new ApplicationMenuItem("Customers", l["Menu:Customers"], "/Customers/Customer")
                   );
             }
+         
             if (await authorizationService.IsGrantedAsync(SolutionPermissions.Orders.Default))
             {
                 var orderMenu = new ApplicationMenuItem("Orders", l["Menu:Orders"]);

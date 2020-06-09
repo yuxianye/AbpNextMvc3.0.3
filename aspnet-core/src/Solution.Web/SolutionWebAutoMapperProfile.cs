@@ -40,7 +40,6 @@ using Solution.Customers.Dtos;
 using Solution.Web.Pages.Customers.Customer.ViewModels;
 using Solution.Orders.Dtos;
 using Solution.Web.Pages.Orders.OrderStatus.ViewModels;
-using Solution.Orders.Dtos;
 using Solution.Web.Pages.Orders.Order.ViewModels;
 using Solution.Web.Pages.Warehouses.WarehouseType.ViewModels;
 namespace Solution.Web
