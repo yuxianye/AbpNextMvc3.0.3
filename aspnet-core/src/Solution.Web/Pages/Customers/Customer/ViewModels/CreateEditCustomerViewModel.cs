@@ -14,6 +14,7 @@ namespace Solution.Web.Pages.Customers.Customer.ViewModels
         public string Contact { get; set; }
 
         [Display(Name = "CustomerPhone")]
+        [Phone]
         public string Phone { get; set; }
 
         [Display(Name = "CustomerRemark")]

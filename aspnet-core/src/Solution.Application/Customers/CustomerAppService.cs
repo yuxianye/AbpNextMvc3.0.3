@@ -4,6 +4,7 @@ using Solution.Customers.Dtos;
 using Volo.Abp.Application.Dtos;
 using Volo.Abp.Application.Services;
 using Volo.Abp.Domain.Repositories;
+using System.Threading.Tasks;
 
 namespace Solution.Customers
 {
@@ -18,6 +19,13 @@ namespace Solution.Customers
 
         public CustomerAppService(IRepository<Customer, Guid> repository) : base(repository)
         {
+        }
+
+
+
+        public override Task<PagedResultDto<CustomerDto>> GetListAsync(PagedAndSortedResultRequestDto input)
+        {
+            return base.GetListAsync(input);
         }
     }
 }

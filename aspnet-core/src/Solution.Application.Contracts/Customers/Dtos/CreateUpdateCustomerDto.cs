@@ -7,15 +7,25 @@ namespace Solution.Customers.Dtos
     public class CreateUpdateCustomerDto
     {
         [Required]
-        [StringLength(32)]
+        [StringLength(MySolutionConsts.NameLength)]
         public string Name { get; set; }
 
+        [StringLength(MySolutionConsts.AddressLength)]
         public string Address { get; set; }
 
+        [StringLength(MySolutionConsts.NameLength)]
         public string Contact { get; set; }
 
+        [StringLength(MySolutionConsts.PhoneLength)]
         public string Phone { get; set; }
 
+        [StringLength(MySolutionConsts.RemarkLength)]
         public string Remark { get; set; }
+
+
+
+
+
+
     }
 }

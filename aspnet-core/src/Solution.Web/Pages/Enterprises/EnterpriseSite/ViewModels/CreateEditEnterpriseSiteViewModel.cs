@@ -1,10 +1,13 @@
 using System;
 using System.ComponentModel.DataAnnotations;
+using Volo.Abp.AspNetCore.Mvc.UI.Bootstrap.TagHelpers.Form;
+
 namespace Solution.Web.Pages.Enterprises.EnterpriseSite.ViewModels
 {
     public class CreateEditEnterpriseSiteViewModel
     {
         [Display(Name = "EnterpriseSiteEnterpriseId")]
+        [SelectItems("EnterpriseList")]
         public Guid EnterpriseId { get; set; }
 
         [Display(Name = "EnterpriseSiteName")]

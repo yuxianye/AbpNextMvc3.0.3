@@ -17,6 +17,7 @@ namespace Solution.Web.Pages.Suppliers.Suppliers.ViewModels
         public string Contact { get; set; }
 
         [Display(Name = "SuppliersPhone")]
+        [Phone]
         public string Phone { get; set; }
 
         [Display(Name = "SuppliersFax")]
@@ -26,6 +27,7 @@ namespace Solution.Web.Pages.Suppliers.Suppliers.ViewModels
         public string Address { get; set; }
 
         [Display(Name = "SuppliersEmail")]
+        [EmailAddress]
         public string Email { get; set; }
 
         [Display(Name = "SuppliersRemark")]

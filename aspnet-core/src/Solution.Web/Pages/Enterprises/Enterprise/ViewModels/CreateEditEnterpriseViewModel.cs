@@ -4,6 +4,8 @@ namespace Solution.Web.Pages.Enterprises.Enterprise.ViewModels
 {
     public class CreateEditEnterpriseViewModel
     {
+        [Required]
+        [MaxLength(12,ErrorMessage ="")]
         [Display(Name = "EnterpriseName")]
         public string Name { get; set; }
 

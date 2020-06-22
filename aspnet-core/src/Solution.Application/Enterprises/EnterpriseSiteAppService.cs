@@ -4,6 +4,7 @@ using Solution.Enterprises.Dtos;
 using Volo.Abp.Application.Dtos;
 using Volo.Abp.Application.Services;
 using Volo.Abp.Domain.Repositories;
+using System.Threading.Tasks;
 
 namespace Solution.Enterprises
 {
@@ -18,6 +19,18 @@ namespace Solution.Enterprises
 
         public EnterpriseSiteAppService(IRepository<EnterpriseSite, Guid> repository) : base(repository)
         {
+        }
+
+
+
+
+        public override Task<PagedResultDto<EnterpriseSiteDto>> GetListAsync(PagedAndSortedResultRequestDto input)
+        {
+            
+
+
+
+            return base.GetListAsync(input);
         }
     }
 }
