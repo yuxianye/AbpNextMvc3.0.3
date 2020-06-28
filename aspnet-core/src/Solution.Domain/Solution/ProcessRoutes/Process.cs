@@ -10,7 +10,7 @@ namespace Solution.ProcessRoutes
     /// <summary>
     /// 工序模板
     /// </summary>
-    public class Process : AuditedEntity<Guid>
+    public class Process : FullAuditedEntity<Guid>
     {
 
         /// <summary>

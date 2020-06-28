@@ -10,7 +10,7 @@ namespace Solution.Materials
     /// <summary>
     /// 物料清单
     /// </summary>
-    public class BOM : AuditedEntity<Guid>
+    public class BOM : FullAuditedEntity<Guid>
     {
         /// <summary>
         /// 名称

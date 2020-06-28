@@ -14,7 +14,7 @@ namespace Solution.Orders
     /// <summary>
     /// 订单
     /// </summary>
-    public class Order : AuditedEntity<Guid>
+    public class Order : FullAuditedEntity<Guid>
     {
         /// <summary>
         /// 订单编号

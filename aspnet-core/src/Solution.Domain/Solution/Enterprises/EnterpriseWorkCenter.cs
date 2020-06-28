@@ -10,7 +10,7 @@ namespace Solution.Enterprises
     /// <summary>
     /// 工作中心，操作中心
     /// </summary>
-    public class EnterpriseWorkCenter : AuditedEntity<Guid>
+    public class EnterpriseWorkCenter : FullAuditedEntity<Guid>
     {
 
         /// <summary>

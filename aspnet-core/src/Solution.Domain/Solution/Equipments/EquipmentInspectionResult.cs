@@ -9,7 +9,7 @@ namespace Solution.Equipments
     /// <summary>
     /// 设备巡检结果实体
     /// </summary>
-    public class EquipmentInspectionResult : AuditedAggregateRoot<Guid>
+    public class EquipmentInspectionResult : FullAuditedEntity<Guid>
     {
         /// <summary>
         /// 名称

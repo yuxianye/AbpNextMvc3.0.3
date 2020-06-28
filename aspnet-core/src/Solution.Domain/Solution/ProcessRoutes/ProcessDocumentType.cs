@@ -10,7 +10,7 @@ namespace Solution.ProcessRoutes
     /// <summary>
     /// 工序文件类型
     /// </summary>
-    public class ProcessDocumentType : AuditedEntity<Guid>
+    public class ProcessDocumentType : FullAuditedEntity<Guid>
     {
         /// <summary>
         /// 工序文件类型名称

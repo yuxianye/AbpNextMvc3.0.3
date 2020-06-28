@@ -12,7 +12,7 @@ namespace Solution.Enterprises
     /// <summary>
     /// 工位
     /// </summary>
-    public class EnterpriseWorkLocation : AuditedEntity<Guid>
+    public class EnterpriseWorkLocation : FullAuditedEntity<Guid>
     {
 
         /// <summary>

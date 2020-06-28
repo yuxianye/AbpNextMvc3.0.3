@@ -10,7 +10,7 @@ namespace Solution.Qualities
     /// <summary>
     /// 质量问题库
     /// </summary>
-    public class QualityProblemLib : AuditedEntity<Guid>
+    public class QualityProblemLib : FullAuditedEntity<Guid>
     {
 
         /// <summary>

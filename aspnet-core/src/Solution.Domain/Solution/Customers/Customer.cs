@@ -10,7 +10,7 @@ namespace Solution.Customers
     /// <summary>
     /// 客户
     /// </summary>
-    public class Customer : AuditedEntity<Guid>
+    public class Customer : FullAuditedEntity<Guid>
     {
         /// <summary>
         /// 名称

@@ -11,7 +11,7 @@ namespace Solution.Warehouses
     /// <summary>
     /// 仓库
     /// </summary>
-    public class Warehouse : AuditedEntity<Guid>
+    public class Warehouse : FullAuditedEntity<Guid>
     {
 
         /// <summary>

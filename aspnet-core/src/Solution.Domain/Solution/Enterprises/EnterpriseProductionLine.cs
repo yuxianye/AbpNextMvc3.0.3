@@ -10,7 +10,7 @@ namespace Solution.Enterprises
     /// <summary>
     /// 生产线
     /// </summary>
-    public class EnterpriseProductionLine : AuditedEntity<Guid>
+    public class EnterpriseProductionLine : FullAuditedEntity<Guid>
     {
 
         /// <summary>

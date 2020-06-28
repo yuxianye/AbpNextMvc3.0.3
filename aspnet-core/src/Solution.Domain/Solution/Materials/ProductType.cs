@@ -10,7 +10,7 @@ namespace Solution.Materials
     /// <summary>
     /// 产品类型
     /// </summary>
-    public class ProductType : AuditedEntity<Guid>
+    public class ProductType : FullAuditedEntity<Guid>
     {
         /// <summary>
         /// 产品类型名称

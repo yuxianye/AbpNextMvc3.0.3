@@ -10,7 +10,7 @@ namespace Solution.Equipments
     /// <summary>
     /// 设备状态实体
     /// </summary>
-    public class EquipmentStatus : AuditedAggregateRoot<Guid>
+    public class EquipmentStatus : FullAuditedEntity<Guid>
     {
         /// <summary>
         /// 名称

@@ -10,7 +10,7 @@ namespace Solution.Public
     /// <summary>
     /// 计量单位
     /// </summary>
-    public class Unit : AuditedEntity<Guid>
+    public class Unit : FullAuditedEntity<Guid>
     {
 
         /// <summary>

@@ -10,7 +10,7 @@ namespace Solution.Enterprises
     /// <summary>
     /// 企业
     /// </summary>
-    public class Enterprise : AuditedEntity<Guid>
+    public class Enterprise : FullAuditedEntity<Guid>
     {
         /// <summary>
         /// 企业名称

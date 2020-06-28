@@ -11,7 +11,7 @@ namespace Solution.Qualities
     /// <summary>
     /// 质量检查
     /// </summary>
-    public class QualityInspect : AuditedEntity<Guid>
+    public class QualityInspect : FullAuditedEntity<Guid>
     {
         /// <summary>
         /// 编号

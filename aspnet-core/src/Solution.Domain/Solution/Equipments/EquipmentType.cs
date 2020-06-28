@@ -10,7 +10,7 @@ namespace Solution.Equipments
     /// <summary>
     /// 设备类别
     /// </summary>
-    public class EquipmentType : AuditedEntity<Guid>
+    public class EquipmentType : FullAuditedEntity<Guid>
     {
         /// <summary>
         /// 设备类别名称

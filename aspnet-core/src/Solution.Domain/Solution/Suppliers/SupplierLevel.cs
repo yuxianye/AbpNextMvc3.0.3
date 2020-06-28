@@ -10,7 +10,7 @@ namespace Solution.Suppliers
     /// <summary>
     /// 供应商等级
     /// </summary>
-    public class SupplierLevel : AuditedEntity<Guid>
+    public class SupplierLevel : FullAuditedEntity<Guid>
     {
 
         /// <summary>

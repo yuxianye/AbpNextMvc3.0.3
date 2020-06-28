@@ -9,7 +9,7 @@ namespace Solution.Equipments
     /// <summary>
     /// 设备备件
     /// </summary>
-    public class EquipmentSparePart : AuditedAggregateRoot<Guid>
+    public class EquipmentSparePart : FullAuditedEntity<Guid>
     {
 
         /// <summary>

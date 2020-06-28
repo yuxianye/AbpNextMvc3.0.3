@@ -11,7 +11,7 @@ namespace Solution.ProcessRoutes
     /// <summary>
     /// 工艺路线明细-设备
     /// </summary>
-    public class ProcessRouteItemEquipment : AuditedEntity<Guid>
+    public class ProcessRouteItemEquipment : FullAuditedEntity<Guid>
     {
 
         /// <summary>

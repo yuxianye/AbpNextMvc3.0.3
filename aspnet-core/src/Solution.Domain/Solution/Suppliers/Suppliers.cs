@@ -10,7 +10,7 @@ namespace Solution.Suppliers
     /// <summary>
     /// 供应商
     /// </summary>
-    public class Suppliers : AuditedEntity<Guid>
+    public class Suppliers : FullAuditedEntity<Guid>
     {
         /// <summary>
         /// 供应商编号，不能重复

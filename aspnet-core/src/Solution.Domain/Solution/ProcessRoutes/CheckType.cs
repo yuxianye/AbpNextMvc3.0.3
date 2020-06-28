@@ -10,7 +10,7 @@ namespace Solution.ProcessRoutes
     /// <summary>
     /// 检测类型
     /// </summary>
-    public class CheckType : AuditedEntity<Guid>
+    public class CheckType : FullAuditedEntity<Guid>
     {
 
         /// <summary>

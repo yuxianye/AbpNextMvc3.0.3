@@ -10,7 +10,7 @@ namespace Solution.ProcessRoutes
     /// <summary>
     /// 控制码
     /// </summary>
-    public class ControlCode : AuditedEntity<Guid>
+    public class ControlCode : FullAuditedEntity<Guid>
     {
         /// <summary>
         /// 控制码 名称

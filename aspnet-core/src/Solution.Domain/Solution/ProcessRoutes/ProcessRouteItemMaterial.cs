@@ -12,7 +12,7 @@ namespace Solution.ProcessRoutes
     /// <summary>
     /// 工艺路线明细-物料
     /// </summary>
-    public class ProcessRouteItemMaterial : AuditedEntity<Guid>
+    public class ProcessRouteItemMaterial : FullAuditedEntity<Guid>
     {
 
         /// <summary>

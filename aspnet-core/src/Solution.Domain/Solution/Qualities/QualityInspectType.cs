@@ -10,7 +10,7 @@ namespace Solution.Qualities
     /// <summary>
     /// 质量检验类型
     /// </summary>
-    public class QualityInspectType : AuditedEntity<Guid>
+    public class QualityInspectType : FullAuditedEntity<Guid>
     {
         /// <summary>
         /// 编码

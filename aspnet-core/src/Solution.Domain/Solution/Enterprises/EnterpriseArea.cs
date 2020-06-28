@@ -10,7 +10,7 @@ namespace Solution.Enterprises
     /// <summary>
     /// 企业车间
     /// </summary>
-    public class EnterpriseArea : AuditedEntity<Guid>
+    public class EnterpriseArea : FullAuditedEntity<Guid>
     {
 
         /// <summary>

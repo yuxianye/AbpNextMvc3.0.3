@@ -9,7 +9,7 @@ namespace Solution.Equipments
     /// <summary>
     /// 设备维修实体
     /// </summary>
-    public class EquipmentMaintenance : AuditedAggregateRoot<Guid>
+    public class EquipmentMaintenance : FullAuditedEntity<Guid>
     {
         /// <summary>
         /// 设备Id

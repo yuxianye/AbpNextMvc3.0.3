@@ -11,7 +11,7 @@ namespace Solution.Materials
     /// <summary>
     /// 物料
     /// </summary>
-    public class Material : AuditedEntity<Guid>
+    public class Material : FullAuditedEntity<Guid>
     {
         /// <summary>
         /// 编码

@@ -10,7 +10,7 @@ namespace Solution.Warehouses
     /// <summary>
     /// 库位
     /// </summary>
-    public class WarehouseLocation : AuditedEntity<Guid>
+    public class WarehouseLocation : FullAuditedEntity<Guid>
     {
 
         /// <summary>
