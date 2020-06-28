@@ -1,3 +1,4 @@
+using Microsoft.AspNetCore.Mvc;
 using System;
 using System.ComponentModel.DataAnnotations;
 using Volo.Abp.AspNetCore.Mvc.UI.Bootstrap.TagHelpers.Form;
@@ -9,6 +10,10 @@ namespace Solution.Web.Pages.Enterprises.EnterpriseSite.ViewModels
         [Display(Name = "EnterpriseSiteEnterpriseId")]
         [SelectItems("EnterpriseList")]
         public Guid EnterpriseId { get; set; }
+
+        [HiddenInput]
+        [Display(Name = "EnterpriseSiteEnterpriseId")]
+        public string EnterpriseName { get; set; }
 
         [Required]
         [StringLength(MySolutionConsts.NameLength)]

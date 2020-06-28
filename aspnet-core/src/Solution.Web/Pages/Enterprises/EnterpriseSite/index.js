@@ -44,7 +44,7 @@ $(function () {
                         ]
                 }
             },
-            { data: "enterpriseId" },
+            { data: "enterpriseId", visible:false },
             { data: "enterpriseName" },
             { data: "name" },
             { data: "address" },

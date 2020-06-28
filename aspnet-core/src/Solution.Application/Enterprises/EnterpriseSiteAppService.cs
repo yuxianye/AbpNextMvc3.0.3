@@ -25,12 +25,8 @@ namespace Solution.Enterprises
 
         }
 
-
-
-
         public override async Task<PagedResultDto<EnterpriseSiteDto>> GetListAsync(PagedAndSortedResultRequestDto input)
         {
-            
             await CheckGetListPolicyAsync();
 
             var query = CreateFilteredQuery(input);
@@ -46,9 +42,6 @@ namespace Solution.Enterprises
                 totalCount,
                 entities.Select(MapToGetListOutputDto).ToList()
             );
-
-           
-            //return base.GetListAsync(input);
         }
     }
 }

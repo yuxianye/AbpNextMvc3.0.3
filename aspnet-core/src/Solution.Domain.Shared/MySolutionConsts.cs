@@ -54,8 +54,9 @@
         /// </summary>
         public const int StringLength256 = 256;
 
+        public const int MaxResultCount = 1000;
 
-
+        
 
     }
 }

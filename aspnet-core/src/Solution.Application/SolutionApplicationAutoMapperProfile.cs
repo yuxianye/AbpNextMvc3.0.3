@@ -32,8 +32,7 @@ namespace Solution
             CreateMap<CreateUpdateEnterpriseAreaDto, EnterpriseArea>(MemberList.Source);
             CreateMap<EnterpriseProductionLine, EnterpriseProductionLineDto>();
             CreateMap<CreateUpdateEnterpriseProductionLineDto, EnterpriseProductionLine>(MemberList.Source);
-            CreateMap<EnterpriseSite, EnterpriseSiteDto>().ForMember(a=>a.EnterpriseName, b=>b.MapFrom (c=>c.Enterprise.Name)) ;
-
+            CreateMap<EnterpriseSite, EnterpriseSiteDto>().ForMember(a => a.EnterpriseName, b => b.MapFrom(c => c.Enterprise.Name));
             CreateMap<CreateUpdateEnterpriseSiteDto, EnterpriseSite>(MemberList.Source);
             CreateMap<EnterpriseWorkCenter, EnterpriseWorkCenterDto>();
             CreateMap<CreateUpdateEnterpriseWorkCenterDto, EnterpriseWorkCenter>(MemberList.Source);
