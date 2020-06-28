@@ -1,6 +1,8 @@
 {
   "culture": "pl-PL",
   "texts": {
+    "NameAlreadyExists": "名称【{0}】已存在，请使用其他名称!",
+    "Error": "错误",
     "Menu:Home": "Home",
     "Welcome": "Witaj",
     "LongWelcomeMessage": "Witaj w aplikacji. To jest inicjalny projekt bazujący na ABP framework. Po więcej informacji odwiedź stronę abp.io.",

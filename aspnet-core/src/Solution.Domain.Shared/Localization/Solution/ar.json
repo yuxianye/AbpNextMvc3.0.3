@@ -1,6 +1,8 @@
 {
   "culture": "ar",
   "texts": {
+    "Error": "错误",
+    "NameAlreadyExists": "名称【{0}】已存在，请使用其他名称!",
     "Menu:Home": "الرئيسية",
     "Welcome": "مرحبا",
     "LongWelcomeMessage": "مرحبا بكم في التطبيق. هذا مشروع بدء تشغيل يعتمد على إطار عمل ABP. لمزيد من المعلومات ، يرجى زيارة abp.io.",

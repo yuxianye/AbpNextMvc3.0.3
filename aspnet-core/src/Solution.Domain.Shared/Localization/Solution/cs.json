@@ -1,6 +1,8 @@
 {
   "culture": "cs",
   "texts": {
+    "Error": "错误",
+    "NameAlreadyExists": "名称【{0}】已存在，请使用其他名称!",
     "Menu:Home": "Úvod",
     "Welcome": "Vítejte",
     "LongWelcomeMessage": "Vítejte v aplikaci. Toto je startovací projekt založený na ABP frameworku. Pro více informací, navštivte abp.io.",

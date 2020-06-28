@@ -5,6 +5,10 @@ using Volo.Abp.Application.Dtos;
 using Volo.Abp.Application.Services;
 using Volo.Abp.Domain.Repositories;
 using System.Threading.Tasks;
+using System.Linq.Dynamic.Core;
+using System.Linq;
+using Volo.Abp;
+using Solution.Localization;
 
 namespace Solution.Enterprises
 {
@@ -20,7 +24,25 @@ namespace Solution.Enterprises
 
         public EnterpriseAppService(IRepository<Enterprise, Guid> repository) : base(repository)
         {
+            LocalizationResource = typeof(SolutionResource);
         }
-       
+
+        public override async Task<EnterpriseDto> CreateAsync(CreateUpdateEnterpriseDto input)
+        {
+            await CheckCreatePolicyAsync();
+
+            if (Repository.Any(a => a.Name == input.Name))
+            {
+                throw new UserFriendlyException(message: L["Error"], details: L["NameAlreadyExists", input.Name]);
+            }
+
+            var entity = MapToEntity(input);
+
+            TryToSetTenantId(entity);
+
+            await Repository.InsertAsync(entity, autoSave: true);
+
+            return MapToGetOutputDto(entity);
+        }
     }
 }

@@ -1,6 +1,8 @@
 {
   "culture": "zh-Hans",
   "texts": {
+    "Error": "错误",
+    "NameAlreadyExists": "名称【{0}】已存在，请使用其他名称!",
     "Menu:Home": "首页",
     "Welcome": "欢迎使用北京安世亚太智能制造执行系统",
     "LongWelcomeMessage": "i-MES智能制造执行系统是一套专为中小微企业设计的一套企业运营全过程管理系统，涵盖传统的ERP系统，MES系统，CRM系统等。",
@@ -362,5 +364,7 @@
     "CreateOrder": "新增订单",
     "EditOrder": "编辑订单",
     "OrderDeletionConfirmationMessage": "确定要删除订单 {0}?"
+
+
   }
 }
