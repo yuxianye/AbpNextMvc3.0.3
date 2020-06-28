@@ -5,6 +5,9 @@ using Volo.Abp.Application.Dtos;
 using Volo.Abp.Application.Services;
 using Volo.Abp.Domain.Repositories;
 using System.Threading.Tasks;
+using System.Linq;
+using Volo.Abp.Linq;
+using Microsoft.EntityFrameworkCore;
 
 namespace Solution.Enterprises
 {
@@ -19,18 +22,33 @@ namespace Solution.Enterprises
 
         public EnterpriseSiteAppService(IRepository<EnterpriseSite, Guid> repository) : base(repository)
         {
+
         }
 
 
 
 
-        public override Task<PagedResultDto<EnterpriseSiteDto>> GetListAsync(PagedAndSortedResultRequestDto input)
+        public override async Task<PagedResultDto<EnterpriseSiteDto>> GetListAsync(PagedAndSortedResultRequestDto input)
         {
             
+            await CheckGetListPolicyAsync();
 
+            var query = CreateFilteredQuery(input);
 
+            var totalCount = await AsyncQueryableExecuter.CountAsync(query);
+         
+            query = ApplySorting(query, input);
+            query = ApplyPaging(query, input);
+            query = query.Include(a => a.Enterprise);
+            var entities = await AsyncQueryableExecuter.ToListAsync(query);
 
-            return base.GetListAsync(input);
+            return new PagedResultDto<EnterpriseSiteDto>(
+                totalCount,
+                entities.Select(MapToGetListOutputDto).ToList()
+            );
+
+           
+            //return base.GetListAsync(input);
         }
     }
 }

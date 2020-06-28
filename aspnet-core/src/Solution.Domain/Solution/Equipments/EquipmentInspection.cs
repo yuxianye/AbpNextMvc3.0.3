@@ -17,6 +17,12 @@ namespace Solution.Equipments
         public Guid EquipmentId { get; set; }
 
         /// <summary>
+        /// 设备
+        /// </summary>
+        [ForeignKey(nameof(EquipmentId))]
+        public virtual Equipment Equipment { get; set; }
+
+        /// <summary>
         /// 检查人
         /// </summary>
         public string InspectPerson { get; set; }

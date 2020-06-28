@@ -7,16 +7,16 @@ using Volo.Abp.Domain.Repositories;
 
 namespace Solution.Warehouses
 {
-    public class WareHouseLocationAppService : CrudAppService<WareHouseLocation, WareHouseLocationDto, Guid, PagedAndSortedResultRequestDto, CreateUpdateWareHouseLocationDto, CreateUpdateWareHouseLocationDto>,
-        IWareHouseLocationAppService
+    public class WarehouseLocationAppService : CrudAppService<WarehouseLocation, WarehouseLocationDto, Guid, PagedAndSortedResultRequestDto, CreateUpdateWarehouseLocationDto, CreateUpdateWarehouseLocationDto>,
+        IWarehouseLocationAppService
     {
-        protected override string GetPolicyName { get; set; } = SolutionPermissions.WareHouseLocations.Default;
-        protected override string GetListPolicyName { get; set; } = SolutionPermissions.WareHouseLocations.Default;
-        protected override string CreatePolicyName { get; set; } = SolutionPermissions.WareHouseLocations.Create;
-        protected override string UpdatePolicyName { get; set; } = SolutionPermissions.WareHouseLocations.Update;
-        protected override string DeletePolicyName { get; set; } = SolutionPermissions.WareHouseLocations.Delete;
+        protected override string GetPolicyName { get; set; } = SolutionPermissions.WarehouseLocations.Default;
+        protected override string GetListPolicyName { get; set; } = SolutionPermissions.WarehouseLocations.Default;
+        protected override string CreatePolicyName { get; set; } = SolutionPermissions.WarehouseLocations.Create;
+        protected override string UpdatePolicyName { get; set; } = SolutionPermissions.WarehouseLocations.Update;
+        protected override string DeletePolicyName { get; set; } = SolutionPermissions.WarehouseLocations.Delete;
 
-        public WareHouseLocationAppService(IRepository<WareHouseLocation, Guid> repository) : base(repository)
+        public WarehouseLocationAppService(IRepository<WarehouseLocation, Guid> repository) : base(repository)
         {
         }
     }

@@ -3,13 +3,13 @@
 @using Microsoft.AspNetCore.Mvc.Localization
 @using Volo.Abp.AspNetCore.Mvc.UI.Bootstrap.TagHelpers.Modal
 @inject IHtmlLocalizer<SolutionResource> L
-@model Solution.Web.Pages.Warehouses.WareHouseLocation.CreateModalModel
+@model Solution.Web.Pages.Warehouses.WarehouseLocation.CreateModalModel
 @{
     Layout = null;
 }
 <abp-dynamic-form abp-model="ViewModel" data-ajaxForm="true" asp-page="CreateModal">
     <abp-modal>
-        <abp-modal-header title="@L["CreateWareHouseLocation"].Value"></abp-modal-header>
+        <abp-modal-header title="@L["CreateWarehouseLocation"].Value"></abp-modal-header>
         <abp-modal-body>
             <abp-form-content />
         </abp-modal-body>

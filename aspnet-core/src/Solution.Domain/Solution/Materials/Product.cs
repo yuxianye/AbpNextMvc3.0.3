@@ -1,3 +1,4 @@
+using Solution.Public;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
@@ -27,6 +28,12 @@ namespace Solution.Materials
         public Guid ProductTypeId { get; set; }
 
         /// <summary>
+        /// 单位
+        /// </summary>
+        [ForeignKey(nameof(ProductTypeId))]
+        public virtual ProductType ProductType { get; set; }
+
+        /// <summary>
         /// 规格型号
         /// </summary>
         public string Specification { get; set; }
@@ -35,6 +42,12 @@ namespace Solution.Materials
         /// 单位
         /// </summary>
         public Guid UnitId { get; set; }
+       
+        /// <summary>
+        /// 单位
+        /// </summary>
+        [ForeignKey(nameof(UnitId))]
+        public virtual Unit Unit { get; set; }
 
         /// <summary>
         /// 备注

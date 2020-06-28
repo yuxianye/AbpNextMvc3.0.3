@@ -5,13 +5,13 @@ using Volo.Abp.Application.Services;
 
 namespace Solution.Warehouses
 {
-    public interface IWareHouseLocationAppService :
+    public interface IWarehouseLocationAppService :
         ICrudAppService< 
-            WareHouseLocationDto, 
+            WarehouseLocationDto, 
             Guid, 
             PagedAndSortedResultRequestDto,
-            CreateUpdateWareHouseLocationDto,
-            CreateUpdateWareHouseLocationDto>
+            CreateUpdateWarehouseLocationDto,
+            CreateUpdateWarehouseLocationDto>
     {
 
     }

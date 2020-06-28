@@ -1473,7 +1473,7 @@ namespace Solution.Migrations
                     b.ToTable("AppSuppliers");
                 });
 
-            modelBuilder.Entity("Solution.Warehouses.WareHouseLocation", b =>
+            modelBuilder.Entity("Solution.Warehouses.WarehouseLocation", b =>
                 {
                     b.Property<Guid>("Id")
                         .ValueGeneratedOnAdd()
@@ -1514,7 +1514,7 @@ namespace Solution.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("AppWareHouseLocations");
+                    b.ToTable("AppWarehouseLocations");
                 });
 
             modelBuilder.Entity("Solution.Warehouses.Warehouse", b =>

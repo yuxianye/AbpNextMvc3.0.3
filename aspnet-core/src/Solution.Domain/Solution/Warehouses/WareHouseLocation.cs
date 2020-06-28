@@ -10,13 +10,19 @@ namespace Solution.Warehouses
     /// <summary>
     /// 库位
     /// </summary>
-    public class WareHouseLocation : AuditedEntity<Guid>
+    public class WarehouseLocation : AuditedEntity<Guid>
     {
 
         /// <summary>
         /// 库区编号
         /// </summary>
-        public Guid WareHouseAreaId { get; set; }
+        public Guid WarehouseAreaId { get; set; }
+
+        /// <summary>
+        /// 仓库编号
+        /// </summary>
+        [ForeignKey(nameof(WarehouseAreaId))]
+        public virtual WarehouseArea WarehouseArea { get; set; }
 
         /// <summary>
         /// 编号
@@ -34,13 +40,13 @@ namespace Solution.Warehouses
         public string Remark { get; set; }
 
 
-        protected WareHouseLocation()
+        protected WarehouseLocation()
         {
         }
 
-        public WareHouseLocation(Guid id, Guid wareHouseAreaId, string code, string name, string remark) : base(id)
+        public WarehouseLocation(Guid id, Guid warehouseAreaId, string code, string name, string remark) : base(id)
         {
-            WareHouseAreaId = wareHouseAreaId;
+            WarehouseAreaId = warehouseAreaId;
             Code = code;
             Name = name;
             Remark = remark;

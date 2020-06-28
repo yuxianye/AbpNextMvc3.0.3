@@ -1,6 +1,6 @@
 using System.Threading.Tasks;
 
-namespace Solution.Web.Pages.Warehouses.WareHouseLocation
+namespace Solution.Web.Pages.Warehouses.WarehouseLocation
 {
     public class IndexModel : SolutionPageModel
     {

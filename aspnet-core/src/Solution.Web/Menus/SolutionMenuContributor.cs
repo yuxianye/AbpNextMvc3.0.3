@@ -229,10 +229,10 @@ namespace Solution.Web.Menus
                         new ApplicationMenuItem("WarehouseAreas", l["Menu:WarehouseAreas"], "/Warehouses/WarehouseArea")
                     );
                 }
-                if (await authorizationService.IsGrantedAsync(SolutionPermissions.WareHouseLocations.Default))
+                if (await authorizationService.IsGrantedAsync(SolutionPermissions.WarehouseLocations.Default))
                 {
                     warehouseMenu.AddItem(
-                        new ApplicationMenuItem("WareHouseLocations", l["Menu:WareHouseLocations"], "/Warehouses/WareHouseLocation")
+                        new ApplicationMenuItem("WarehouseLocations", l["Menu:WarehouseLocations"], "/Warehouses/WarehouseLocation")
                     );
                 }
                 if (await authorizationService.IsGrantedAsync(SolutionPermissions.WarehouseTypes.Default))

@@ -19,6 +19,12 @@ namespace Solution.Enterprises
         public Guid EnterpriseSiteId { get; set; }
 
         /// <summary>
+        /// 所属厂区
+        /// </summary>
+        [ForeignKey(nameof(EnterpriseSiteId))]
+        public virtual EnterpriseSite EnterpriseSite { get; set; }
+
+        /// <summary>
         /// 车间名称
         /// </summary>
         public string Name { get; set; }

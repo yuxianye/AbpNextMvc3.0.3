@@ -18,6 +18,12 @@ namespace Solution.Equipments
         public Guid EquipmentSparePartTypeId { get; set; }
 
         /// <summary>
+        /// 设备备件类别
+        /// </summary>
+        [ForeignKey(nameof(EquipmentSparePartTypeId))]
+        public virtual EquipmentSparePartType EquipmentSparePartType { get; set; }
+
+        /// <summary>
         /// 设备备件名称
         /// </summary>
         public string Name { get; set; }

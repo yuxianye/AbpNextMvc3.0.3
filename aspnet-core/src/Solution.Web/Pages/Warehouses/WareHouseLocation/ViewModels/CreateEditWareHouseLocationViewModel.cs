@@ -1,19 +1,19 @@
 using System;
 using System.ComponentModel.DataAnnotations;
-namespace Solution.Web.Pages.Warehouses.WareHouseLocation.ViewModels
+namespace Solution.Web.Pages.Warehouses.WarehouseLocation.ViewModels
 {
-    public class CreateEditWareHouseLocationViewModel
+    public class CreateEditWarehouseLocationViewModel
     {
-        [Display(Name = "WareHouseLocationWareHouseAreaId")]
+        [Display(Name = "WarehouseLocationWareHouseAreaId")]
         public Guid WareHouseAreaId { get; set; }
 
-        [Display(Name = "WareHouseLocationCode")]
+        [Display(Name = "WarehouseLocationCode")]
         public string Code { get; set; }
 
-        [Display(Name = "WareHouseLocationName")]
+        [Display(Name = "WarehouseLocationName")]
         public string Name { get; set; }
 
-        [Display(Name = "WareHouseLocationRemark")]
+        [Display(Name = "WarehouseLocationRemark")]
         public string Remark { get; set; }
     }
 }

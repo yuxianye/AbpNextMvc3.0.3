@@ -23,6 +23,12 @@ namespace Solution.Materials
         public Guid ProductId { get; set; }
 
         /// <summary>
+        /// 产品编号
+        /// </summary>
+        [ForeignKey(nameof(ProductId))]
+        public virtual Product Product { get; set; }
+
+        /// <summary>
         /// BOM版本
         /// </summary>
         public string Version { get; set; }
@@ -31,6 +37,12 @@ namespace Solution.Materials
         /// 物料编号
         /// </summary>
         public Guid MaterialId { get; set; }
+
+        /// <summary>
+        /// 物料编号
+        /// </summary>
+        [ForeignKey(nameof(MaterialId))]
+        public virtual Material Material { get; set; }
 
         /// <summary>
         /// 数量

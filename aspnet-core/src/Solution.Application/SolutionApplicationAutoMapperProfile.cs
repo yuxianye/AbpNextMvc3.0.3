@@ -32,7 +32,8 @@ namespace Solution
             CreateMap<CreateUpdateEnterpriseAreaDto, EnterpriseArea>(MemberList.Source);
             CreateMap<EnterpriseProductionLine, EnterpriseProductionLineDto>();
             CreateMap<CreateUpdateEnterpriseProductionLineDto, EnterpriseProductionLine>(MemberList.Source);
-            CreateMap<EnterpriseSite, EnterpriseSiteDto>();
+            CreateMap<EnterpriseSite, EnterpriseSiteDto>().ForMember(a=>a.EnterpriseName, b=>b.MapFrom (c=>c.Enterprise.Name)) ;
+
             CreateMap<CreateUpdateEnterpriseSiteDto, EnterpriseSite>(MemberList.Source);
             CreateMap<EnterpriseWorkCenter, EnterpriseWorkCenterDto>();
             CreateMap<CreateUpdateEnterpriseWorkCenterDto, EnterpriseWorkCenter>(MemberList.Source);
@@ -82,8 +83,8 @@ namespace Solution
             CreateMap<CreateUpdateWarehouseDto, Warehouse>(MemberList.Source);
             CreateMap<WarehouseArea, WarehouseAreaDto>();
             CreateMap<CreateUpdateWarehouseAreaDto, WarehouseArea>(MemberList.Source);
-            CreateMap<WareHouseLocation, WareHouseLocationDto>();
-            CreateMap<CreateUpdateWareHouseLocationDto, WareHouseLocation>(MemberList.Source);
+            CreateMap<WarehouseLocation, WarehouseLocationDto>();
+            CreateMap<CreateUpdateWarehouseLocationDto, WarehouseLocation>(MemberList.Source);
             CreateMap<WarehouseType, WarehouseTypeDto>();
             CreateMap<CreateUpdateWarehouseTypeDto, WarehouseType>(MemberList.Source);
             CreateMap<Suppliers.Suppliers, SuppliersDto>();

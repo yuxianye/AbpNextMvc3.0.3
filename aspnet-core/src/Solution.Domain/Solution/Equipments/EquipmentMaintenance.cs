@@ -15,6 +15,12 @@ namespace Solution.Equipments
         /// 设备Id
         /// </summary>
         public Guid EquipmentId { get; set; }
+     
+        /// <summary>
+        /// 设备
+        /// </summary>
+        [ForeignKey(nameof(EquipmentId))]
+        public virtual Equipment Equipment { get; set; }
 
         /// <summary>
         /// 设备存在问题，后续可扩展问题库
@@ -60,6 +66,12 @@ namespace Solution.Equipments
         /// 维修结果
         /// </summary>
         public Guid EquipmentMaintenanceResultId { get; set; }
+
+        /// <summary>
+        /// 维修结果
+        /// </summary>
+        [ForeignKey(nameof(EquipmentMaintenanceResultId))]
+        public virtual EquipmentMaintenanceResult EquipmentMaintenanceResult { get; set; }
 
         /// <summary>
         /// 备注

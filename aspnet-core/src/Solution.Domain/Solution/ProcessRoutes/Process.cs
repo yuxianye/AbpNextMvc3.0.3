@@ -27,12 +27,24 @@ namespace Solution.ProcessRoutes
         /// <summary>
         /// 控制码，开报工，上线，下线，普通
         /// </summary>
-        public Guid ControlCode { get; set; }
+        public Guid ControlCodeId { get; set; }
+
+        /// <summary>
+        /// 控制码，开报工，上线，下线，普通
+        /// </summary>
+        [ForeignKey(nameof(ControlCodeId))]
+        public virtual ControlCode ControlCode { get; set; }
 
         /// <summary>
         /// 检验类型，免检，自检，成品检
         /// </summary>
         public Guid CheckTypeId { get; set; }
+
+        /// <summary>
+        /// 检验类型，免检，自检，成品检
+        /// </summary>
+        [ForeignKey(nameof(CheckTypeId))]
+        public virtual CheckType CheckType { get; set; }
 
         /// <summary>
         /// 是否自动转移

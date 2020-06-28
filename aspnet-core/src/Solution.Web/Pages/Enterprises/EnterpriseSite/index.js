@@ -45,6 +45,7 @@ $(function () {
                 }
             },
             { data: "enterpriseId" },
+            { data: "enterpriseName" },
             { data: "name" },
             { data: "address" },
             { data: "manager" },

@@ -1,3 +1,4 @@
+using Solution.Enterprises;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
@@ -17,6 +18,12 @@ namespace Solution.Warehouses
         /// 所属车间编号
         /// </summary>
         public Guid EnterpriseAreaId { get; set; }
+
+        /// <summary>
+        /// 所属车间
+        /// </summary>
+        [ForeignKey(nameof(EnterpriseAreaId))]
+        public virtual EnterpriseArea EnterpriseArea { get; set; }
 
         /// <summary>
         /// 名称

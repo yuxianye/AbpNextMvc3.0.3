@@ -1,5 +1,8 @@
+using Solution.Customers;
+using Solution.Materials;
 using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
 using System.Text;
 using Volo.Abp;
@@ -24,9 +27,21 @@ namespace Solution.Orders
         public Guid CustomerId { get;  set; }
 
         /// <summary>
+        /// 单位
+        /// </summary>
+        [ForeignKey(nameof(CustomerId))]
+        public virtual Customer Customer { get; set; }
+
+        /// <summary>
         /// 产品编号
         /// </summary>
         public Guid ProductId { get;  set; }
+
+        /// <summary>
+        /// 产品
+        /// </summary>
+        [ForeignKey(nameof(ProductId))]
+        public virtual Product Product { get; set; }
 
         /// <summary>
         /// 数量
@@ -36,8 +51,14 @@ namespace Solution.Orders
         /// <summary>
         /// 订单状态
         /// </summary>
-        public Guid OrderStatusID { get;  set; }
-        
+        public Guid OrderStatusId { get;  set; }
+
+        /// <summary>
+        /// 订单状态
+        /// </summary>
+        [ForeignKey(nameof(OrderStatusId))]
+        public virtual OrderStatus OrderStatus { get; set; }
+
         /// <summary>
         /// 订货货日期
         /// </summary>
@@ -58,13 +79,13 @@ namespace Solution.Orders
         {
         }
 
-        public Order(Guid id, int code, Guid customerId, Guid productId, int count, Guid orderStatusID, DateTime orderDate, DateTime deliveryDate, string remark) : base(id)
+        public Order(Guid id, int code, Guid customerId, Guid productId, int count, Guid orderStatusId, DateTime orderDate, DateTime deliveryDate, string remark) : base(id)
         {
             Code = code;
             CustomerId = customerId;
             ProductId = productId;
             Count = count;
-            OrderStatusID = orderStatusID;
+            OrderStatusId = orderStatusId;
             OrderDate = orderDate;
             DeliveryDate = deliveryDate;
             Remark = remark;

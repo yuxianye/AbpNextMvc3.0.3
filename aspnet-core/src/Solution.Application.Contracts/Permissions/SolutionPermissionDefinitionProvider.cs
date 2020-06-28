@@ -159,10 +159,10 @@ namespace Solution.Permissions
             warehouseAreaPermission.AddChild(SolutionPermissions.WarehouseAreas.Update, L("Permission:Update"));
             warehouseAreaPermission.AddChild(SolutionPermissions.WarehouseAreas.Delete, L("Permission:Delete"));
 
-            var wareHouseLocationPermission = myGroup.AddPermission(SolutionPermissions.WareHouseLocations.Default, L("Permission:WareHouseLocations"));
-            wareHouseLocationPermission.AddChild(SolutionPermissions.WareHouseLocations.Create, L("Permission:Create"));
-            wareHouseLocationPermission.AddChild(SolutionPermissions.WareHouseLocations.Update, L("Permission:Update"));
-            wareHouseLocationPermission.AddChild(SolutionPermissions.WareHouseLocations.Delete, L("Permission:Delete"));
+            var WarehouseLocationPermission = myGroup.AddPermission(SolutionPermissions.WarehouseLocations.Default, L("Permission:WarehouseLocations"));
+            WarehouseLocationPermission.AddChild(SolutionPermissions.WarehouseLocations.Create, L("Permission:Create"));
+            WarehouseLocationPermission.AddChild(SolutionPermissions.WarehouseLocations.Update, L("Permission:Update"));
+            WarehouseLocationPermission.AddChild(SolutionPermissions.WarehouseLocations.Delete, L("Permission:Delete"));
 
             var warehouseTypePermission = myGroup.AddPermission(SolutionPermissions.WarehouseTypes.Default, L("Permission:WarehouseTypes"));
             warehouseTypePermission.AddChild(SolutionPermissions.WarehouseTypes.Create, L("Permission:Create"));

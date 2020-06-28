@@ -15,8 +15,6 @@ namespace Solution.Customers
         /// <summary>
         /// 名称
         /// </summary>
-        [Required]
-        [StringLength(32)]
         public string Name { get; set; }
 
         /// <summary>

@@ -221,9 +221,9 @@ namespace Solution.Permissions
             public const string Create = Default + ".Create";
             public const string Delete = Default + ".Delete";
         }
-        public class WareHouseLocations
+        public class WarehouseLocations
         {
-            public const string Default = GroupName + ".WareHouseLocations";
+            public const string Default = GroupName + ".WarehouseLocations";
             public const string Update = Default + ".Update";
             public const string Create = Default + ".Create";
             public const string Delete = Default + ".Delete";

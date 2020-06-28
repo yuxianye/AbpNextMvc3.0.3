@@ -325,9 +325,9 @@ namespace Solution.EntityFrameworkCore
                 /* Configure more properties here */
             });
 
-            builder.Entity<WareHouseLocation>(b =>
+            builder.Entity<WarehouseLocation>(b =>
             {
-                b.ToTable(SolutionConsts.DbTablePrefix + "WareHouseLocations", SolutionConsts.DbSchema);
+                b.ToTable(SolutionConsts.DbTablePrefix + "WarehouseLocations", SolutionConsts.DbSchema);
                 b.Property(x => x.Code).IsRequired().HasMaxLength(MySolutionConsts.CodeLength);
                 b.Property(x => x.Name).IsRequired().HasMaxLength(MySolutionConsts.NameLength);
                 b.Property(x => x.Remark).HasMaxLength(MySolutionConsts.RemarkLength);

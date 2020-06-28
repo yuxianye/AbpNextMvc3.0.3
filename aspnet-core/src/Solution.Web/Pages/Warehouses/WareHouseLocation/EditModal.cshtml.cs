@@ -3,8 +3,8 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Solution.Warehouses;
 using Solution.Warehouses.Dtos;
-using Solution.Web.Pages.Warehouses.WareHouseLocation.ViewModels;
-namespace Solution.Web.Pages.Warehouses.WareHouseLocation
+using Solution.Web.Pages.Warehouses.WarehouseLocation.ViewModels;
+namespace Solution.Web.Pages.Warehouses.WarehouseLocation
 {
     public class EditModalModel : SolutionPageModel
     {
@@ -13,11 +13,11 @@ namespace Solution.Web.Pages.Warehouses.WareHouseLocation
         public Guid Id { get; set; }
 
         [BindProperty]
-        public CreateEditWareHouseLocationViewModel ViewModel { get; set; }
+        public CreateEditWarehouseLocationViewModel ViewModel { get; set; }
 
-        private readonly IWareHouseLocationAppService _service;
+        private readonly IWarehouseLocationAppService _service;
 
-        public EditModalModel(IWareHouseLocationAppService service)
+        public EditModalModel(IWarehouseLocationAppService service)
         {
             _service = service;
         }
@@ -25,12 +25,12 @@ namespace Solution.Web.Pages.Warehouses.WareHouseLocation
         public async Task OnGetAsync()
         {
             var dto = await _service.GetAsync(Id);
-            ViewModel = ObjectMapper.Map<WareHouseLocationDto, CreateEditWareHouseLocationViewModel>(dto);
+            ViewModel = ObjectMapper.Map<WarehouseLocationDto, CreateEditWarehouseLocationViewModel>(dto);
         }
 
         public async Task<IActionResult> OnPostAsync()
         {
-            var dto = ObjectMapper.Map<CreateEditWareHouseLocationViewModel, CreateUpdateWareHouseLocationDto>(ViewModel);
+            var dto = ObjectMapper.Map<CreateEditWarehouseLocationViewModel, CreateUpdateWarehouseLocationDto>(ViewModel);
             await _service.UpdateAsync(Id, dto);
             return NoContent();
         }

@@ -4,7 +4,7 @@ using System.ComponentModel.DataAnnotations;
 
 namespace Solution.Warehouses.Dtos
 {
-    public class CreateUpdateWareHouseLocationDto
+    public class CreateUpdateWarehouseLocationDto
     {
         public Guid WareHouseAreaId { get; set; }
 

@@ -1,3 +1,4 @@
+using Solution.Materials;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
@@ -17,6 +18,12 @@ namespace Solution.ProcessRoutes
         /// 产品编号
         /// </summary>
         public Guid ProductId { get; set; }
+
+        /// <summary>
+        /// 产品
+        /// </summary>
+        [ForeignKey(nameof(ProductId))]
+        public virtual Product Product { get; set; }
 
         /// <summary>
         /// 工艺路线编码

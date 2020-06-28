@@ -28,6 +28,12 @@ namespace Solution.Suppliers
         public Guid SupplierLevelId { get; set; }
 
         /// <summary>
+        /// 供应商等级编号
+        /// </summary>
+        [ForeignKey(nameof(SupplierLevelId))]
+        public virtual SupplierLevel SupplierLevel { get; set; }
+
+        /// <summary>
         /// 联系人
         /// </summary>
         public string Contact { get; set; }

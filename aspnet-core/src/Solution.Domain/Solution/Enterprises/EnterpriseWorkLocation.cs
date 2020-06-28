@@ -1,3 +1,5 @@
+using Solution.Equipments;
+using Solution.ProcessRoutes;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
@@ -19,6 +21,12 @@ namespace Solution.Enterprises
         public Guid EnterpriseWorkCenterId { get; set; }
 
         /// <summary>
+        /// 所属工作中心
+        /// </summary>
+        [ForeignKey(nameof(EnterpriseWorkCenterId))]
+        public virtual EnterpriseWorkCenter EnterpriseWorkCenter { get; set; }
+
+        /// <summary>
         /// 工位名称
         /// </summary>
         public string Name { get; set; }
@@ -29,9 +37,21 @@ namespace Solution.Enterprises
         public Guid EquipmentId { get; set; }
 
         /// <summary>
+        /// 设备
+        /// </summary>
+        [ForeignKey(nameof(EquipmentId))]
+        public virtual Equipment Equipment { get; set; }
+
+        /// <summary>
         /// 工序编号
         /// </summary>
         public Guid ProcessId { get; set; }
+
+        /// <summary>
+        /// 设备
+        /// </summary>
+        [ForeignKey(nameof(ProcessId))]
+        public virtual Process Process { get; set; }
 
         /// <summary>
         /// 备注

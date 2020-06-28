@@ -568,7 +568,7 @@ namespace Solution.Migrations
                 });
 
             migrationBuilder.CreateTable(
-                name: "AppWareHouseLocations",
+                name: "AppWarehouseLocations",
                 columns: table => new
                 {
                     Id = table.Column<Guid>(nullable: false),
@@ -583,7 +583,7 @@ namespace Solution.Migrations
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_AppWareHouseLocations", x => x.Id);
+                    table.PrimaryKey("PK_AppWarehouseLocations", x => x.Id);
                 });
 
             migrationBuilder.CreateTable(
@@ -711,7 +711,7 @@ namespace Solution.Migrations
                 name: "AppWarehouseAreas");
 
             migrationBuilder.DropTable(
-                name: "AppWareHouseLocations");
+                name: "AppWarehouseLocations");
 
             migrationBuilder.DropTable(
                 name: "AppWarehouses");

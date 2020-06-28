@@ -3,13 +3,13 @@
 @using Microsoft.AspNetCore.Mvc.Localization
 @using Volo.Abp.AspNetCore.Mvc.UI.Bootstrap.TagHelpers.Modal
 @inject IHtmlLocalizer<SolutionResource> L
-@model Solution.Web.Pages.Warehouses.WareHouseLocation.EditModalModel
+@model Solution.Web.Pages.Warehouses.WarehouseLocation.EditModalModel
 @{
     Layout = null;
 }
 <abp-dynamic-form abp-model="ViewModel" data-ajaxForm="true" asp-page="EditModal">
     <abp-modal>
-        <abp-modal-header title="@L["EditWareHouseLocation"].Value"></abp-modal-header>
+        <abp-modal-header title="@L["EditWarehouseLocation"].Value"></abp-modal-header>
         <abp-modal-body>
             <abp-input asp-for="Id" />
             <abp-form-content />

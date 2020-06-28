@@ -1,3 +1,4 @@
+using Solution.Equipments;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
@@ -19,9 +20,21 @@ namespace Solution.ProcessRoutes
         public Guid ProcessRouteItemId { get; set; }
 
         /// <summary>
+        /// 工艺路线明细
+        /// </summary>
+        [ForeignKey(nameof(ProcessRouteItemId))]
+        public virtual ProcessRouteItem ProcessRouteItem { get; set; }
+
+        /// <summary>
         /// 设备编号
         /// </summary>
         public Guid EquipmentId { get; set; }
+
+        /// <summary>
+        /// 设备
+        /// </summary>
+        [ForeignKey(nameof(EquipmentId))]
+        public virtual Equipment Equipment { get; set; }
 
         /// <summary>
         /// 备注

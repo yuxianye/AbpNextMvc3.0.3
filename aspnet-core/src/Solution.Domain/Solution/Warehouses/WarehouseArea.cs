@@ -19,6 +19,12 @@ namespace Solution.Warehouses
         public Guid WarehouseId { get; set; }
 
         /// <summary>
+        /// 仓库编号
+        /// </summary>
+        [ForeignKey(nameof(WarehouseId))]
+        public virtual Warehouse Warehouse { get; set; }
+
+        /// <summary>
         /// 名称
         /// </summary>
         public string Name { get; set; }

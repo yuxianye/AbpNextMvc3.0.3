@@ -62,7 +62,7 @@ namespace Solution.EntityFrameworkCore
         public DbSet<SupplierLevel> SupplierLevels { get; set; }
         public DbSet<Warehouse> Warehouses { get; set; }
         public DbSet<WarehouseArea> WarehouseAreas { get; set; }
-        public DbSet<WareHouseLocation> WareHouseLocations { get; set; }
+        public DbSet<WarehouseLocation> WarehouseLocations { get; set; }
         public DbSet<WarehouseType> WarehouseTypes { get; set; }
         public DbSet<Suppliers.Suppliers> Suppliers { get; set; }
         public DbSet<Customer> Customers { get; set; }

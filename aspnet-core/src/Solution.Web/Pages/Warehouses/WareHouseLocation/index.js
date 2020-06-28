@@ -2,11 +2,11 @@ $(function () {
 
     var l = abp.localization.getResource('Solution');
 
-    var service = solution.warehouses.wareHouseLocation;
-    var createModal = new abp.ModalManager(abp.appPath + 'Warehouses/WareHouseLocation/CreateModal');
-    var editModal = new abp.ModalManager(abp.appPath + 'Warehouses/WareHouseLocation/EditModal');
+    var service = solution.warehouses.WarehouseLocation;
+    var createModal = new abp.ModalManager(abp.appPath + 'Warehouses/WarehouseLocation/CreateModal');
+    var editModal = new abp.ModalManager(abp.appPath + 'Warehouses/WarehouseLocation/EditModal');
 
-    var dataTable = $('#WareHouseLocationTable').DataTable(abp.libs.datatables.normalizeConfiguration({
+    var dataTable = $('#WarehouseLocationTable').DataTable(abp.libs.datatables.normalizeConfiguration({
         processing: true,
         serverSide: true,
         paging: true,
@@ -22,16 +22,16 @@ $(function () {
                         [
                             {
                                 text: l('Edit'),
-                                visible: abp.auth.isGranted('Solution.WareHouseLocations.Update'),
+                                visible: abp.auth.isGranted('Solution.WarehouseLocations.Update'),
                                 action: function (data) {
                                     editModal.open({ id: data.record.id });
                                 }
                             },
                             {
                                 text: l('Delete'),
-                                visible: abp.auth.isGranted('Solution.WareHouseLocations.Delete'),
+                                visible: abp.auth.isGranted('Solution.WarehouseLocations.Delete'),
                                 confirmMessage: function (data) {
-                                    return l('WareHouseLocationDeletionConfirmationMessage', data.record.id);
+                                    return l('WarehouseLocationDeletionConfirmationMessage', data.record.id);
                                 },
                                 action: function (data) {
                                     service.delete(data.record.id)
@@ -59,7 +59,7 @@ $(function () {
         dataTable.ajax.reload();
     });
 
-    $('#NewWareHouseLocationButton').click(function (e) {
+    $('#NewWarehouseLocationButton').click(function (e) {
         e.preventDefault();
         createModal.open();
     });

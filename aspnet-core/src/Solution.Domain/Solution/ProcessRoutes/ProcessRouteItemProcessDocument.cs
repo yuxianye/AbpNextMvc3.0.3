@@ -1,3 +1,4 @@
+using Solution.Equipments;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
@@ -16,7 +17,13 @@ namespace Solution.ProcessRoutes
         /// 工艺路线明细编号
         /// </summary>
         public Guid ProcessRouteItemId { get; set; }
-        
+
+        /// <summary>
+        /// 工艺路线明细
+        /// </summary>
+        [ForeignKey(nameof(ProcessRouteItemId))]
+        public virtual ProcessRouteItem ProcessRouteItem { get; set; }
+
         /// <summary>
         /// 名称
         /// </summary>
@@ -28,9 +35,21 @@ namespace Solution.ProcessRoutes
         public Guid ProcessDocumentTypeId { get; set; }
 
         /// <summary>
+        /// 工艺文件类型
+        /// </summary>
+        [ForeignKey(nameof(ProcessDocumentTypeId))]
+        public virtual ProcessDocumentType ProcessDocumentType { get; set; }
+
+        /// <summary>
         /// 关联设备编号
         /// </summary>
         public Guid EquipmentId { get; set; }
+
+        /// <summary>
+        /// 关联设备
+        /// </summary>
+        [ForeignKey(nameof(EquipmentId))]
+        public virtual Equipment Equipment { get; set; }
 
         /// <summary>
         /// 备注

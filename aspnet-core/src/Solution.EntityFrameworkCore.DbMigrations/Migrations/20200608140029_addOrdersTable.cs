@@ -67,7 +67,7 @@ namespace Solution.Migrations
 
             migrationBuilder.AlterColumn<string>(
                 name: "Remark",
-                table: "AppWareHouseLocations",
+                table: "AppWarehouseLocations",
                 maxLength: 256,
                 nullable: true,
                 oldClrType: typeof(string),
@@ -76,7 +76,7 @@ namespace Solution.Migrations
 
             migrationBuilder.AlterColumn<string>(
                 name: "Name",
-                table: "AppWareHouseLocations",
+                table: "AppWarehouseLocations",
                 maxLength: 32,
                 nullable: false,
                 oldClrType: typeof(string),
@@ -85,7 +85,7 @@ namespace Solution.Migrations
 
             migrationBuilder.AlterColumn<string>(
                 name: "Code",
-                table: "AppWareHouseLocations",
+                table: "AppWarehouseLocations",
                 maxLength: 8,
                 nullable: false,
                 oldClrType: typeof(string),
@@ -1029,7 +1029,7 @@ namespace Solution.Migrations
 
             migrationBuilder.AlterColumn<string>(
                 name: "Remark",
-                table: "AppWareHouseLocations",
+                table: "AppWarehouseLocations",
                 type: "nvarchar(max)",
                 nullable: true,
                 oldClrType: typeof(string),
@@ -1038,7 +1038,7 @@ namespace Solution.Migrations
 
             migrationBuilder.AlterColumn<string>(
                 name: "Name",
-                table: "AppWareHouseLocations",
+                table: "AppWarehouseLocations",
                 type: "nvarchar(max)",
                 nullable: true,
                 oldClrType: typeof(string),
@@ -1046,7 +1046,7 @@ namespace Solution.Migrations
 
             migrationBuilder.AlterColumn<string>(
                 name: "Code",
-                table: "AppWareHouseLocations",
+                table: "AppWarehouseLocations",
                 type: "nvarchar(max)",
                 nullable: true,
                 oldClrType: typeof(string),

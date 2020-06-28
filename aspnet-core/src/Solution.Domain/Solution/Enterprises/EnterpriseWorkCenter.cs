@@ -19,6 +19,12 @@ namespace Solution.Enterprises
         public Guid EnterpriseProductionLineId { get; set; }
 
         /// <summary>
+        /// 所属产线
+        /// </summary>
+        [ForeignKey(nameof(EnterpriseProductionLineId))]
+        public virtual EnterpriseProductionLine EnterpriseProductionLine { get; set; }
+
+        /// <summary>
         /// 工作中心名称
         /// </summary>
         public string Name { get; set; }
