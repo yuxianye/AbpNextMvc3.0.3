@@ -22,11 +22,11 @@ namespace Solution.Materials
         /// </summary>
         public Guid ProductId { get; set; }
 
-        /// <summary>
-        /// 产品编号
-        /// </summary>
-        [ForeignKey(nameof(ProductId))]
-        public virtual Product Product { get; set; }
+        ///// <summary>
+        ///// 产品编号
+        ///// </summary>
+        //[ForeignKey(nameof(ProductId))]
+        //public virtual Product Product { get; set; }
 
         /// <summary>
         /// BOM版本
