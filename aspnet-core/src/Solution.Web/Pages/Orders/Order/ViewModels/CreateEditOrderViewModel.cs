@@ -4,6 +4,8 @@ namespace Solution.Web.Pages.Orders.Order.ViewModels
 {
     public class CreateEditOrderViewModel
     {
+        [Required]
+        [StringLength(MySolutionConsts.CodeLength)]
         [Display(Name = "OrderCode")]
         public int Code { get; set; }
 
@@ -25,6 +27,7 @@ namespace Solution.Web.Pages.Orders.Order.ViewModels
         [Display(Name = "OrderDeliveryDate")]
         public DateTime DeliveryDate { get; set; }
 
+        [StringLength(MySolutionConsts.RemarkLength)]
         [Display(Name = "OrderRemark")]
         public string Remark { get; set; }
     }

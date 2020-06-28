@@ -10,18 +10,25 @@ namespace Solution.Web.Pages.Enterprises.EnterpriseSite.ViewModels
         [SelectItems("EnterpriseList")]
         public Guid EnterpriseId { get; set; }
 
+        [Required]
+        [StringLength(MySolutionConsts.NameLength)]
         [Display(Name = "EnterpriseSiteName")]
         public string Name { get; set; }
 
+        [StringLength(MySolutionConsts.AddressLength)]
         [Display(Name = "EnterpriseSiteAddress")]
         public string Address { get; set; }
 
+        [StringLength(MySolutionConsts.NameLength)]
         [Display(Name = "EnterpriseSiteManager")]
         public string Manager { get; set; }
 
+        [Phone]
+        [StringLength(MySolutionConsts.PhoneLength)]
         [Display(Name = "EnterpriseSitePhone")]
         public string Phone { get; set; }
 
+        [StringLength(MySolutionConsts.RemarkLength)]
         [Display(Name = "EnterpriseSiteRemark")]
         public string Remark { get; set; }
     }

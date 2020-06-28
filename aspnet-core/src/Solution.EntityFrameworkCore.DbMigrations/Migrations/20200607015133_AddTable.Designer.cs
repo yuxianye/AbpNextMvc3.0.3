@@ -607,7 +607,7 @@ namespace Solution.Migrations
                         .HasColumnName("CreatorId")
                         .HasColumnType("uniqueidentifier");
 
-                    b.Property<Guid?>("EquipmentSparePartTypeId")
+                    b.Property<Guid>("EquipmentSparePartTypeId")
                         .HasColumnType("uniqueidentifier");
 
                     b.Property<string>("ExtraProperties")

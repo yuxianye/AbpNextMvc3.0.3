@@ -164,9 +164,9 @@ namespace Solution.EntityFrameworkCore
                 b.ToTable(SolutionConsts.DbTablePrefix + "EquipmentInspections", SolutionConsts.DbSchema);
                 b.ConfigureByConvention();
                 b.Property(x => x.InspectPerson).IsRequired().HasMaxLength(MySolutionConsts.NameLength);
-                b.Property(x => x.Problem).IsRequired().HasMaxLength(MySolutionConsts.StringLength256);
-                b.Property(x => x.Cause).IsRequired().HasMaxLength(MySolutionConsts.StringLength256);
-                b.Property(x => x.Solution).IsRequired().HasMaxLength(MySolutionConsts.StringLength256);
+                b.Property(x => x.Problem).HasMaxLength(MySolutionConsts.StringLength256);
+                b.Property(x => x.Cause).HasMaxLength(MySolutionConsts.StringLength256);
+                b.Property(x => x.Solution).HasMaxLength(MySolutionConsts.StringLength256);
                 b.Property(x => x.Remark).HasMaxLength(MySolutionConsts.RemarkLength);
                 /* Configure more properties here */
             });
@@ -299,7 +299,7 @@ namespace Solution.EntityFrameworkCore
                 b.Property(x => x.Phone).IsRequired().HasMaxLength(MySolutionConsts.PhoneLength);
                 b.Property(x => x.Fax).IsRequired().HasMaxLength(MySolutionConsts.PhoneLength);
                 b.Property(x => x.Address).IsRequired().HasMaxLength(MySolutionConsts.AddressLength);
-                b.Property(x => x.Email).IsRequired().HasMaxLength(MySolutionConsts.MailLength);
+                b.Property(x => x.Email).IsRequired().HasMaxLength(MySolutionConsts.EmailLength);
                 b.Property(x => x.Remark).HasMaxLength(MySolutionConsts.RemarkLength);
                 b.ConfigureByConvention();
                 /* Configure more properties here */

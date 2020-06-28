@@ -17,7 +17,7 @@ namespace Solution.Equipments.Dtos
 
         public DateTime ManufactureDate { get; set; }
 
-        public Guid? EquipmentStatusId { get; set; }
+        public Guid EquipmentStatusId { get; set; }
 
         public string Remark { get; set; }
     }

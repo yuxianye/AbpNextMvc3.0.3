@@ -384,7 +384,7 @@ namespace Solution.Migrations
                     b.Property<Guid>("EquipmentBrandId")
                         .HasColumnType("uniqueidentifier");
 
-                    b.Property<Guid?>("EquipmentStatusId")
+                    b.Property<Guid>("EquipmentStatusId")
                         .HasColumnType("uniqueidentifier");
 
                     b.Property<Guid>("EquipmentTypeId")
@@ -727,7 +727,7 @@ namespace Solution.Migrations
                         .HasColumnName("CreatorId")
                         .HasColumnType("uniqueidentifier");
 
-                    b.Property<Guid?>("EquipmentSparePartTypeId")
+                    b.Property<Guid>("EquipmentSparePartTypeId")
                         .HasColumnType("uniqueidentifier");
 
                     b.Property<string>("ExtraProperties")

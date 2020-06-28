@@ -15,7 +15,7 @@ namespace Solution.Equipments
         /// <summary>
         /// 设备备件类别Id
         /// </summary>
-        public Guid? EquipmentSparePartTypeId { get; set; }
+        public Guid EquipmentSparePartTypeId { get; set; }
 
         /// <summary>
         /// 设备备件名称
@@ -35,7 +35,7 @@ namespace Solution.Equipments
 
         public EquipmentSparePart(
             Guid id,
-            Guid? equipmentSparePartTypeId,
+            Guid equipmentSparePartTypeId,
             string name,
             string remark
         ) :base(id)

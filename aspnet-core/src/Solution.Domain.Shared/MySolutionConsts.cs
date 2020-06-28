@@ -16,7 +16,7 @@
         /// <summary>
         /// 邮箱长度32
         /// </summary>
-        public const int MailLength = 32;
+        public const int EmailLength = 32;
 
         /// <summary>
         /// 电话长度32

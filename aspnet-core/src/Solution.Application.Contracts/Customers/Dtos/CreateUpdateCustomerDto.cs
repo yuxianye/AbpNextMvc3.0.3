@@ -16,6 +16,7 @@ namespace Solution.Customers.Dtos
         [StringLength(MySolutionConsts.NameLength)]
         public string Contact { get; set; }
 
+        [Phone]
         [StringLength(MySolutionConsts.PhoneLength)]
         public string Phone { get; set; }
 

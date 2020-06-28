@@ -46,7 +46,7 @@ namespace Solution.Equipments
         /// <summary>
         /// 状态
         /// </summary>
-        public Guid? EquipmentStatusId { get; set; }
+        public Guid EquipmentStatusId { get; set; }
 
         /// <summary>
         /// 备注
@@ -68,7 +68,7 @@ namespace Solution.Equipments
             string name,
             string specification,
             DateTime manufactureDate,
-            Guid? equipmentStatusId,
+            Guid equipmentStatusId,
             string remark
         ) :base(id)
         {

@@ -5,7 +5,7 @@ namespace Solution.Equipments.Dtos
 {
     public class EquipmentSparePartDto : AuditedEntityDto<Guid>
     {
-        public Guid? EquipmentSparePartTypeId { get; set; }
+        public Guid EquipmentSparePartTypeId { get; set; }
 
         public string Name { get; set; }
 
