@@ -1,4 +1,5 @@
 using System;
+using Solution.Localization;
 using Solution.Permissions;
 using Solution.Qualities.Dtos;
 using Volo.Abp.Application.Dtos;
@@ -18,6 +19,7 @@ namespace Solution.Qualities
 
         public QualityInspectTypeAppService(IRepository<QualityInspectType, Guid> repository) : base(repository)
         {
+            LocalizationResource = typeof(SolutionResource);
         }
     }
 }

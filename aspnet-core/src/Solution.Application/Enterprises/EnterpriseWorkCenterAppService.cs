@@ -4,6 +4,7 @@ using Solution.Enterprises.Dtos;
 using Volo.Abp.Application.Dtos;
 using Volo.Abp.Application.Services;
 using Volo.Abp.Domain.Repositories;
+using Solution.Localization;
 
 namespace Solution.Enterprises
 {
@@ -18,6 +19,7 @@ namespace Solution.Enterprises
 
         public EnterpriseWorkCenterAppService(IRepository<EnterpriseWorkCenter, Guid> repository) : base(repository)
         {
+            LocalizationResource = typeof(SolutionResource);
         }
     }
 }

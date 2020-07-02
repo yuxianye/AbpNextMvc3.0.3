@@ -4,6 +4,7 @@ using Solution.Orders.Dtos;
 using Volo.Abp.Application.Dtos;
 using Volo.Abp.Application.Services;
 using Volo.Abp.Domain.Repositories;
+using Solution.Localization;
 
 namespace Solution.Orders
 {
@@ -18,6 +19,7 @@ namespace Solution.Orders
 
         public OrderStatusAppService(IRepository<OrderStatus, Guid> repository) : base(repository)
         {
+            LocalizationResource = typeof(SolutionResource);
         }
     }
 }

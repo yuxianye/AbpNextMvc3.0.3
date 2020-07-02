@@ -7,6 +7,7 @@ using Volo.Abp.Domain.Repositories;
 using System.Threading.Tasks;
 using Microsoft.EntityFrameworkCore;
 using System.Linq;
+using Solution.Localization;
 
 namespace Solution.Enterprises
 {
@@ -21,6 +22,7 @@ namespace Solution.Enterprises
 
         public EnterpriseAreaAppService(IRepository<EnterpriseArea, Guid> repository) : base(repository)
         {
+            LocalizationResource = typeof(SolutionResource);
         }
 
         public override async Task<PagedResultDto<EnterpriseAreaDto>> GetListAsync(PagedAndSortedResultRequestDto input)

@@ -5,6 +5,7 @@ using Volo.Abp.Application.Dtos;
 using Volo.Abp.Application.Services;
 using Volo.Abp.Domain.Repositories;
 using System.Threading.Tasks;
+using Solution.Localization;
 
 namespace Solution.Customers
 {
@@ -19,6 +20,7 @@ namespace Solution.Customers
 
         public CustomerAppService(IRepository<Customer, Guid> repository) : base(repository)
         {
+            LocalizationResource = typeof(SolutionResource);
         }
 
 

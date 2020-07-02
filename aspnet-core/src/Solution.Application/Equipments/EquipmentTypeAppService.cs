@@ -4,6 +4,7 @@ using Solution.Equipments.Dtos;
 using Volo.Abp.Application.Dtos;
 using Volo.Abp.Application.Services;
 using Volo.Abp.Domain.Repositories;
+using Solution.Localization;
 
 namespace Solution.Equipments
 {
@@ -18,6 +19,7 @@ namespace Solution.Equipments
 
         public EquipmentTypeAppService(IRepository<EquipmentType, Guid> repository) : base(repository)
         {
+            LocalizationResource = typeof(SolutionResource);
         }
     }
 }

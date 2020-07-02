@@ -4,6 +4,7 @@ using Solution.Materials.Dtos;
 using Volo.Abp.Application.Dtos;
 using Volo.Abp.Application.Services;
 using Volo.Abp.Domain.Repositories;
+using Solution.Localization;
 
 namespace Solution.Materials
 {
@@ -18,6 +19,7 @@ namespace Solution.Materials
 
         public ProductTypeAppService(IRepository<ProductType, Guid> repository) : base(repository)
         {
+            LocalizationResource = typeof(SolutionResource);
         }
     }
 }
