@@ -10,11 +10,14 @@ namespace Solution.Web.Pages.Enterprises.Enterprise.ViewModels
         public string Name { get; set; }
 
         [Display(Name = "EnterpriseAddress")]
+        [MaxLength(MySolutionConsts.AddressLength)]
         public string Address { get; set; }
 
+        [StringLength(MySolutionConsts.PhoneLength)]
         [Display(Name = "EnterprisePhone")]
         public string Phone { get; set; }
 
+        [StringLength(MySolutionConsts.RemarkLength)]
         [Display(Name = "EnterpriseRemark")]
         public string Remark { get; set; }
     }

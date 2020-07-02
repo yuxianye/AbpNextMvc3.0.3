@@ -4,6 +4,7 @@ namespace Solution.Web.Pages.Warehouses.WarehouseType.ViewModels
 {
     public class CreateEditWarehouseTypeViewModel
     {
+        [Required]
         [Display(Name = "WarehouseTypeName")]
         public string Name { get; set; }
 

@@ -6,6 +6,8 @@ namespace Solution.Materials.Dtos
 {
     public class CreateUpdateProductTypeDto
     {
+        [Required]
+        [StringLength(MySolutionConsts.RemarkLength)]
         public string Name { get; set; }
 
         [StringLength(MySolutionConsts.RemarkLength)]

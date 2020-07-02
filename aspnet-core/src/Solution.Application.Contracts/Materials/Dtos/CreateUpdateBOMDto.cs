@@ -12,6 +12,7 @@ namespace Solution.Materials.Dtos
 
         public Guid ProductId { get; set; }
 
+        [Required]
         [StringLength(MySolutionConsts.StringLength64)]
         public string Version { get; set; }
 

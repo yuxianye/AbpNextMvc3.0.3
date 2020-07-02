@@ -17,7 +17,8 @@ namespace Solution.Equipments.Dtos
         [Required]
         [StringLength(MySolutionConsts.NameLength)]
         public string Name { get; set; }
-
+     
+        [Required]
         [StringLength(MySolutionConsts.StringLength64)]
         public string Specification { get; set; }
 

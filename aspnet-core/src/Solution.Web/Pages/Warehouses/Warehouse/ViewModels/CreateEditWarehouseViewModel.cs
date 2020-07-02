@@ -7,12 +7,14 @@ namespace Solution.Web.Pages.Warehouses.Warehouse.ViewModels
         [Display(Name = "WarehouseEnterpriseAreaId")]
         public Guid EnterpriseAreaId { get; set; }
 
+        [Required]
         [Display(Name = "WarehouseName")]
         public string Name { get; set; }
 
         [Display(Name = "WarehouseManager")]
         public string Manager { get; set; }
 
+        [Phone]
         [Display(Name = "WarehousePhone")]
         public string Phone { get; set; }
 

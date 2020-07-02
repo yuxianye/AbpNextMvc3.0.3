@@ -7,9 +7,11 @@ namespace Solution.Web.Pages.Warehouses.WarehouseLocation.ViewModels
         [Display(Name = "WarehouseLocationWareHouseAreaId")]
         public Guid WareHouseAreaId { get; set; }
 
+        [Required]
         [Display(Name = "WarehouseLocationCode")]
         public string Code { get; set; }
 
+        [Required]
         [Display(Name = "WarehouseLocationName")]
         public string Name { get; set; }
 

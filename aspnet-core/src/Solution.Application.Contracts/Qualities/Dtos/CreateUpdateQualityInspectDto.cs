@@ -6,6 +6,8 @@ namespace Solution.Qualities.Dtos
 {
     public class CreateUpdateQualityInspectDto
     {
+        [Required]
+        [StringLength(MySolutionConsts.NameLength)]
         public string InspectPerson { get; set; }
 
         public Guid QualityInspectTypeId { get; set; }

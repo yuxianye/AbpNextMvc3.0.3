@@ -9,6 +9,7 @@ namespace Solution.Web.Pages.Enterprises.EnterpriseArea.ViewModels
         [Display(Name = "EnterpriseAreaEnterpriseSiteId")]
         [SelectItems("EnterpriseSiteList")]
         public Guid EnterpriseSiteId { get; set; }
+      
         [Required]
         [StringLength(MySolutionConsts.NameLength)]
         [Display(Name = "EnterpriseAreaName")]

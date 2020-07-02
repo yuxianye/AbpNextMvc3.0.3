@@ -16,6 +16,7 @@ namespace Solution.Materials.Dtos
 
         public Guid ProductTypeId { get; set; }
 
+        [Required]
         [StringLength(MySolutionConsts.StringLength64)]
         public string Specification { get; set; }
 
