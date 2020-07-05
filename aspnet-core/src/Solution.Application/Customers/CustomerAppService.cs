@@ -6,6 +6,8 @@ using Volo.Abp.Application.Services;
 using Volo.Abp.Domain.Repositories;
 using System.Threading.Tasks;
 using Solution.Localization;
+using Volo.Abp;
+using System.Linq;
 
 namespace Solution.Customers
 {
@@ -29,5 +31,24 @@ namespace Solution.Customers
         {
             return base.GetListAsync(input);
         }
+
+        public override async Task<CustomerDto> CreateAsync(CreateUpdateCustomerDto input)
+        {
+            await CheckCreatePolicyAsync();
+
+            if (Repository.Any(a => a.Name == input.Name))
+            {
+                throw new UserFriendlyException(message: L["Error"], details: L["NameAlreadyExists", input.Name]);
+            }
+
+            var entity = MapToEntity(input);
+
+            TryToSetTenantId(entity);
+
+            await Repository.InsertAsync(entity, autoSave: true);
+
+            return MapToGetOutputDto(entity);
+        }
+
     }
 }

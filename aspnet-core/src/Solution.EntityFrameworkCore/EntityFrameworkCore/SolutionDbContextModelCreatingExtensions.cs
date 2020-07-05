@@ -31,6 +31,7 @@ namespace Solution.EntityFrameworkCore
             {
                 b.ToTable(SolutionConsts.DbTablePrefix + "Enterprises", SolutionConsts.DbSchema);
                 b.ConfigureByConvention();
+                b.HasIndex(x => x.Name).IsUnique(true);
                 b.Property(x => x.Name).IsRequired().HasMaxLength(MySolutionConsts.NameLength);
                 b.Property(x => x.Address).HasMaxLength(MySolutionConsts.AddressLength);
                 b.Property(x => x.Phone).HasMaxLength(MySolutionConsts.PhoneLength);
@@ -43,6 +44,7 @@ namespace Solution.EntityFrameworkCore
             {
                 b.ToTable(SolutionConsts.DbTablePrefix + "EnterpriseAreas", SolutionConsts.DbSchema);
                 b.ConfigureByConvention();
+                b.HasIndex(x => x.Name).IsUnique(true);
                 b.Property(x => x.Name).IsRequired().HasMaxLength(MySolutionConsts.NameLength);
                 b.Property(x => x.Manager).HasMaxLength(MySolutionConsts.NameLength);
                 b.Property(x => x.Phone).HasMaxLength(MySolutionConsts.PhoneLength);
@@ -54,6 +56,7 @@ namespace Solution.EntityFrameworkCore
             {
                 b.ToTable(SolutionConsts.DbTablePrefix + "EnterpriseProductionLines", SolutionConsts.DbSchema);
                 b.ConfigureByConvention();
+                b.HasIndex(x => x.Name).IsUnique(true);
                 b.Property(x => x.Name).IsRequired().HasMaxLength(MySolutionConsts.NameLength);
                 b.Property(x => x.Manager).HasMaxLength(MySolutionConsts.NameLength);
                 b.Property(x => x.Phone).HasMaxLength(MySolutionConsts.PhoneLength);
@@ -65,6 +68,7 @@ namespace Solution.EntityFrameworkCore
             {
                 b.ToTable(SolutionConsts.DbTablePrefix + "EnterpriseSites", SolutionConsts.DbSchema);
                 b.ConfigureByConvention();
+                b.HasIndex(x => x.Name).IsUnique(true);
                 b.Property(x => x.Name).IsRequired().HasMaxLength(MySolutionConsts.NameLength);
                 b.Property(x => x.Address).HasMaxLength(MySolutionConsts.AddressLength);
                 b.Property(x => x.Manager).HasMaxLength(MySolutionConsts.NameLength);
@@ -77,6 +81,7 @@ namespace Solution.EntityFrameworkCore
             {
                 b.ToTable(SolutionConsts.DbTablePrefix + "EnterpriseWorkCenters", SolutionConsts.DbSchema);
                 b.ConfigureByConvention();
+                b.HasIndex(x => x.Name).IsUnique(true);
                 b.Property(x => x.Name).IsRequired().HasMaxLength(MySolutionConsts.NameLength);
                 b.Property(x => x.Manager).HasMaxLength(MySolutionConsts.NameLength);
                 b.Property(x => x.Remark).HasMaxLength(MySolutionConsts.RemarkLength);
@@ -87,6 +92,7 @@ namespace Solution.EntityFrameworkCore
             {
                 b.ToTable(SolutionConsts.DbTablePrefix + "EnterpriseWorkLocations", SolutionConsts.DbSchema);
                 b.ConfigureByConvention();
+                b.HasIndex(x => x.Name).IsUnique(true);
                 b.Property(x => x.Name).IsRequired().HasMaxLength(MySolutionConsts.NameLength);
                 b.Property(x => x.Remark).HasMaxLength(MySolutionConsts.RemarkLength);
                 /* Configure more properties here */
@@ -96,6 +102,7 @@ namespace Solution.EntityFrameworkCore
             {
                 b.ToTable(SolutionConsts.DbTablePrefix + "EquipmentTypes", SolutionConsts.DbSchema);
                 b.ConfigureByConvention();
+                b.HasIndex(x => x.Name).IsUnique(true);
                 b.Property(x => x.Name).IsRequired().HasMaxLength(MySolutionConsts.NameLength);
                 b.Property(x => x.Remark).HasMaxLength(MySolutionConsts.RemarkLength);
                 /* Configure more properties here */
@@ -105,6 +112,7 @@ namespace Solution.EntityFrameworkCore
             {
                 b.ToTable(SolutionConsts.DbTablePrefix + "EquipmentStatuses", SolutionConsts.DbSchema);
                 b.ConfigureByConvention();
+                b.HasIndex(x => x.Name).IsUnique(true);
                 b.Property(x => x.Name).IsRequired().HasMaxLength(MySolutionConsts.NameLength);
                 b.Property(x => x.Remark).HasMaxLength(MySolutionConsts.RemarkLength);
                 /* Configure more properties here */
@@ -114,6 +122,7 @@ namespace Solution.EntityFrameworkCore
             {
                 b.ToTable(SolutionConsts.DbTablePrefix + "EquipmentSparePartTypes", SolutionConsts.DbSchema);
                 b.ConfigureByConvention();
+                b.HasIndex(x => x.Name).IsUnique(true);
                 b.Property(x => x.Name).IsRequired().HasMaxLength(MySolutionConsts.NameLength);
                 b.Property(x => x.Remark).HasMaxLength(MySolutionConsts.RemarkLength);
                 /* Configure more properties here */
@@ -123,6 +132,7 @@ namespace Solution.EntityFrameworkCore
             {
                 b.ToTable(SolutionConsts.DbTablePrefix + "EquipmentSpareParts", SolutionConsts.DbSchema);
                 b.ConfigureByConvention();
+                b.HasIndex(x => x.Name).IsUnique(true);
                 b.Property(x => x.Name).IsRequired().HasMaxLength(MySolutionConsts.NameLength);
                 b.Property(x => x.Remark).HasMaxLength(MySolutionConsts.RemarkLength);
                 /* Configure more properties here */
@@ -132,6 +142,7 @@ namespace Solution.EntityFrameworkCore
             {
                 b.ToTable(SolutionConsts.DbTablePrefix + "EquipmentMaintenanceResults", SolutionConsts.DbSchema);
                 b.ConfigureByConvention();
+                b.HasIndex(x => x.Name).IsUnique(true);
                 b.Property(x => x.Name).IsRequired().HasMaxLength(MySolutionConsts.NameLength);
                 b.Property(x => x.Remark).HasMaxLength(MySolutionConsts.RemarkLength);
                 /* Configure more properties here */
@@ -154,6 +165,7 @@ namespace Solution.EntityFrameworkCore
             {
                 b.ToTable(SolutionConsts.DbTablePrefix + "EquipmentInspectionResults", SolutionConsts.DbSchema);
                 b.ConfigureByConvention();
+                b.HasIndex(x => x.Name).IsUnique(true);
                 b.Property(x => x.Name).IsRequired().HasMaxLength(MySolutionConsts.NameLength);
                 b.Property(x => x.Remark).HasMaxLength(MySolutionConsts.RemarkLength);
                 /* Configure more properties here */
@@ -175,6 +187,7 @@ namespace Solution.EntityFrameworkCore
             {
                 b.ToTable(SolutionConsts.DbTablePrefix + "EquipmentBrands", SolutionConsts.DbSchema);
                 b.ConfigureByConvention();
+                b.HasIndex(x => x.Name).IsUnique(true);
                 b.Property(x => x.Name).IsRequired().HasMaxLength(MySolutionConsts.NameLength);
                 b.Property(x => x.Remark).HasMaxLength(MySolutionConsts.RemarkLength);
                 /* Configure more properties here */
@@ -184,7 +197,9 @@ namespace Solution.EntityFrameworkCore
             {
                 b.ToTable(SolutionConsts.DbTablePrefix + "Equipment", SolutionConsts.DbSchema);
                 b.ConfigureByConvention();
+                b.HasIndex(x => x.Code).IsUnique(true);
                 b.Property(x => x.Code).IsRequired().HasMaxLength(MySolutionConsts.CodeLength);
+                b.HasIndex(x => x.Name).IsUnique(true);
                 b.Property(x => x.Name).IsRequired().HasMaxLength(MySolutionConsts.NameLength);
                 b.Property(x => x.Specification).IsRequired().HasMaxLength(MySolutionConsts.StringLength64);
                 b.Property(x => x.Remark).HasMaxLength(MySolutionConsts.RemarkLength);
@@ -195,7 +210,9 @@ namespace Solution.EntityFrameworkCore
             builder.Entity<Material>(b =>
             {
                 b.ToTable(SolutionConsts.DbTablePrefix + "Materials", SolutionConsts.DbSchema);
+                b.HasIndex(x => x.Code).IsUnique(true);
                 b.Property(x => x.Code).IsRequired().HasMaxLength(MySolutionConsts.CodeLength);
+                b.HasIndex(x => x.Name).IsUnique(true);
                 b.Property(x => x.Name).IsRequired().HasMaxLength(MySolutionConsts.NameLength);
                 b.Property(x => x.Specification).HasMaxLength(MySolutionConsts.StringLength64);
                 b.Property(x => x.Remark).HasMaxLength(MySolutionConsts.RemarkLength);
@@ -207,7 +224,9 @@ namespace Solution.EntityFrameworkCore
             {
                 b.ToTable(SolutionConsts.DbTablePrefix + "Products", SolutionConsts.DbSchema);
                 b.ConfigureByConvention();
+                b.HasIndex(x => x.Code).IsUnique(true);
                 b.Property(x => x.Code).IsRequired().HasMaxLength(MySolutionConsts.CodeLength);
+                b.HasIndex(x => x.Name).IsUnique(true);
                 b.Property(x => x.Name).IsRequired().HasMaxLength(MySolutionConsts.NameLength);
                 b.Property(x => x.Specification).IsRequired().HasMaxLength(MySolutionConsts.StringLength64);
                 b.Property(x => x.Remark).HasMaxLength(MySolutionConsts.RemarkLength);
@@ -218,6 +237,7 @@ namespace Solution.EntityFrameworkCore
             {
                 b.ToTable(SolutionConsts.DbTablePrefix + "ProductTypes", SolutionConsts.DbSchema);
                 b.ConfigureByConvention();
+                b.HasIndex(x => x.Name).IsUnique(true);
                 b.Property(x => x.Name).IsRequired().HasMaxLength(MySolutionConsts.NameLength);
                 b.Property(x => x.Remark).HasMaxLength(MySolutionConsts.RemarkLength);
                 /* Configure more properties here */
@@ -227,6 +247,7 @@ namespace Solution.EntityFrameworkCore
             {
                 b.ToTable(SolutionConsts.DbTablePrefix + "BOMs", SolutionConsts.DbSchema);
                 b.ConfigureByConvention();
+                b.HasIndex(x => x.Name).IsUnique(true);
                 b.Property(x => x.Name).IsRequired().HasMaxLength(MySolutionConsts.NameLength);
                 b.Property(x => x.Version).IsRequired().HasMaxLength(MySolutionConsts.StringLength64);
                 b.Property(x => x.Remark).HasMaxLength(MySolutionConsts.RemarkLength);
@@ -236,6 +257,7 @@ namespace Solution.EntityFrameworkCore
             builder.Entity<Unit>(b =>
             {
                 b.ToTable(SolutionConsts.DbTablePrefix + "Units", SolutionConsts.DbSchema);
+                b.HasIndex(x => x.Name).IsUnique(true);
                 b.Property(x => x.Name).IsRequired().HasMaxLength(MySolutionConsts.NameLength);
                 b.Property(x => x.Remark).HasMaxLength(MySolutionConsts.RemarkLength);
                 b.ConfigureByConvention();
@@ -245,6 +267,7 @@ namespace Solution.EntityFrameworkCore
             builder.Entity<QualityInspect>(b =>
             {
                 b.ToTable(SolutionConsts.DbTablePrefix + "QualityInspects", SolutionConsts.DbSchema);
+                b.HasIndex(x => x.Code).IsUnique(true);
                 b.Property(x => x.Code).IsRequired().HasMaxLength(MySolutionConsts.CodeLength);
                 b.Property(x => x.InspectPerson).IsRequired().HasMaxLength(MySolutionConsts.NameLength);
                 b.Property(x => x.Remark).HasMaxLength(MySolutionConsts.RemarkLength);
@@ -255,6 +278,7 @@ namespace Solution.EntityFrameworkCore
             builder.Entity<QualityInspectResult>(b =>
             {
                 b.ToTable(SolutionConsts.DbTablePrefix + "QualityInspectResults", SolutionConsts.DbSchema);
+                b.HasIndex(x => x.Name).IsUnique(true);
                 b.Property(x => x.Name).IsRequired().HasMaxLength(MySolutionConsts.NameLength);
                 b.Property(x => x.Remark).HasMaxLength(MySolutionConsts.RemarkLength);
                 b.ConfigureByConvention();
@@ -264,7 +288,9 @@ namespace Solution.EntityFrameworkCore
             builder.Entity<QualityInspectType>(b =>
             {
                 b.ToTable(SolutionConsts.DbTablePrefix + "QualityInspectTypes", SolutionConsts.DbSchema);
+                b.HasIndex(x => x.Code).IsUnique(true);
                 b.Property(x => x.Code).IsRequired().HasMaxLength(MySolutionConsts.CodeLength);
+                b.HasIndex(x => x.Name).IsUnique(true);
                 b.Property(x => x.Name).IsRequired().HasMaxLength(MySolutionConsts.NameLength);
                 b.Property(x => x.Remark).HasMaxLength(MySolutionConsts.RemarkLength);
                 b.ConfigureByConvention();
@@ -274,7 +300,9 @@ namespace Solution.EntityFrameworkCore
             builder.Entity<QualityProblemLib>(b =>
             {
                 b.ToTable(SolutionConsts.DbTablePrefix + "QualityProblemLibs", SolutionConsts.DbSchema);
+                b.HasIndex(x => x.Code).IsUnique(true);
                 b.Property(x => x.Code).IsRequired().HasMaxLength(MySolutionConsts.CodeLength);
+                b.HasIndex(x => x.Name).IsUnique(true);
                 b.Property(x => x.Name).IsRequired().HasMaxLength(MySolutionConsts.NameLength);
                 b.Property(x => x.Remark).HasMaxLength(MySolutionConsts.RemarkLength);
                 b.ConfigureByConvention();
@@ -284,6 +312,7 @@ namespace Solution.EntityFrameworkCore
             builder.Entity<SupplierLevel>(b =>
             {
                 b.ToTable(SolutionConsts.DbTablePrefix + "SupplierLevels", SolutionConsts.DbSchema);
+                b.HasIndex(x => x.Name).IsUnique(true);
                 b.Property(x => x.Name).IsRequired().HasMaxLength(MySolutionConsts.NameLength);
                 b.Property(x => x.Remark).HasMaxLength(MySolutionConsts.RemarkLength);
                 b.ConfigureByConvention();
@@ -293,7 +322,9 @@ namespace Solution.EntityFrameworkCore
             builder.Entity<Suppliers.Suppliers>(b =>
             {
                 b.ToTable(SolutionConsts.DbTablePrefix + "Suppliers", SolutionConsts.DbSchema);
+                b.HasIndex(x => x.Code).IsUnique(true);
                 b.Property(x => x.Code).IsRequired().HasMaxLength(MySolutionConsts.CodeLength);
+                b.HasIndex(x => x.Name).IsUnique(true);
                 b.Property(x => x.Name).IsRequired().HasMaxLength(MySolutionConsts.NameLength);
                 b.Property(x => x.Contact).HasMaxLength(MySolutionConsts.NameLength);
                 b.Property(x => x.Phone).HasMaxLength(MySolutionConsts.PhoneLength);
@@ -308,6 +339,7 @@ namespace Solution.EntityFrameworkCore
             builder.Entity<Warehouse>(b =>
             {
                 b.ToTable(SolutionConsts.DbTablePrefix + "Warehouses", SolutionConsts.DbSchema);
+                b.HasIndex(x => x.Name).IsUnique(true);
                 b.Property(x => x.Name).IsRequired().HasMaxLength(MySolutionConsts.NameLength);
                 b.Property(x => x.Manager).HasMaxLength(MySolutionConsts.NameLength);
                 b.Property(x => x.Phone).HasMaxLength(MySolutionConsts.PhoneLength);
@@ -319,6 +351,7 @@ namespace Solution.EntityFrameworkCore
             builder.Entity<WarehouseArea>(b =>
             {
                 b.ToTable(SolutionConsts.DbTablePrefix + "WarehouseAreas", SolutionConsts.DbSchema);
+                b.HasIndex(x => x.Name).IsUnique(true);
                 b.Property(x => x.Name).IsRequired().HasMaxLength(MySolutionConsts.NameLength);
                 b.Property(x => x.Remark).HasMaxLength(MySolutionConsts.RemarkLength);
                 b.ConfigureByConvention();
@@ -328,7 +361,9 @@ namespace Solution.EntityFrameworkCore
             builder.Entity<WarehouseLocation>(b =>
             {
                 b.ToTable(SolutionConsts.DbTablePrefix + "WarehouseLocations", SolutionConsts.DbSchema);
+                b.HasIndex(x => x.Code).IsUnique(true);
                 b.Property(x => x.Code).IsRequired().HasMaxLength(MySolutionConsts.CodeLength);
+                b.HasIndex(x => x.Name).IsUnique(true);
                 b.Property(x => x.Name).IsRequired().HasMaxLength(MySolutionConsts.NameLength);
                 b.Property(x => x.Remark).HasMaxLength(MySolutionConsts.RemarkLength);
                 b.ConfigureByConvention();
@@ -338,6 +373,7 @@ namespace Solution.EntityFrameworkCore
             builder.Entity<WarehouseType>(b =>
             {
                 b.ToTable(SolutionConsts.DbTablePrefix + "WarehouseTypes", SolutionConsts.DbSchema);
+                b.HasIndex(x => x.Name).IsUnique(true);
                 b.Property(x => x.Name).IsRequired().HasMaxLength(MySolutionConsts.NameLength);
                 b.Property(x => x.Remark).HasMaxLength(MySolutionConsts.RemarkLength);
                 b.ConfigureByConvention();
@@ -348,7 +384,9 @@ namespace Solution.EntityFrameworkCore
 
             builder.Entity<Customer>(b =>
             {
+
                 b.ToTable(SolutionConsts.DbTablePrefix + "Customers", SolutionConsts.DbSchema);
+                b.HasIndex(x => x.Name).IsUnique(true);
                 b.Property(x => x.Name).IsRequired().HasMaxLength(MySolutionConsts.NameLength);
                 b.Property(x => x.Address).HasMaxLength(MySolutionConsts.AddressLength);
                 b.Property(x => x.Contact).HasMaxLength(MySolutionConsts.NameLength);
@@ -361,6 +399,7 @@ namespace Solution.EntityFrameworkCore
             builder.Entity<OrderStatus>(b =>
             {
                 b.ToTable(SolutionConsts.DbTablePrefix + "OrderStatuses", SolutionConsts.DbSchema);
+                b.HasIndex(x => x.Name).IsUnique(true);
                 b.Property(x => x.Name).IsRequired().HasMaxLength(MySolutionConsts.NameLength);
                 b.Property(x => x.Remark).HasMaxLength(MySolutionConsts.RemarkLength);
                 b.ConfigureByConvention(); 
@@ -370,6 +409,7 @@ namespace Solution.EntityFrameworkCore
             builder.Entity<Order>(b =>
             {
                 b.ToTable(SolutionConsts.DbTablePrefix + "Orders", SolutionConsts.DbSchema);
+                b.HasIndex(x => x.Code).IsUnique(true);
                 b.Property(x => x.Code).IsRequired().HasMaxLength(MySolutionConsts.CodeLength);
                 b.Property(x => x.Remark).HasMaxLength(MySolutionConsts.RemarkLength);
                 b.ConfigureByConvention(); 

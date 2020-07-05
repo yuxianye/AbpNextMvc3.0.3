@@ -11,7 +11,7 @@ using Volo.Abp.EntityFrameworkCore;
 namespace Solution.Migrations
 {
     [DbContext(typeof(SolutionMigrationsDbContext))]
-    [Migration("20200628055504_AddTable")]
+    [Migration("20200705103924_AddTable")]
     partial class AddTable
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -30,12 +30,10 @@ namespace Solution.Migrations
                         .HasColumnType("uniqueidentifier");
 
                     b.Property<string>("Address")
-                        .IsRequired()
                         .HasColumnType("nvarchar(256)")
                         .HasMaxLength(256);
 
                     b.Property<string>("Contact")
-                        .IsRequired()
                         .HasColumnType("nvarchar(32)")
                         .HasMaxLength(32);
 
@@ -75,7 +73,6 @@ namespace Solution.Migrations
                         .HasMaxLength(32);
 
                     b.Property<string>("Phone")
-                        .IsRequired()
                         .HasColumnType("nvarchar(32)")
                         .HasMaxLength(32);
 
@@ -84,6 +81,9 @@ namespace Solution.Migrations
                         .HasMaxLength(256);
 
                     b.HasKey("Id");
+
+                    b.HasIndex("Name")
+                        .IsUnique();
 
                     b.ToTable("AppCustomers");
                 });
@@ -95,7 +95,6 @@ namespace Solution.Migrations
                         .HasColumnType("uniqueidentifier");
 
                     b.Property<string>("Address")
-                        .IsRequired()
                         .HasColumnType("nvarchar(256)")
                         .HasMaxLength(256);
 
@@ -135,7 +134,6 @@ namespace Solution.Migrations
                         .HasMaxLength(32);
 
                     b.Property<string>("Phone")
-                        .IsRequired()
                         .HasColumnType("nvarchar(32)")
                         .HasMaxLength(32);
 
@@ -144,6 +142,9 @@ namespace Solution.Migrations
                         .HasMaxLength(256);
 
                     b.HasKey("Id");
+
+                    b.HasIndex("Name")
+                        .IsUnique();
 
                     b.ToTable("AppEnterprises");
                 });
@@ -197,7 +198,6 @@ namespace Solution.Migrations
                         .HasMaxLength(32);
 
                     b.Property<string>("Phone")
-                        .IsRequired()
                         .HasColumnType("nvarchar(32)")
                         .HasMaxLength(32);
 
@@ -208,6 +208,9 @@ namespace Solution.Migrations
                     b.HasKey("Id");
 
                     b.HasIndex("EnterpriseSiteId");
+
+                    b.HasIndex("Name")
+                        .IsUnique();
 
                     b.ToTable("AppEnterpriseAreas");
                 });
@@ -261,7 +264,6 @@ namespace Solution.Migrations
                         .HasMaxLength(32);
 
                     b.Property<string>("Phone")
-                        .IsRequired()
                         .HasColumnType("nvarchar(32)")
                         .HasMaxLength(32);
 
@@ -273,6 +275,9 @@ namespace Solution.Migrations
 
                     b.HasIndex("EnterpriseAreaId");
 
+                    b.HasIndex("Name")
+                        .IsUnique();
+
                     b.ToTable("AppEnterpriseProductionLines");
                 });
 
@@ -283,7 +288,6 @@ namespace Solution.Migrations
                         .HasColumnType("uniqueidentifier");
 
                     b.Property<string>("Address")
-                        .IsRequired()
                         .HasColumnType("nvarchar(256)")
                         .HasMaxLength(256);
 
@@ -330,7 +334,6 @@ namespace Solution.Migrations
                         .HasMaxLength(32);
 
                     b.Property<string>("Phone")
-                        .IsRequired()
                         .HasColumnType("nvarchar(32)")
                         .HasMaxLength(32);
 
@@ -341,6 +344,9 @@ namespace Solution.Migrations
                     b.HasKey("Id");
 
                     b.HasIndex("EnterpriseId");
+
+                    b.HasIndex("Name")
+                        .IsUnique();
 
                     b.ToTable("AppEnterpriseSites");
                 });
@@ -400,6 +406,9 @@ namespace Solution.Migrations
                     b.HasKey("Id");
 
                     b.HasIndex("EnterpriseProductionLineId");
+
+                    b.HasIndex("Name")
+                        .IsUnique();
 
                     b.ToTable("AppEnterpriseWorkCenters");
                 });
@@ -463,6 +472,9 @@ namespace Solution.Migrations
                     b.HasIndex("EnterpriseWorkCenterId");
 
                     b.HasIndex("EquipmentId");
+
+                    b.HasIndex("Name")
+                        .IsUnique();
 
                     b.HasIndex("ProcessId");
 
@@ -533,11 +545,17 @@ namespace Solution.Migrations
 
                     b.HasKey("Id");
 
+                    b.HasIndex("Code")
+                        .IsUnique();
+
                     b.HasIndex("EquipmentBrandId");
 
                     b.HasIndex("EquipmentStatusId");
 
                     b.HasIndex("EquipmentTypeId");
+
+                    b.HasIndex("Name")
+                        .IsUnique();
 
                     b.ToTable("AppEquipment");
                 });
@@ -583,6 +601,9 @@ namespace Solution.Migrations
                         .HasMaxLength(256);
 
                     b.HasKey("Id");
+
+                    b.HasIndex("Name")
+                        .IsUnique();
 
                     b.ToTable("AppEquipmentBrands");
                 });
@@ -706,6 +727,9 @@ namespace Solution.Migrations
                         .HasMaxLength(256);
 
                     b.HasKey("Id");
+
+                    b.HasIndex("Name")
+                        .IsUnique();
 
                     b.ToTable("AppEquipmentInspectionResults");
                 });
@@ -846,6 +870,9 @@ namespace Solution.Migrations
 
                     b.HasKey("Id");
 
+                    b.HasIndex("Name")
+                        .IsUnique();
+
                     b.ToTable("AppEquipmentMaintenanceResults");
                 });
 
@@ -901,6 +928,9 @@ namespace Solution.Migrations
 
                     b.HasIndex("EquipmentSparePartTypeId");
 
+                    b.HasIndex("Name")
+                        .IsUnique();
+
                     b.ToTable("AppEquipmentSpareParts");
                 });
 
@@ -945,6 +975,9 @@ namespace Solution.Migrations
                         .HasMaxLength(256);
 
                     b.HasKey("Id");
+
+                    b.HasIndex("Name")
+                        .IsUnique();
 
                     b.ToTable("AppEquipmentSparePartTypes");
                 });
@@ -996,6 +1029,9 @@ namespace Solution.Migrations
 
                     b.HasKey("Id");
 
+                    b.HasIndex("Name")
+                        .IsUnique();
+
                     b.ToTable("AppEquipmentStatuses");
                 });
 
@@ -1045,6 +1081,9 @@ namespace Solution.Migrations
                         .HasMaxLength(256);
 
                     b.HasKey("Id");
+
+                    b.HasIndex("Name")
+                        .IsUnique();
 
                     b.ToTable("AppEquipmentTypes");
                 });
@@ -1115,6 +1154,9 @@ namespace Solution.Migrations
 
                     b.HasIndex("MaterialId");
 
+                    b.HasIndex("Name")
+                        .IsUnique();
+
                     b.ToTable("AppBOMs");
                 });
 
@@ -1169,7 +1211,6 @@ namespace Solution.Migrations
                         .HasMaxLength(256);
 
                     b.Property<string>("Specification")
-                        .IsRequired()
                         .HasColumnType("nvarchar(64)")
                         .HasMaxLength(64);
 
@@ -1177,6 +1218,12 @@ namespace Solution.Migrations
                         .HasColumnType("uniqueidentifier");
 
                     b.HasKey("Id");
+
+                    b.HasIndex("Code")
+                        .IsUnique();
+
+                    b.HasIndex("Name")
+                        .IsUnique();
 
                     b.HasIndex("UnitId");
 
@@ -1246,6 +1293,12 @@ namespace Solution.Migrations
 
                     b.HasKey("Id");
 
+                    b.HasIndex("Code")
+                        .IsUnique();
+
+                    b.HasIndex("Name")
+                        .IsUnique();
+
                     b.HasIndex("ProductTypeId");
 
                     b.HasIndex("UnitId");
@@ -1299,6 +1352,9 @@ namespace Solution.Migrations
                         .HasMaxLength(256);
 
                     b.HasKey("Id");
+
+                    b.HasIndex("Name")
+                        .IsUnique();
 
                     b.ToTable("AppProductTypes");
                 });
@@ -1367,6 +1423,9 @@ namespace Solution.Migrations
 
                     b.HasKey("Id");
 
+                    b.HasIndex("Code")
+                        .IsUnique();
+
                     b.HasIndex("CustomerId");
 
                     b.HasIndex("OrderStatusId");
@@ -1422,6 +1481,9 @@ namespace Solution.Migrations
                         .HasMaxLength(256);
 
                     b.HasKey("Id");
+
+                    b.HasIndex("Name")
+                        .IsUnique();
 
                     b.ToTable("AppOrderStatuses");
                 });
@@ -1618,6 +1680,9 @@ namespace Solution.Migrations
 
                     b.HasKey("Id");
 
+                    b.HasIndex("Name")
+                        .IsUnique();
+
                     b.ToTable("AppUnits");
                 });
 
@@ -1688,6 +1753,9 @@ namespace Solution.Migrations
 
                     b.HasKey("Id");
 
+                    b.HasIndex("Code")
+                        .IsUnique();
+
                     b.HasIndex("ProcessId");
 
                     b.HasIndex("QualityInspectResultId");
@@ -1746,6 +1814,9 @@ namespace Solution.Migrations
 
                     b.HasKey("Id");
 
+                    b.HasIndex("Name")
+                        .IsUnique();
+
                     b.ToTable("AppQualityInspectResults");
                 });
 
@@ -1800,6 +1871,12 @@ namespace Solution.Migrations
                         .HasMaxLength(256);
 
                     b.HasKey("Id");
+
+                    b.HasIndex("Code")
+                        .IsUnique();
+
+                    b.HasIndex("Name")
+                        .IsUnique();
 
                     b.ToTable("AppQualityInspectTypes");
                 });
@@ -1856,6 +1933,12 @@ namespace Solution.Migrations
 
                     b.HasKey("Id");
 
+                    b.HasIndex("Code")
+                        .IsUnique();
+
+                    b.HasIndex("Name")
+                        .IsUnique();
+
                     b.ToTable("AppQualityProblemLibs");
                 });
 
@@ -1906,6 +1989,9 @@ namespace Solution.Migrations
 
                     b.HasKey("Id");
 
+                    b.HasIndex("Name")
+                        .IsUnique();
+
                     b.ToTable("AppSupplierLevels");
                 });
 
@@ -1916,7 +2002,6 @@ namespace Solution.Migrations
                         .HasColumnType("uniqueidentifier");
 
                     b.Property<string>("Address")
-                        .IsRequired()
                         .HasColumnType("nvarchar(256)")
                         .HasMaxLength(256);
 
@@ -1926,7 +2011,6 @@ namespace Solution.Migrations
                         .HasMaxLength(8);
 
                     b.Property<string>("Contact")
-                        .IsRequired()
                         .HasColumnType("nvarchar(32)")
                         .HasMaxLength(32);
 
@@ -1947,12 +2031,10 @@ namespace Solution.Migrations
                         .HasColumnType("datetime2");
 
                     b.Property<string>("Email")
-                        .IsRequired()
                         .HasColumnType("nvarchar(32)")
                         .HasMaxLength(32);
 
                     b.Property<string>("Fax")
-                        .IsRequired()
                         .HasColumnType("nvarchar(32)")
                         .HasMaxLength(32);
 
@@ -1976,7 +2058,6 @@ namespace Solution.Migrations
                         .HasMaxLength(32);
 
                     b.Property<string>("Phone")
-                        .IsRequired()
                         .HasColumnType("nvarchar(32)")
                         .HasMaxLength(32);
 
@@ -1988,6 +2069,12 @@ namespace Solution.Migrations
                         .HasColumnType("uniqueidentifier");
 
                     b.HasKey("Id");
+
+                    b.HasIndex("Code")
+                        .IsUnique();
+
+                    b.HasIndex("Name")
+                        .IsUnique();
 
                     b.HasIndex("SupplierLevelId");
 
@@ -2034,7 +2121,6 @@ namespace Solution.Migrations
                         .HasColumnType("uniqueidentifier");
 
                     b.Property<string>("Manager")
-                        .IsRequired()
                         .HasColumnType("nvarchar(32)")
                         .HasMaxLength(32);
 
@@ -2044,7 +2130,6 @@ namespace Solution.Migrations
                         .HasMaxLength(32);
 
                     b.Property<string>("Phone")
-                        .IsRequired()
                         .HasColumnType("nvarchar(32)")
                         .HasMaxLength(32);
 
@@ -2055,6 +2140,9 @@ namespace Solution.Migrations
                     b.HasKey("Id");
 
                     b.HasIndex("EnterpriseAreaId");
+
+                    b.HasIndex("Name")
+                        .IsUnique();
 
                     b.ToTable("AppWarehouses");
                 });
@@ -2108,6 +2196,9 @@ namespace Solution.Migrations
                         .HasColumnType("uniqueidentifier");
 
                     b.HasKey("Id");
+
+                    b.HasIndex("Name")
+                        .IsUnique();
 
                     b.HasIndex("WarehouseId");
 
@@ -2169,6 +2260,12 @@ namespace Solution.Migrations
 
                     b.HasKey("Id");
 
+                    b.HasIndex("Code")
+                        .IsUnique();
+
+                    b.HasIndex("Name")
+                        .IsUnique();
+
                     b.HasIndex("WarehouseAreaId");
 
                     b.ToTable("AppWarehouseLocations");
@@ -2220,6 +2317,9 @@ namespace Solution.Migrations
                         .HasMaxLength(256);
 
                     b.HasKey("Id");
+
+                    b.HasIndex("Name")
+                        .IsUnique();
 
                     b.ToTable("AppWarehouseTypes");
                 });

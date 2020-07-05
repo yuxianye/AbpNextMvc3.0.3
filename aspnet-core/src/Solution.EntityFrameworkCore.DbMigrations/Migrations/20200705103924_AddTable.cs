@@ -20,9 +20,9 @@ namespace Solution.Migrations
                     DeleterId = table.Column<Guid>(nullable: true),
                     DeletionTime = table.Column<DateTime>(nullable: true),
                     Name = table.Column<string>(maxLength: 32, nullable: false),
-                    Address = table.Column<string>(maxLength: 256, nullable: false),
-                    Contact = table.Column<string>(maxLength: 32, nullable: false),
-                    Phone = table.Column<string>(maxLength: 32, nullable: false),
+                    Address = table.Column<string>(maxLength: 256, nullable: true),
+                    Contact = table.Column<string>(maxLength: 32, nullable: true),
+                    Phone = table.Column<string>(maxLength: 32, nullable: true),
                     Remark = table.Column<string>(maxLength: 256, nullable: true)
                 },
                 constraints: table =>
@@ -43,8 +43,8 @@ namespace Solution.Migrations
                     DeleterId = table.Column<Guid>(nullable: true),
                     DeletionTime = table.Column<DateTime>(nullable: true),
                     Name = table.Column<string>(maxLength: 32, nullable: false),
-                    Address = table.Column<string>(maxLength: 256, nullable: false),
-                    Phone = table.Column<string>(maxLength: 32, nullable: false),
+                    Address = table.Column<string>(maxLength: 256, nullable: true),
+                    Phone = table.Column<string>(maxLength: 32, nullable: true),
                     Remark = table.Column<string>(maxLength: 256, nullable: true)
                 },
                 constraints: table =>
@@ -386,9 +386,9 @@ namespace Solution.Migrations
                     DeletionTime = table.Column<DateTime>(nullable: true),
                     EnterpriseId = table.Column<Guid>(nullable: false),
                     Name = table.Column<string>(maxLength: 32, nullable: false),
-                    Address = table.Column<string>(maxLength: 256, nullable: false),
+                    Address = table.Column<string>(maxLength: 256, nullable: true),
                     Manager = table.Column<string>(maxLength: 32, nullable: true),
-                    Phone = table.Column<string>(maxLength: 32, nullable: false),
+                    Phone = table.Column<string>(maxLength: 32, nullable: true),
                     Remark = table.Column<string>(maxLength: 256, nullable: true)
                 },
                 constraints: table =>
@@ -487,11 +487,11 @@ namespace Solution.Migrations
                     Code = table.Column<string>(maxLength: 8, nullable: false),
                     Name = table.Column<string>(maxLength: 32, nullable: false),
                     SupplierLevelId = table.Column<Guid>(nullable: false),
-                    Contact = table.Column<string>(maxLength: 32, nullable: false),
-                    Phone = table.Column<string>(maxLength: 32, nullable: false),
-                    Fax = table.Column<string>(maxLength: 32, nullable: false),
-                    Address = table.Column<string>(maxLength: 256, nullable: false),
-                    Email = table.Column<string>(maxLength: 32, nullable: false),
+                    Contact = table.Column<string>(maxLength: 32, nullable: true),
+                    Phone = table.Column<string>(maxLength: 32, nullable: true),
+                    Fax = table.Column<string>(maxLength: 32, nullable: true),
+                    Address = table.Column<string>(maxLength: 256, nullable: true),
+                    Email = table.Column<string>(maxLength: 32, nullable: true),
                     Remark = table.Column<string>(maxLength: 256, nullable: true)
                 },
                 constraints: table =>
@@ -519,7 +519,7 @@ namespace Solution.Migrations
                     DeletionTime = table.Column<DateTime>(nullable: true),
                     Code = table.Column<string>(maxLength: 8, nullable: false),
                     Name = table.Column<string>(maxLength: 32, nullable: false),
-                    Specification = table.Column<string>(maxLength: 64, nullable: false),
+                    Specification = table.Column<string>(maxLength: 64, nullable: true),
                     UnitId = table.Column<Guid>(nullable: false),
                     Remark = table.Column<string>(maxLength: 256, nullable: true)
                 },
@@ -626,7 +626,7 @@ namespace Solution.Migrations
                     EnterpriseSiteId = table.Column<Guid>(nullable: false),
                     Name = table.Column<string>(maxLength: 32, nullable: false),
                     Manager = table.Column<string>(maxLength: 32, nullable: true),
-                    Phone = table.Column<string>(maxLength: 32, nullable: false),
+                    Phone = table.Column<string>(maxLength: 32, nullable: true),
                     Remark = table.Column<string>(maxLength: 256, nullable: true)
                 },
                 constraints: table =>
@@ -853,7 +853,7 @@ namespace Solution.Migrations
                     EnterpriseAreaId = table.Column<Guid>(nullable: false),
                     Name = table.Column<string>(maxLength: 32, nullable: false),
                     Manager = table.Column<string>(maxLength: 32, nullable: true),
-                    Phone = table.Column<string>(maxLength: 32, nullable: false),
+                    Phone = table.Column<string>(maxLength: 32, nullable: true),
                     Remark = table.Column<string>(maxLength: 256, nullable: true)
                 },
                 constraints: table =>
@@ -881,8 +881,8 @@ namespace Solution.Migrations
                     DeletionTime = table.Column<DateTime>(nullable: true),
                     EnterpriseAreaId = table.Column<Guid>(nullable: false),
                     Name = table.Column<string>(maxLength: 32, nullable: false),
-                    Manager = table.Column<string>(maxLength: 32, nullable: false),
-                    Phone = table.Column<string>(maxLength: 32, nullable: false),
+                    Manager = table.Column<string>(maxLength: 32, nullable: true),
+                    Phone = table.Column<string>(maxLength: 32, nullable: true),
                     Remark = table.Column<string>(maxLength: 256, nullable: true)
                 },
                 constraints: table =>
@@ -1026,9 +1026,27 @@ namespace Solution.Migrations
                 column: "MaterialId");
 
             migrationBuilder.CreateIndex(
+                name: "IX_AppBOMs_Name",
+                table: "AppBOMs",
+                column: "Name",
+                unique: true);
+
+            migrationBuilder.CreateIndex(
+                name: "IX_AppCustomers_Name",
+                table: "AppCustomers",
+                column: "Name",
+                unique: true);
+
+            migrationBuilder.CreateIndex(
                 name: "IX_AppEnterpriseAreas_EnterpriseSiteId",
                 table: "AppEnterpriseAreas",
                 column: "EnterpriseSiteId");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_AppEnterpriseAreas_Name",
+                table: "AppEnterpriseAreas",
+                column: "Name",
+                unique: true);
 
             migrationBuilder.CreateIndex(
                 name: "IX_AppEnterpriseProductionLines_EnterpriseAreaId",
@@ -1036,14 +1054,38 @@ namespace Solution.Migrations
                 column: "EnterpriseAreaId");
 
             migrationBuilder.CreateIndex(
+                name: "IX_AppEnterpriseProductionLines_Name",
+                table: "AppEnterpriseProductionLines",
+                column: "Name",
+                unique: true);
+
+            migrationBuilder.CreateIndex(
+                name: "IX_AppEnterprises_Name",
+                table: "AppEnterprises",
+                column: "Name",
+                unique: true);
+
+            migrationBuilder.CreateIndex(
                 name: "IX_AppEnterpriseSites_EnterpriseId",
                 table: "AppEnterpriseSites",
                 column: "EnterpriseId");
 
             migrationBuilder.CreateIndex(
+                name: "IX_AppEnterpriseSites_Name",
+                table: "AppEnterpriseSites",
+                column: "Name",
+                unique: true);
+
+            migrationBuilder.CreateIndex(
                 name: "IX_AppEnterpriseWorkCenters_EnterpriseProductionLineId",
                 table: "AppEnterpriseWorkCenters",
                 column: "EnterpriseProductionLineId");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_AppEnterpriseWorkCenters_Name",
+                table: "AppEnterpriseWorkCenters",
+                column: "Name",
+                unique: true);
 
             migrationBuilder.CreateIndex(
                 name: "IX_AppEnterpriseWorkLocations_EnterpriseWorkCenterId",
@@ -1056,9 +1098,21 @@ namespace Solution.Migrations
                 column: "EquipmentId");
 
             migrationBuilder.CreateIndex(
+                name: "IX_AppEnterpriseWorkLocations_Name",
+                table: "AppEnterpriseWorkLocations",
+                column: "Name",
+                unique: true);
+
+            migrationBuilder.CreateIndex(
                 name: "IX_AppEnterpriseWorkLocations_ProcessId",
                 table: "AppEnterpriseWorkLocations",
                 column: "ProcessId");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_AppEquipment_Code",
+                table: "AppEquipment",
+                column: "Code",
+                unique: true);
 
             migrationBuilder.CreateIndex(
                 name: "IX_AppEquipment_EquipmentBrandId",
@@ -1076,9 +1130,33 @@ namespace Solution.Migrations
                 column: "EquipmentTypeId");
 
             migrationBuilder.CreateIndex(
+                name: "IX_AppEquipment_Name",
+                table: "AppEquipment",
+                column: "Name",
+                unique: true);
+
+            migrationBuilder.CreateIndex(
+                name: "IX_AppEquipmentBrands_Name",
+                table: "AppEquipmentBrands",
+                column: "Name",
+                unique: true);
+
+            migrationBuilder.CreateIndex(
+                name: "IX_AppEquipmentInspectionResults_Name",
+                table: "AppEquipmentInspectionResults",
+                column: "Name",
+                unique: true);
+
+            migrationBuilder.CreateIndex(
                 name: "IX_AppEquipmentInspections_EquipmentId",
                 table: "AppEquipmentInspections",
                 column: "EquipmentId");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_AppEquipmentMaintenanceResults_Name",
+                table: "AppEquipmentMaintenanceResults",
+                column: "Name",
+                unique: true);
 
             migrationBuilder.CreateIndex(
                 name: "IX_AppEquipmentMaintenances_EquipmentId",
@@ -1096,9 +1174,51 @@ namespace Solution.Migrations
                 column: "EquipmentSparePartTypeId");
 
             migrationBuilder.CreateIndex(
+                name: "IX_AppEquipmentSpareParts_Name",
+                table: "AppEquipmentSpareParts",
+                column: "Name",
+                unique: true);
+
+            migrationBuilder.CreateIndex(
+                name: "IX_AppEquipmentSparePartTypes_Name",
+                table: "AppEquipmentSparePartTypes",
+                column: "Name",
+                unique: true);
+
+            migrationBuilder.CreateIndex(
+                name: "IX_AppEquipmentStatuses_Name",
+                table: "AppEquipmentStatuses",
+                column: "Name",
+                unique: true);
+
+            migrationBuilder.CreateIndex(
+                name: "IX_AppEquipmentTypes_Name",
+                table: "AppEquipmentTypes",
+                column: "Name",
+                unique: true);
+
+            migrationBuilder.CreateIndex(
+                name: "IX_AppMaterials_Code",
+                table: "AppMaterials",
+                column: "Code",
+                unique: true);
+
+            migrationBuilder.CreateIndex(
+                name: "IX_AppMaterials_Name",
+                table: "AppMaterials",
+                column: "Name",
+                unique: true);
+
+            migrationBuilder.CreateIndex(
                 name: "IX_AppMaterials_UnitId",
                 table: "AppMaterials",
                 column: "UnitId");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_AppOrders_Code",
+                table: "AppOrders",
+                column: "Code",
+                unique: true);
 
             migrationBuilder.CreateIndex(
                 name: "IX_AppOrders_CustomerId",
@@ -1116,6 +1236,24 @@ namespace Solution.Migrations
                 column: "ProductId");
 
             migrationBuilder.CreateIndex(
+                name: "IX_AppOrderStatuses_Name",
+                table: "AppOrderStatuses",
+                column: "Name",
+                unique: true);
+
+            migrationBuilder.CreateIndex(
+                name: "IX_AppProducts_Code",
+                table: "AppProducts",
+                column: "Code",
+                unique: true);
+
+            migrationBuilder.CreateIndex(
+                name: "IX_AppProducts_Name",
+                table: "AppProducts",
+                column: "Name",
+                unique: true);
+
+            migrationBuilder.CreateIndex(
                 name: "IX_AppProducts_ProductTypeId",
                 table: "AppProducts",
                 column: "ProductTypeId");
@@ -1124,6 +1262,24 @@ namespace Solution.Migrations
                 name: "IX_AppProducts_UnitId",
                 table: "AppProducts",
                 column: "UnitId");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_AppProductTypes_Name",
+                table: "AppProductTypes",
+                column: "Name",
+                unique: true);
+
+            migrationBuilder.CreateIndex(
+                name: "IX_AppQualityInspectResults_Name",
+                table: "AppQualityInspectResults",
+                column: "Name",
+                unique: true);
+
+            migrationBuilder.CreateIndex(
+                name: "IX_AppQualityInspects_Code",
+                table: "AppQualityInspects",
+                column: "Code",
+                unique: true);
 
             migrationBuilder.CreateIndex(
                 name: "IX_AppQualityInspects_ProcessId",
@@ -1146,14 +1302,80 @@ namespace Solution.Migrations
                 column: "QualityProblemLibId");
 
             migrationBuilder.CreateIndex(
+                name: "IX_AppQualityInspectTypes_Code",
+                table: "AppQualityInspectTypes",
+                column: "Code",
+                unique: true);
+
+            migrationBuilder.CreateIndex(
+                name: "IX_AppQualityInspectTypes_Name",
+                table: "AppQualityInspectTypes",
+                column: "Name",
+                unique: true);
+
+            migrationBuilder.CreateIndex(
+                name: "IX_AppQualityProblemLibs_Code",
+                table: "AppQualityProblemLibs",
+                column: "Code",
+                unique: true);
+
+            migrationBuilder.CreateIndex(
+                name: "IX_AppQualityProblemLibs_Name",
+                table: "AppQualityProblemLibs",
+                column: "Name",
+                unique: true);
+
+            migrationBuilder.CreateIndex(
+                name: "IX_AppSupplierLevels_Name",
+                table: "AppSupplierLevels",
+                column: "Name",
+                unique: true);
+
+            migrationBuilder.CreateIndex(
+                name: "IX_AppSuppliers_Code",
+                table: "AppSuppliers",
+                column: "Code",
+                unique: true);
+
+            migrationBuilder.CreateIndex(
+                name: "IX_AppSuppliers_Name",
+                table: "AppSuppliers",
+                column: "Name",
+                unique: true);
+
+            migrationBuilder.CreateIndex(
                 name: "IX_AppSuppliers_SupplierLevelId",
                 table: "AppSuppliers",
                 column: "SupplierLevelId");
 
             migrationBuilder.CreateIndex(
+                name: "IX_AppUnits_Name",
+                table: "AppUnits",
+                column: "Name",
+                unique: true);
+
+            migrationBuilder.CreateIndex(
+                name: "IX_AppWarehouseAreas_Name",
+                table: "AppWarehouseAreas",
+                column: "Name",
+                unique: true);
+
+            migrationBuilder.CreateIndex(
                 name: "IX_AppWarehouseAreas_WarehouseId",
                 table: "AppWarehouseAreas",
                 column: "WarehouseId");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_AppWarehouseLocations_Code",
+                table: "AppWarehouseLocations",
+                column: "Code",
+                unique: true);
+
+            migrationBuilder.CreateIndex(
+                name: "IX_AppWarehouseLocations_Name",
+                table: "AppWarehouseLocations",
+                column: "Name",
+                unique: true);
 
             migrationBuilder.CreateIndex(
                 name: "IX_AppWarehouseLocations_WarehouseAreaId",
@@ -1164,6 +1386,18 @@ namespace Solution.Migrations
                 name: "IX_AppWarehouses_EnterpriseAreaId",
                 table: "AppWarehouses",
                 column: "EnterpriseAreaId");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_AppWarehouses_Name",
+                table: "AppWarehouses",
+                column: "Name",
+                unique: true);
+
+            migrationBuilder.CreateIndex(
+                name: "IX_AppWarehouseTypes_Name",
+                table: "AppWarehouseTypes",
+                column: "Name",
+                unique: true);
 
             migrationBuilder.CreateIndex(
                 name: "IX_Process_CheckTypeId",

@@ -1,7 +1,10 @@
 using System;
+using System.Linq;
+using System.Threading.Tasks;
 using Solution.Localization;
 using Solution.Permissions;
 using Solution.Warehouses.Dtos;
+using Volo.Abp;
 using Volo.Abp.Application.Dtos;
 using Volo.Abp.Application.Services;
 using Volo.Abp.Domain.Repositories;
@@ -20,6 +23,24 @@ namespace Solution.Warehouses
         public WarehouseAppService(IRepository<Warehouse, Guid> repository) : base(repository)
         {
             LocalizationResource = typeof(SolutionResource);
+        }
+
+        public override async Task<WarehouseDto> CreateAsync(CreateUpdateWarehouseDto input)
+        {
+            await CheckCreatePolicyAsync();
+
+            if (Repository.Any(a => a.Name == input.Name))
+            {
+                throw new UserFriendlyException(message: L["Error"], details: L["NameAlreadyExists", input.Name]);
+            }
+
+            var entity = MapToEntity(input);
+
+            TryToSetTenantId(entity);
+
+            await Repository.InsertAsync(entity, autoSave: true);
+
+            return MapToGetOutputDto(entity);
         }
     }
 }

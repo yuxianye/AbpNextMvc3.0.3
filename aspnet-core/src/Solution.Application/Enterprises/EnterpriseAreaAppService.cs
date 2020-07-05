@@ -8,6 +8,7 @@ using System.Threading.Tasks;
 using Microsoft.EntityFrameworkCore;
 using System.Linq;
 using Solution.Localization;
+using Volo.Abp;
 
 namespace Solution.Enterprises
 {
@@ -42,6 +43,24 @@ namespace Solution.Enterprises
                 totalCount,
                 entities.Select(MapToGetListOutputDto).ToList()
             );
+        }
+
+        public override async Task<EnterpriseAreaDto> CreateAsync(CreateUpdateEnterpriseAreaDto input)
+        {
+            await CheckCreatePolicyAsync();
+
+            if (Repository.Any(a => a.Name == input.Name))
+            {
+                throw new UserFriendlyException(message: L["Error"], details: L["NameAlreadyExists", input.Name]);
+            }
+
+            var entity = MapToEntity(input);
+
+            TryToSetTenantId(entity);
+
+            await Repository.InsertAsync(entity, autoSave: true);
+
+            return MapToGetOutputDto(entity);
         }
     }
 }

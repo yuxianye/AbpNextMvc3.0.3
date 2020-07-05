@@ -6,6 +6,11 @@ namespace Solution.Qualities.Dtos
 {
     public class CreateUpdateQualityInspectDto
     {
+
+        [Required]
+        [StringLength(MySolutionConsts.CodeLength)]
+        public string Code { get; set; }
+
         [Required]
         [StringLength(MySolutionConsts.NameLength)]
         public string InspectPerson { get; set; }
@@ -13,10 +18,6 @@ namespace Solution.Qualities.Dtos
         public Guid QualityInspectTypeId { get; set; }
 
         public DateTime InspectTime { get; set; }
-
-        [Required]
-        [StringLength(MySolutionConsts.NameLength)]
-        public string Name { get; set; }
 
         public Guid QualityProblemLibId { get; set; }
 

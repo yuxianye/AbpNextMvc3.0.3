@@ -5,6 +5,9 @@ using Volo.Abp.Application.Dtos;
 using Volo.Abp.Application.Services;
 using Volo.Abp.Domain.Repositories;
 using Solution.Localization;
+using System.Threading.Tasks;
+using System.Linq;
+using Volo.Abp;
 
 namespace Solution.Orders
 {
@@ -20,6 +23,25 @@ namespace Solution.Orders
         public OrderAppService(IRepository<Order, Guid> repository) : base(repository)
         {
             LocalizationResource = typeof(SolutionResource);
+        }
+
+
+        public override async Task<OrderDto> CreateAsync(CreateUpdateOrderDto input)
+        {
+            await CheckCreatePolicyAsync();
+
+            if (Repository.Any(a => a.Code == input.Code))
+            {
+                throw new UserFriendlyException(message: L["Error"], details: L["CodeAlreadyExists", input.Code]);
+            }
+
+            var entity = MapToEntity(input);
+
+            TryToSetTenantId(entity);
+
+            await Repository.InsertAsync(entity, autoSave: true);
+
+            return MapToGetOutputDto(entity);
         }
     }
 }
