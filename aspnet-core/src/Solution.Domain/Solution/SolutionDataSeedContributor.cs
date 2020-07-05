@@ -21,6 +21,12 @@ namespace Solution
 
         private readonly IRepository<Solution.Equipments.EquipmentInspectionResult, Guid> _equipmentInspectionResultRepository;
         private readonly IRepository<Solution.Equipments.EquipmentMaintenanceResult, Guid> _equipmentMaintenanceResultRepository;
+        private readonly IRepository<Suppliers.SupplierLevel, Guid> _supplierLevelRepository;
+        private readonly IRepository<Suppliers.Suppliers, Guid> _suppliersRepository;
+
+
+        private readonly IRepository<Public.Unit> _unitRepository;
+
 
         public SolutionDataSeedContributor(
             IGuidGenerator guidGenerator,
@@ -28,7 +34,10 @@ namespace Solution
             IRepository<Solution.Enterprises.Enterprise, Guid> enterpriseRepository,
             IRepository<Solution.Orders.OrderStatus, Guid> orderStatusRepository,
             IRepository<Solution.Equipments.EquipmentInspectionResult, Guid> equipmentInspectionResultRepository,
-            IRepository<Solution.Equipments.EquipmentMaintenanceResult, Guid> equipmentMaintenanceResultRepository
+            IRepository<Solution.Equipments.EquipmentMaintenanceResult, Guid> equipmentMaintenanceResultRepository,
+            IRepository<Suppliers.SupplierLevel, Guid> supplierLevelRepository,
+            IRepository<Suppliers.Suppliers, Guid> suppliersRepository,
+            IRepository<Public.Unit> unitRepository
             )
         {
             _guidGenerator = guidGenerator;
@@ -37,6 +46,9 @@ namespace Solution
             _orderStatusRepository = orderStatusRepository;
             _equipmentInspectionResultRepository = equipmentInspectionResultRepository;
             _equipmentMaintenanceResultRepository = equipmentMaintenanceResultRepository;
+            _supplierLevelRepository = supplierLevelRepository;
+            _suppliersRepository = suppliersRepository;
+            _unitRepository= unitRepository;
         }
 
         public async Task SeedAsync(DataSeedContext context)
@@ -78,9 +90,24 @@ namespace Solution
             }
 
 
+            if (await _queryableExecuter.CountAsync(_supplierLevelRepository) < 1)
+            {
+                await _supplierLevelRepository.InsertAsync(new Suppliers.SupplierLevel(_guidGenerator.Create(), "一级", null));
+                await _supplierLevelRepository.InsertAsync(new Suppliers.SupplierLevel(_guidGenerator.Create(), "二级", null));
+                await _supplierLevelRepository.InsertAsync(new Suppliers.SupplierLevel(_guidGenerator.Create(), "三级", null));
+                await _supplierLevelRepository.InsertAsync(new Suppliers.SupplierLevel(_guidGenerator.Create(), "四级", null));
+                await _supplierLevelRepository.InsertAsync(new Suppliers.SupplierLevel(_guidGenerator.Create(), "五级", null));
+           }
 
-
-
+            if (await _queryableExecuter.CountAsync(_unitRepository) < 1)
+            {
+                await _unitRepository.InsertAsync(new Public.Unit(_guidGenerator.Create(), "吨", null));
+                await _unitRepository.InsertAsync(new Public.Unit(_guidGenerator.Create(), "箱", null));
+                await _unitRepository.InsertAsync(new Public.Unit(_guidGenerator.Create(), "米", null));
+                await _unitRepository.InsertAsync(new Public.Unit(_guidGenerator.Create(), "千克", null));
+      
+            }
+            
 
 
         }
