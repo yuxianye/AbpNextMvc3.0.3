@@ -33,12 +33,12 @@ namespace Solution.Enterprises
 
             var query = CreateFilteredQuery(input);
 
-            var totalCount = await AsyncQueryableExecuter.CountAsync(query);
+            var totalCount = await AsyncExecuter.CountAsync(query);
          
             query = ApplySorting(query, input);
             query = ApplyPaging(query, input);
             query = query.Include(a => a.Enterprise);
-            var entities = await AsyncQueryableExecuter.ToListAsync(query);
+            var entities = await AsyncExecuter.ToListAsync(query);
 
             return new PagedResultDto<EnterpriseSiteDto>(
                 totalCount,
