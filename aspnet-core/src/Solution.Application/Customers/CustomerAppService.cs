@@ -50,5 +50,31 @@ namespace Solution.Customers
             return MapToGetOutputDto(entity);
         }
 
+        public override async Task<CustomerDto> UpdateAsync(Guid id, CreateUpdateCustomerDto input)
+        {
+
+            await CheckUpdatePolicyAsync();
+
+            var entity = await GetEntityByIdAsync(id);
+            //TODO: Check if input has id different than given id and normalize if it's default value, throw ex otherwise
+            var count = Repository.Count(a => a.Name == input.Name && entity.Id != id);
+            //if (Repository.Any (a=>a.Name == input.Name && entity.Id != id))
+
+            if (count > 0)
+            {
+                throw new UserFriendlyException(message: L["Error"], details: L["NameAlreadyExists", input.Name]);
+            }
+
+            MapToEntity(input, entity);
+            await Repository.UpdateAsync(entity, autoSave: true);
+
+            return MapToGetOutputDto(entity);
+
+        }
+
+
+
+
+
     }
 }
